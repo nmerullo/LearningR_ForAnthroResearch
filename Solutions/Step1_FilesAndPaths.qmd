@@ -1,0 +1,206 @@
+---
+title: "Step1_FilesAndPaths"
+author: "Nicole Merullo"
+format: 
+  html:
+    theme: flatly
+    embed-resources: true
+    self-contained-math: true
+    toc: true
+---
+
+This first activity will introduce the basics of how to deal with files appropriately with R.
+
+# 1. A Quick Orientation
+
+What are you looking at right now? If you're in RStudio or a similar IDE with default settings, then you are probably reading this file in the left hand corner of a 4 panel screen. This file is in the **Source** panel, where you edit/work on your code files (more below). Bottom left (usually) is the **Console,** where code runs. Differentiating between the Source and Console is a little challenging at first. You can write and execute code in the Console aloe, but you won't be saving it anywhere. Therefore, it is advised that you write everything in the editor, hit the execute button or shortcut, and then it executes in the console. Usually in the Console panel there is also a tab for the Terminal. This allows you to write scripts directly into the terminal of your computer (which you might have used to associate your git identity with your computer). On the top right is the **Environment**, which notably has tabs for the objects you have created and the github integration. On the bottom right you have **Output** which will allow you to look at your files, plots that you make, and packages you have installed or loaded.
+
+Positron looks very similar- Source and Console are in the same place. Environment is just a pane called variables and output is a pane called plots. Files and Github integration can be found in the left hand bar.
+
+## How do you save your R Code?
+
+This file we are currently using is called a Quarto Markdown. It is a type of file that is like a combination of a word processor and a script file. We can write freely in places and also create code "chunks" or "code cells." R code goes into the code chunks, which you can run. You should have some keyboard shortcuts that can insert new chunks (in RStudio on Mac this is cmd+opt+I, in Positron this is cmd+shift+I).
+
+Other file types you might encounter where R code is saved are R script files (.R) and R Markdown (.rmd). R Markdown files are nearly indistinguishable from quarto, but quarto is more applicable to other languages. An R script file is like one giant code chunk, there are no word processing capabilities and if you want to note something you have to use a \# like you would in a chunk (more on that later).
+
+A noteworthy structure of the markdown file is the YAML. This is the header you see at the very top. This tells you some basic information about the file like the title, author, and format. Markdowns can render or "knit" themselves into different types of other files, making it easy to visualize and share your code. Check the YAML of this document. **Which file format do you think this knits into?**
+
+**Try hitting render. What happens?**
+
+**Did you get execution halted? Try to figure to read the message and figure out why**.
+
+## A Quick Interlude on Packages
+
+Some of the most important code you will use comes from packages. These are functions that users have created, uploaded, and made usable for others. Using markdown with R requires two packages, knitr and rmarkdown. Let's use the function install.packages() to get these saved to our computer. Enter the following into your **Console** one line at a time and hit enter:
+
+install.packages("knitr")
+
+install.packages("rmarkdown")
+
+Note: we did not write these into code chunks because we do not want to install these again when we render the document.
+
+Packages are saved to a folder (directory) which will be noted in the console output. Everytime you update R (not RStudio!) your packages will be erased and you will have to reinstall them. There are ways around this, but it can also be nice to hit refresh every once in a while.
+
+**Now you can try rendering/knitting again to see the HTML version of this document.**
+
+## YAML
+
+A quick return to the YAML... When you look at the HTML, how does it look?
+
+In the YAML, **locate the line that says theme.**
+
+Using [this resource](https://quarto.org/docs/output-formats/html-themes.html), **choose a different theme and change the theme on this YAML. Render.**
+
+## Summary
+
+-   You know the difference between the source and the output panes
+
+-   You know basically what a Quarto Markdown file is
+
+-   You can render a Quarto Markdown file into an HTML
+
+-   You can install packages
+
+-   You can alter the YAML
+
+# 2. Where are your files?
+
+One of the most important fundamentals of any coding is to understand how files are stored in your computer. Here are the the components:
+
+-   Files
+
+-   Directories or Folders
+
+-   File paths
+
+Files are in directories, and the "map" to these files are file paths. It is **essential** that you keep well organized files and directories. For example, if you want to analyze the data in X.csv, you need to be able to reference the file path where X.csv is stored. This tells R where to look for the file.
+
+Organize your projects by directory. This is easy if you utilize R Projects in R Studio, which creates a folder for the project.
+
+The first step to understanding file paths: what is your **working directory?**
+
+A working directory is the folder you are located in. Use getwd() to find your working directory.
+
+```{r}
+getwd()
+```
+
+Is your working directory where you stored this quarto file?
+
+let's save your working directory as a variable. That way you can reference it easily. To asve some thing as a variable use a \<- to put the thing on the right into the left. For example, write the following into the code chunk below: wd \<- getwd()
+
+```{r}
+wd <- getwd()
+```
+
+You can also see what is in the wd object by running it:
+
+```{r}
+wd
+```
+
+So you can see that the output here is thwe same as when you just did getwd().
+
+# 3. Changing where you are working
+
+You can also change your working directory with setwd()
+
+Let's try doing this. Can you write a file path to your documents folder? Be sure to wrap the file path in quotations! File paths are character strings, and character strings are always in quotes.
+
+```{r}
+setwd("/Users/nmerullo/Documents/")
+```
+
+Ok now let's change it back. Put the object you made into the parentheses of the function. You do not wrap it in quotations because this is an object, not a character string.
+
+```{r}
+setwd(wd)
+```
+
+Now let's check to make sure it worked. Use getwd() again.
+
+```{r}
+getwd()
+```
+
+Does it match your original file path?
+
+# Simplifying file paths
+
+Now that we know about setwd() and getwd(), never use them again.
+
+The general consensus from R users is that messing with your working directory makes your code fragile. Don't believe me? Here's someone else writing about this problem:
+
+"If the first line of your #rstats script is setwd("C:\Users\jenny\path\that\only\I\have"), I will come into your lab and SET YOUR COMPUTER ON FIRE.
+
+Do you:
+
+Have setwd() in your scripts? PLEASE STOP DOING THAT. This makes your script very fragile, hard-wired to exactly one time and place. As soon as you rename or move directories, it breaks. Or maybe you get a new computer? Or maybe someone else needs to run your code? We show a very accessible way to go cold turkey and eliminate the setwd() gotcha from your code." (Quoted from https://github.com/jennybc/here_here)
+
+When you're collaborating with people on code, they will have different file paths than you. So how do you share code and make it so that you can run the same code as your collaborator without changing anything?
+
+The {here} package can help us with this and we are going to learn the basics here so we can use it going forward.
+
+First install the {here} package the same way you insalled the earlier packages: install.packages("here") Here is the documentation if you want to read about it: https://here.r-lib.org/articles/here.html
+
+```{r}
+library(here)
+```
+
+So we have loaded in the package.
+
+Check the output. Do you see how it tells you a file path? This is what the package has determined to be the "top level directory" of your project, which is also the "project root". This should be the folder "LearningR_ForAnthroResearch." There is a decisions tree the package uses to determine this, which you can read about here, if you're interested: https://github.com/jennybc/here_here
+
+The function here() from the package also tells us where the project root is.
+
+```{r}
+here()
+```
+
+You can ask the package to tell you why it chose this directory as the project root:
+
+```{r}
+dr_here()
+```
+
+**What is the reason why it chose this file path?** Contains a .git file, marking it as a version controlled directory
+
+Everytime you open a script file/quarto file, you need to set your working directory and where this file is RELATIVE to the project root. Try this now- write here::i_am() wih the subdirectory you currently have open (hint: should be one of the folders that is contained within the LearningR_ForAnthroResearch folder) and then /Step1_FilesAndPaths.qmd. Make sure to wrap in quotes!
+
+```{r}
+here::i_am("Solutions/Step1_FilesAndPaths.qmd")
+```
+
+## Reading in a file
+
+The most important part of understanding file paths, is that you actually can use them to read a file into your R environment.
+
+If Nicole has not emailed you a practice file, email her now to receive it and store it in a new folder called Data. Make sure you name it just "Data" so all examples below reference the correct folder.
+
+Note that all files are typically saved as .csv (comma separated values) which is a generic way of storing spreadsheets. This is the ideal way of reading in files with base R. You can use a package to read in .xlsx files (the native file of excel).
+
+Let's practice reading in a file from the Data folder using {here} inside a new function, read.csv(). Here will tell R where to look for the file. Saving it into a variable d will let us modify this data frame
+
+```{r}
+d <- read.csv(here("Data", "CRP_IDs.csv"))
+```
+
+What does d look like?
+
+```{r}
+head(d)
+```
+
+head() let's us look at the first 6 rows of a dataframe. This is ideal so you don't have to look at the entire output.
+
+You can also do view(d) in RStudio to look at the whole thing in a new tab (recommend doing this in console)
+
+And finally, you can get rid of an object using rm(). Below try removing d and wd with rm(). Hint! use a comma to separate objects, no quotes necessary.
+
+```{r}
+rm(d, wd)
+```
+
+And that's the basics of files and file paths!
+
+Extra reading if you want to learn how to modify chunk execution: <https://quarto.org/docs/computations/execution-options.html>
