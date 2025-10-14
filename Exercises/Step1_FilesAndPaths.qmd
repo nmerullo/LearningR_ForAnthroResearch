@@ -82,7 +82,7 @@ The first step to understanding file paths: what is your **working directory?**
 A working directory is the folder you are located in. Use getwd() to find your working directory.
 
 ```{r}
-getwd()
+
 ```
 
 Is your working directory where you stored this quarto file?
@@ -90,13 +90,13 @@ Is your working directory where you stored this quarto file?
 let's save your working directory as a variable. That way you can reference it easily. To asve some thing as a variable use a \<- to put the thing on the right into the left. For example, write the following into the code chunk below: wd \<- getwd()
 
 ```{r}
-wd <- getwd()
+
 ```
 
 You can also see what is in the wd object by running it:
 
 ```{r}
-wd
+
 ```
 
 So you can see that the output here is thwe same as when you just did getwd().
@@ -108,19 +108,19 @@ You can also change your working directory with setwd()
 Let's try doing this. Can you write a file path to your documents folder? Be sure to wrap the file path in quotations! File paths are character strings, and character strings are always in quotes.
 
 ```{r}
-setwd("/Users/nmerullo/Documents/")
+
 ```
 
 Ok now let's change it back. Put the object you made into the parentheses of the function. You do not wrap it in quotations because this is an object, not a character string.
 
 ```{r}
-setwd(wd)
+
 ```
 
 Now let's check to make sure it worked. Use getwd() again.
 
 ```{r}
-getwd()
+
 ```
 
 Does it match your original file path?
@@ -141,7 +141,7 @@ When you're collaborating with people on code, they will have different file pat
 
 The {here} package can help us with this and we are going to learn the basics here so we can use it going forward.
 
-First install the {here} package the same way you insalled the earlier packages: install.packages("here") Here is the documentation if you want to read about it: https://here.r-lib.org/articles/here.html
+First install the {here} package the same way you insalled the earlier packages: install.packages("here") Here is the documentation if you want to read about it: https://here.r-lib.org/articles/here.html. Now load it in using library(here):
 
 ```{r}
 library(here)
@@ -151,16 +151,16 @@ So we have loaded in the package.
 
 Check the output. Do you see how it tells you a file path? This is what the package has determined to be the "top level directory" of your project, which is also the "project root". This should be the folder "LearningR_ForAnthroResearch." There is a decisions tree the package uses to determine this, which you can read about here, if you're interested: https://github.com/jennybc/here_here
 
-The function here() from the package also tells us where the project root is.
+The function here() from the package also tells us where the project root is. Try that below:
 
 ```{r}
-here()
+
 ```
 
-You can ask the package to tell you why it chose this directory as the project root:
+You can ask the package to tell you why it chose this directory as the project root with dr_here(). Try below:
 
 ```{r}
-dr_here()
+
 ```
 
 **What is the reason why it chose this file path?** Contains a .git file, marking it as a version controlled directory
@@ -168,7 +168,7 @@ dr_here()
 Everytime you open a script file/quarto file, you need to set your working directory and where this file is RELATIVE to the project root. Try this now- write here::i_am() wih the subdirectory you currently have open (hint: should be one of the folders that is contained within the LearningR_ForAnthroResearch folder) and then /Step1_FilesAndPaths.qmd. Make sure to wrap in quotes!
 
 ```{r}
-here::i_am("Solutions/Step1_FilesAndPaths.qmd")
+
 ```
 
 ## Reading in a file
@@ -179,16 +179,18 @@ If Nicole has not emailed you a practice file, email her now to receive it and s
 
 Note that all files are typically saved as .csv (comma separated values) which is a generic way of storing spreadsheets. This is the ideal way of reading in files with base R. You can use a package to read in .xlsx files (the native file of excel).
 
-Let's practice reading in a file from the Data folder using {here} inside a new function, read.csv(). Here will tell R where to look for the file. Saving it into a variable d will let us modify this data frame
+Let's practice reading in a file from the Data folder using {here} inside a new function, read.csv(). The here function will tell R where to look for the file. **Put the following inside of read.csv(): here("Data", "CRP_IDs.csv").** Note how the subfolder from the working directory and the file are comma separated as if they are separate objects. This is how here() achieves project relative pathing.
+
+Saving it into a variable d will let us view and modify this data frame.
 
 ```{r}
-d <- read.csv(here("Data", "CRP_IDs.csv"))
+
 ```
 
-What does d look like?
+What does d look like? **Use head() with the variable d inside the parentheses.**
 
 ```{r}
-head(d)
+
 ```
 
 head() let's us look at the first 6 rows of a dataframe. This is ideal so you don't have to look at the entire output.
@@ -198,7 +200,7 @@ You can also do view(d) in RStudio to look at the whole thing in a new tab (reco
 And finally, you can get rid of an object using rm(). Below try removing d and wd with rm(). Hint! use a comma to separate objects, no quotes necessary.
 
 ```{r}
-rm(d, wd)
+
 ```
 
 And that's the basics of files and file paths!

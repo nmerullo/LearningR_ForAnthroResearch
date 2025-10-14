@@ -8,7 +8,7 @@
 
 <meta name="author" content="Nicole Merullo">
 
-<title>Step1_FilesAndPaths</title>
+<title>Step1 Files And Paths - Solutions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -2199,7 +2199,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Step1_FilesAndPaths</h1>
+<h1 class="title">Step1 Files And Paths - Solutions</h1>
 </div>
 
 
@@ -2322,7 +2322,7 @@ vertical-align: -.125em;
 <p>Have setwd() in your scripts? PLEASE STOP DOING THAT. This makes your script very fragile, hard-wired to exactly one time and place. As soon as you rename or move directories, it breaks. Or maybe you get a new computer? Or maybe someone else needs to run your code? We show a very accessible way to go cold turkey and eliminate the setwd() gotcha from your code.” (Quoted from https://github.com/jennybc/here_here)</p>
 <p>When you’re collaborating with people on code, they will have different file paths than you. So how do you share code and make it so that you can run the same code as your collaborator without changing anything?</p>
 <p>The {here} package can help us with this and we are going to learn the basics here so we can use it going forward.</p>
-<p>First install the {here} package the same way you insalled the earlier packages: install.packages(“here”) Here is the documentation if you want to read about it: https://here.r-lib.org/articles/here.html</p>
+<p>First install the {here} package the same way you insalled the earlier packages: install.packages(“here”) Here is the documentation if you want to read about it: https://here.r-lib.org/articles/here.html. Now load it in using library(here):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2331,14 +2331,14 @@ vertical-align: -.125em;
 </div>
 <p>So we have loaded in the package.</p>
 <p>Check the output. Do you see how it tells you a file path? This is what the package has determined to be the “top level directory” of your project, which is also the “project root”. This should be the folder “LearningR_ForAnthroResearch.” There is a decisions tree the package uses to determine this, which you can read about here, if you’re interested: https://github.com/jennybc/here_here</p>
-<p>The function here() from the package also tells us where the project root is.</p>
+<p>The function here from the package also tells us where the project root is. Try that below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;/Users/nmerullo/Documents/BU/Service/LearningR_ForAnthroResearch&quot;</code></pre>
 </div>
 </div>
-<p>You can ask the package to tell you why it chose this directory as the project root:</p>
+<p>You can ask the package to tell you why it chose this directory as the project root with dr_here(). Try below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dr_here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2351,7 +2351,7 @@ vertical-align: -.125em;
 <p><strong>What is the reason why it chose this file path?</strong> Contains a .git file, marking it as a version controlled directory</p>
 <p>Everytime you open a script file/quarto file, you need to set your working directory and where this file is RELATIVE to the project root. Try this now- write here::i_am() wih the subdirectory you currently have open (hint: should be one of the folders that is contained within the LearningR_ForAnthroResearch folder) and then /Step1_FilesAndPaths.qmd. Make sure to wrap in quotes!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">i_am</span>(<span class="st">&quot;Solutions/Step1_FilesAndPaths.qmd&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">i_am</span>(<span class="st">&quot;Solutions/Step1_FilesAndPaths_Solutions.qmd&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>here() starts at /Users/nmerullo/Documents/BU/Service/LearningR_ForAnthroResearch</code></pre>
 </div>
@@ -2361,11 +2361,12 @@ vertical-align: -.125em;
 <p>The most important part of understanding file paths, is that you actually can use them to read a file into your R environment.</p>
 <p>If Nicole has not emailed you a practice file, email her now to receive it and store it in a new folder called Data. Make sure you name it just “Data” so all examples below reference the correct folder.</p>
 <p>Note that all files are typically saved as .csv (comma separated values) which is a generic way of storing spreadsheets. This is the ideal way of reading in files with base R. You can use a package to read in .xlsx files (the native file of excel).</p>
-<p>Let’s practice reading in a file from the Data folder using {here} inside a new function, read.csv(). Here will tell R where to look for the file. Saving it into a variable d will let us modify this data frame</p>
+<p>Let’s practice reading in a file from the Data folder using {here} inside a new function, read.csv(). The here function will tell R where to look for the file. <strong>Put the following inside of read.csv(): here(“Data”, “CRP_IDs.csv”).</strong> Note how the subfolder from the working directory and the file are comma separated as if they are separate objects. This is how here() achieves project relative pathing.</p>
+<p>Saving it into a variable d will let us view and modify this data frame.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;CRP_IDs.csv&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What does d look like?</p>
+<p>What does d look like? <strong>Use head() with the variable d inside the parentheses.</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
