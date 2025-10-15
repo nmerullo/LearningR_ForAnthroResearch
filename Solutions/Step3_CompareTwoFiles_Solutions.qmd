@@ -1,0 +1,204 @@
+---
+title: "Step3 Compare Two Files - Solutions"
+author: "Nicole Merullo"
+format: 
+  html:
+    theme: flatly
+    embed-resources: true
+    self-contained-math: true
+    toc: true
+---
+
+# Introduction
+
+In this exercise, we will perform a simple step of data cleaning. We will take two files and compare them based on a column. The goal is to see that they match.
+
+Here we will be comparing the results of a biomarker to the ID list we expect to have results.
+
+The first thing we need to do is load in the package {tidyverse} which contains a bunch of helpful packages that introduce easy to use data management functions. If you haven't already installed tidyverse, do so now with install.packages("tidyverse"). Also we need to load in {here} and initialize our working directory.
+
+Important note! The tidyverse family of functions introduces the pipe operator %>% which is super helpful for chaining together a lot of functions! You'll see me use this in the example code, but it's important to know what it does too. It takes whatever is on the left side of the pump and feeds it into the first argument of the right side of the pipe. There are a lot of implications for this but mostly just helps us move output quickly without having to save an intermediary to an object we don't need.
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+here()
+```
+
+Make sure your working directory is LearningR_ForAnthroResearch.
+
+# Read files
+
+Now we need to read in the files we are going to look at. There are three biomarkers, each with a results and ID key file for 6 total files.
+
+Recall that we need to use the here() function inside of a read.csv() so that we can reference directories relative to our working directory (especially important since this file is nested inside a subdirectory).
+
+Here are the first two, then you can try the other biomarkers. While we do this, we will learn how to modify files and use arguments in functions.
+
+
+```{r}
+crp_ids <- read.csv(here("Data", "CRP_IDS.csv"))
+crp_results <- read.csv(here("Data", "UCHP_InflammationBiomarkers_CRP.csv"), na.strings = c("", "NA", "na")) %>% filter(!is.na(Sample_ID))
+```
+
+**Important notes:**
+for the results file, we have to do some extra modifictions to make this look right when we read it in.
+1. Make sure missing data is in the correct format with the argument na.strings. Almost all functions have more than one argument. If you go to the help page for the function you can see what the options are. Arguments bascially tell R how to customize what you get from that function. read.csv()'s first argument is the file path, which is why we can put here(file paths) inside read.csv where the first argument would go. Then you can specify a number of other arguments depending on what you want to do. Here we are using na.strings to tell R how to handle missing data. c("", "NA", "na") is a vector of options that we might encounter in this spreadsheet that all mean there are missing data points there. If you open the document in excel, for instance, you'll see that every other row is blank (this was intentional for data entry purposes). We need to make sure empty cells are treated as NA. NA is the native R way of reading missing data- but we also allow for "na" to get read in as NA.
+2. Because every other row is empty, we also need to remove these empty rows. filter() comes form the tidyverse set of functions (specifcally in the dplyr package). This function allows us to filter the entire data frame based on whatever we put inside of it. The "!" before the is.na() means "Not," which is the same as "!=" which is just "not equal." So this filter function is saying "filter to all of the rows where Sample ID is not missing." We we will go over filter in more depth at a later point.
+
+**Try reading in the other biomarker files and make sure you have them in a folder called "Data" within the working directory.**
+You can just copy and paste the code aboce and change the biomarker each time.
+
+```{r}
+#IgE
+ige_ids <- read.csv(here("Data", "IgE_IDS.csv"))
+ige_results <- read.csv(here("Data", "UCHP_InflammationBiomarkers_IgE.csv"), na.strings = c("", "NA", "na")) %>% filter(!is.na(Sample_ID))
+
+#Il-6
+il6_ids <- read.csv(here("Data", "Il-6_IDS.csv"))
+il6_results <- read.csv(here("Data", "UCHP_InflammationBiomarkers_Il-6.csv"), na.strings = c("", "NA", "na")) %>% filter(!is.na(Sample_ID))
+```
+
+ok let's take a quick peak using head(). I'll put in the CRP ones, you do the rest.
+
+
+```{r}
+head(crp_ids)
+head(crp_results)
+
+#IgE
+
+
+#Il-6
+
+
+
+```
+
+# Compare
+
+Ultimately, we are doing a validation of the results by checking to see that every individual Sample_ID has a match in the IDs dataframe, which contains every ID that has a result. Since the results were input basically by hand, it's importany anytime you do data entry to check it!
+
+We want to see who is missing from the results files. We can do this by comparing the Sample_ID column from the key files to the Name column of the data entry files.
+
+Very preliminarily, we can compare by the number of rows. Here is some code that will tell us about the number of rows in CRP IDs vs CRP reults. Note that I included some text to contextualize the output using cat(), but this is not necessary. Pay attention to the nrow() function and the subtraction between those.
+
+```{r}
+cat("Master list of CRP IDs Number of Rows:", nrow(crp_ids), "\n")
+cat("CRP results Rows:", nrow(crp_results), "\n")
+cat("Difference between number of rows we expect (master list) and what we have so far (results):", nrow(crp_ids)-nrow(crp_results), "\n")
+```
+
+How many rows are there in difference?
+
+Now do this for the other biomarkers:
+
+```{r}
+## IgE
+cat("Master list of IgE IDs Number of Rows:", nrow(ige_ids), "\n")
+cat("IgE results Rows:", nrow(ige_results), "\n")
+cat("Difference between number of rows we expect (master list) and what we have so far (results):", nrow(ige_ids)-nrow(ige_results), "\n")
+
+
+## Il-6
+cat("Master list of Il-6 IDs Number of Rows:", nrow(il6_ids), "\n")
+cat("Il-6 results Rows:", nrow(il6_results), "\n")
+cat("Difference between number of rows we expect (master list) and what we have so far (results):", nrow(il6_ids)-nrow(il6_results), "\n")
+```
+
+do these have any discrepancies in their row numbers?
+
+Even if there are no discrepancies, we still need to make sure all of the sample IDs are the same between files!
+
+## Compare IDs
+
+We checked how many rows are missing, but now we need to check if there are any mutually exclusive sample IDs. To do this we can use the setdiff() command which compares two vectors and returns the "extras" from the first argument not present in the second.
+
+Here's how to do this with CRP. crp_ids$SampleID means we are only looking at that column. The $ let's us specify a column within a dataframe.
+```{r}
+crp.names <- setdiff(crp_ids$SampleID, crp_results$Sample_ID)
+head(crp.names) #showing the first 6 entries
+class(crp.names) #what is the class of this vector?
+cat("Number of names not present in data entry:", length(crp.names), "\n")
+```
+
+Are there any IDs present in the ID file that are not present in the results? Who is it?
+
+Since these have the same number of rows, this also means we need to check the other direction, because there is one row that is in results but now in IDs. Let's check that one.
+
+```{r}
+setdiff(crp_results$Sample_ID, crp_ids$SampleID)
+```
+
+In results, there are NO sample IDs present that are not also present in the IDs file. This is interesting! We will have to investigate.
+
+For now though, let's try doing this with the other biomarkers:
+
+
+```{r}
+#IgE
+ige.names <- setdiff(ige_ids$SampleID, ige_results$Sample_ID)
+head(ige.names) #showing the first 6 entries
+class(ige.names) #what is the class of this vector?
+cat("Number of names not present in data entry:", length(ige.names), "\n")
+
+setdiff(ige_results$Sample_ID, ige_ids$SampleID)
+
+
+#Il-6
+il6.names <- setdiff(il6_ids$SampleID, il6_results$Sample_ID)
+head(il6.names) #showing the first 6 entries
+class(il6.names) #what is the class of this vector?
+cat("Number of names not present in data entry:", length(il6.names), "\n")
+
+setdiff(il6_results$Sample_ID, il6_ids$SampleID)
+```
+
+What were the results here? Any differences?
+
+In this step, we created vectors of the rows that exist in the master Id key list but do not exist in the results list. We checked that these have the same length as what we expected from the difference in rows between the two data frames. We also confirmed there were no extra rows in the data entry that we weren't expecting.
+
+# Filter
+
+Finally, let's filter the master ID list to see what the deal is with our missing results. The Master ID list contains the location of where to find the results from the original/raw data output.
+
+Now, since we only found ONE discrepancy in CRP, we could filter directly to that ID, but this is not very replicable. If we updated the files we read into this script, and now there are new rows and possibly new discrepancies, we want code that will be robust to those source chages. Here's how we can accomplish that:
+
+```{r}
+missing.crp <- crp_ids %>% filter(SampleID %in% crp.names)
+head(missing.crp)
+cat("Number of rows in the CRP missing sample IDs:", nrow(missing.crp)) #recall that it should be 1 row
+```
+
+Here's what this is doing: using crp_ids, filter the sampel ID column to anything in the crp.names object.
+Then we look at the first 6 rows of this to see what it looks like.
+Finally we have it tell us the number of rows in the CRP missing sample Ids data frame
+
+Ok so we are missing a result from Plate 6 and well Id SPL22. This should help us fill in the missing result.
+
+But recall that the results file has the same number of rows as the IDs folder, but none of them were unique IDs to that file, so what's going on here? Why do they have the same number of rows?
+
+Likely, there is a duplicate row. Let's see if we can draw out the duplicated sample IDs.
+
+```{r}
+crp_results$Sample_ID[duplicated(crp_results$Sample_ID)]
+```
+
+This is a little weird, but what this is doing is just taking the column Sample_ID from crp_results and is subsetting it to the duplicated row within the column. This is essentially filtering, but only using base R (no package)
+
+But now we can filter the entire data frame to this result and see what's going on.
+
+```{r}
+crp_duplicate <- crp_results$Sample_ID[duplicated(crp_results$Sample_ID)] #first saving to an object
+#now let's try a filter:
+crp_results |> filter(Sample_ID == crp_duplicate) #take the crp_results data frame and filter it where Sample_ID column matches (==) the value saved in crp_duplicate
+```
+
+Note: |> is the base r pipe, which was added recently. My keyboard shortcut for the tidyverse pipe (%>%) has been changed over to the base r pipe, so I sometimes use them interchangeably. There are some functional differences, but they shouldn't get in the way for what we are doing.
+
+Ok interesting! What do we notice here? Are these completely identical rows or are there differences? What plate and Well.IDs are used here? This might help us get to the bottom of the missing result!
+
+If you would like, you can try doing these filter steps with IgE and Il-6 just to practice writing out the code. Otherwise this is it!
