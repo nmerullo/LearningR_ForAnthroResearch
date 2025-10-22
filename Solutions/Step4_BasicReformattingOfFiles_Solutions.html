@@ -8,7 +8,7 @@
 
 <meta name="author" content="Nicole Merullo">
 
-<title>Step3 Compare Two Files - Solutions</title>
+<title>Step4 Basic Reformatting of Files - Part 1 - Solutionsssss</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -2180,12 +2180,75 @@ vertical-align: -.125em;
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#read-files" id="toc-read-files" class="nav-link" data-scroll-target="#read-files">Read files</a></li>
-  <li><a href="#compare" id="toc-compare" class="nav-link" data-scroll-target="#compare">Compare</a>
+  <li><a href="#read-files" id="toc-read-files" class="nav-link" data-scroll-target="#read-files">Read files</a>
   <ul class="collapse">
-  <li><a href="#compare-ids" id="toc-compare-ids" class="nav-link" data-scroll-target="#compare-ids">Compare IDs</a></li>
+  <li><a href="#crp" id="toc-crp" class="nav-link" data-scroll-target="#crp">CRP</a></li>
+  <li><a href="#ige" id="toc-ige" class="nav-link" data-scroll-target="#ige">IgE</a></li>
+  <li><a href="#il-6" id="toc-il-6" class="nav-link" data-scroll-target="#il-6">Il-6</a></li>
+  <li><a href="#validate" id="toc-validate" class="nav-link" data-scroll-target="#validate">Validate</a>
+  <ul class="collapse">
+  <li><a href="#crp-1" id="toc-crp-1" class="nav-link" data-scroll-target="#crp-1">CRP</a></li>
+  <li><a href="#ige-1" id="toc-ige-1" class="nav-link" data-scroll-target="#ige-1">IgE</a></li>
+  <li><a href="#il-6-1" id="toc-il-6-1" class="nav-link" data-scroll-target="#il-6-1">Il-6</a></li>
+  <li><a href="#anomalies" id="toc-anomalies" class="nav-link" data-scroll-target="#anomalies">Anomalies?</a></li>
   </ul></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter">Filter</a></li>
+  </ul></li>
+  <li><a href="#remove-blank-rows" id="toc-remove-blank-rows" class="nav-link" data-scroll-target="#remove-blank-rows">Remove Blank Rows</a>
+  <ul class="collapse">
+  <li><a href="#crp-2" id="toc-crp-2" class="nav-link" data-scroll-target="#crp-2">CRP</a></li>
+  <li><a href="#ige-2" id="toc-ige-2" class="nav-link" data-scroll-target="#ige-2">IgE</a></li>
+  <li><a href="#il-6-2" id="toc-il-6-2" class="nav-link" data-scroll-target="#il-6-2">Il-6</a></li>
+  <li><a href="#x-dilutions" id="toc-x-dilutions" class="nav-link" data-scroll-target="#x-dilutions">2x dilutions</a>
+  <ul class="collapse">
+  <li><a href="#check-ige" id="toc-check-ige" class="nav-link" data-scroll-target="#check-ige">Check IgE</a></li>
+  <li><a href="#check-il-6" id="toc-check-il-6" class="nav-link" data-scroll-target="#check-il-6">Check Il-6</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#split-ids-and-dates" id="toc-split-ids-and-dates" class="nav-link" data-scroll-target="#split-ids-and-dates">Split IDs and Dates</a>
+  <ul class="collapse">
+  <li><a href="#crp-3" id="toc-crp-3" class="nav-link" data-scroll-target="#crp-3">CRP</a></li>
+  <li><a href="#ige-3" id="toc-ige-3" class="nav-link" data-scroll-target="#ige-3">IgE</a></li>
+  <li><a href="#il-6-3" id="toc-il-6-3" class="nav-link" data-scroll-target="#il-6-3">Il-6</a></li>
+  </ul></li>
+  <li><a href="#reformat-date" id="toc-reformat-date" class="nav-link" data-scroll-target="#reformat-date">Reformat Date</a>
+  <ul class="collapse">
+  <li><a href="#crp-4" id="toc-crp-4" class="nav-link" data-scroll-target="#crp-4">CRP</a></li>
+  <li><a href="#ige-4" id="toc-ige-4" class="nav-link" data-scroll-target="#ige-4">IgE</a></li>
+  <li><a href="#il-6-4" id="toc-il-6-4" class="nav-link" data-scroll-target="#il-6-4">Il-6</a></li>
+  </ul></li>
+  <li><a href="#derive-short-ids" id="toc-derive-short-ids" class="nav-link" data-scroll-target="#derive-short-ids">Derive Short IDs</a>
+  <ul class="collapse">
+  <li><a href="#crp-5" id="toc-crp-5" class="nav-link" data-scroll-target="#crp-5">CRP</a>
+  <ul class="collapse">
+  <li><a href="#validation" id="toc-validation" class="nav-link" data-scroll-target="#validation">validation</a></li>
+  </ul></li>
+  <li><a href="#ige-5" id="toc-ige-5" class="nav-link" data-scroll-target="#ige-5">IgE</a>
+  <ul class="collapse">
+  <li><a href="#validation-1" id="toc-validation-1" class="nav-link" data-scroll-target="#validation-1">validation</a></li>
+  </ul></li>
+  <li><a href="#il-6-5" id="toc-il-6-5" class="nav-link" data-scroll-target="#il-6-5">Il-6</a>
+  <ul class="collapse">
+  <li><a href="#validation-2" id="toc-validation-2" class="nav-link" data-scroll-target="#validation-2">validation</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#select-columns" id="toc-select-columns" class="nav-link" data-scroll-target="#select-columns">Select columns</a>
+  <ul class="collapse">
+  <li><a href="#remove-empty-columns" id="toc-remove-empty-columns" class="nav-link" data-scroll-target="#remove-empty-columns">Remove empty columns</a>
+  <ul class="collapse">
+  <li><a href="#ige-6" id="toc-ige-6" class="nav-link" data-scroll-target="#ige-6">ige</a></li>
+  <li><a href="#il6" id="toc-il6" class="nav-link" data-scroll-target="#il6">il6</a></li>
+  </ul></li>
+  <li><a href="#choose-best-results" id="toc-choose-best-results" class="nav-link" data-scroll-target="#choose-best-results">Choose best results</a></li>
+  <li><a href="#crp-6" id="toc-crp-6" class="nav-link" data-scroll-target="#crp-6">CRP</a>
+  <ul class="collapse">
+  <li><a href="#convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings." id="toc-convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings." class="nav-link" data-scroll-target="#convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.">1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.</a></li>
+  <li><a href="#create-unique-identifier" id="toc-create-unique-identifier" class="nav-link" data-scroll-target="#create-unique-identifier">2. Create unique identifier</a></li>
+  <li><a href="#identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results" id="toc-identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results" class="nav-link" data-scroll-target="#identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results">3. Identify the lowest CV and create a dataframe that contains only those results</a></li>
+  </ul></li>
+  <li><a href="#ige-7" id="toc-ige-7" class="nav-link" data-scroll-target="#ige-7">IgE</a></li>
+  <li><a href="#il-6-6" id="toc-il-6-6" class="nav-link" data-scroll-target="#il-6-6">Il-6</a></li>
+  </ul></li>
+  <li><a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write">Write</a></li>
   </ul>
 </nav>
 </div>
@@ -2193,7 +2256,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Step3 Compare Two Files - Solutions</h1>
+<h1 class="title">Step4 Basic Reformatting of Files - Part 1 - Solutionsssss</h1>
 </div>
 
 
@@ -2218,10 +2281,10 @@ vertical-align: -.125em;
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>In this exercise, we will perform a simple step of data cleaning. We will take two files and compare them based on a column. The goal is to see that they match.</p>
-<p>Here we will be comparing the results of a biomarker to the ID list we expect to have results.</p>
-<p>The first thing we need to do is load in the package {tidyverse} which contains a bunch of helpful packages that introduce easy to use data management functions. If you haven’t already installed tidyverse, do so now with install.packages(“tidyverse”). Also we need to load in {here} and initialize our working directory.</p>
-<p>Important note! The tidyverse family of functions introduces the pipe operator %&gt;% which is super helpful for chaining together a lot of functions! You’ll see me use this in the example code, but it’s important to know what it does too. It takes whatever is on the left side of the pump and feeds it into the first argument of the right side of the pipe. There are a lot of implications for this but mostly just helps us move output quickly without having to save an intermediary to an object we don’t need.</p>
+<p>In this exercise, we will continue with cleaning up data files by reformatting a file and writing new versions.</p>
+<p>Here is what we will cover: - Remove missing rows - Separating the ID and Dates to create two columns from one - Rename columnsif necessary - Deriving Short IDs from the long IDs which is more legible/compatible with other files - Selecting necessary columns for analysis - Mutating values so they are ready for analysis (maybe)</p>
+<p>As always we will start by loading in the libraries {tidyverse} and {here}.</p>
+<p>This module will follow a similar structure to the last one, where I will write the code for CRP, and you will write the code for the other two files.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2251,38 +2314,572 @@ vertical-align: -.125em;
 </section>
 <section id="read-files" class="level1">
 <h1>Read files</h1>
-<p>Now we need to read in the files we are going to look at. There are three biomarkers, each with a results and ID key file for 6 total files.</p>
+<p>Now we need to read in the files we are going to look at. There are three biomarkers, each with a results and ID key file for 6 total files. <strong>Today we are only working with the results files, e.g., UCHP_InflammationBiomarkers_CRP.csv</strong></p>
 <p>Recall that we need to use the here() function inside of a read.csv() so that we can reference directories relative to our working directory (especially important since this file is nested inside a subdirectory).</p>
-<p>Here are the first two, then you can try the other biomarkers. While we do this, we will learn how to modify files and use arguments in functions.</p>
+<p>Let’s start with CRP. Note how I am using the hashtag to create headers and subheaders for each section. This will make it easy to navigate the document.</p>
+<section id="crp" class="level2">
+<h2 class="anchored" data-anchor-id="crp">CRP</h2>
+<p>NOTE!! Make sure you get the new version of this file that is corrected after Step 3.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>crp_ids <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;CRP_IDS.csv&quot;</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>crp_results <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers_CRP.csv&quot;</span>), <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;na&quot;</span>)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers_CRP.csv&quot;</span>), <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;na&quot;</span>, <span class="st">&quot;N/A&quot;</span>, <span class="st">&quot;N/a&quot;</span>, <span class="st">&quot;n/a&quot;</span>, <span class="st">&quot;?????&quot;</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> <span class="co">#remember we need to tell R what a missing value is with the na.strings argument</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you are having trouble reading in these files, navigate to the Data folder and make sure the files have the same spelling as specified in the code above.</p>
-<p><strong>Important notes:</strong> for the results file, we have to do some extra modifictions to make this look right when we read it in. 1. Make sure missing data is in the correct format with the argument na.strings. Almost all functions have more than one argument. If you go to the help page for the function you can see what the options are. Arguments bascially tell R how to customize what you get from that function. read.csv()’s first argument is the file path, which is why we can put here(file paths) inside read.csv where the first argument would go. Then you can specify a number of other arguments depending on what you want to do. Here we are using na.strings to tell R how to handle missing data. c(““,”NA”, “na”) is a vector of options that we might encounter in this spreadsheet that all mean there are missing data points there. If you open the document in excel, for instance, you’ll see that every other row is blank (this was intentional for data entry purposes). We need to make sure empty cells are treated as NA. NA is the native R way of reading missing data- but we also allow for “na” to get read in as NA. 2. Because every other row is empty, we also need to remove these empty rows. filter() comes form the tidyverse set of functions (specifcally in the dplyr package). This function allows us to filter the entire data frame based on whatever we put inside of it. The “!” before the is.na() means “Not,” which is the same as “!=” which is just “not equal.” So this filter function is saying “filter to all of the rows where Sample ID is not missing.” We we will go over filter in more depth at a later point.</p>
-<p><strong>Try reading in the other biomarker files and make sure you have them in a folder called “Data” within the working directory.</strong> You can just copy and paste the code aboce and change the biomarker each time.</p>
+</section>
+<section id="ige" class="level2">
+<h2 class="anchored" data-anchor-id="ige">IgE</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#IgE</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ige_ids <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;IgE_IDS.csv&quot;</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ige_results <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers_IgE.csv&quot;</span>), <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;na&quot;</span>)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID))</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Il-6</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>il6_ids <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;Il-6_IDS.csv&quot;</span>))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>il6_results <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers_Il-6.csv&quot;</span>), <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;na&quot;</span>)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ige <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers_IgE.csv&quot;</span>), <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;na&quot;</span>, <span class="st">&quot;N/A&quot;</span>, <span class="st">&quot;N/a&quot;</span>, <span class="st">&quot;n/a&quot;</span>, <span class="st">&quot;?????&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ok let’s take a quick peak using head(). I’ll put in the CRP ones, you do the rest.</p>
+</section>
+<section id="il-6" class="level2">
+<h2 class="anchored" data-anchor-id="il-6">Il-6</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp_ids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            SampleID Plate WellID Plate_R_1 WellID_R_1 Plate_R_2 WellID_R_2
-1  CGNAUT003-08AUG23     1   SPL1         1       SPL1        NA       &lt;NA&gt;
-2  CGA8TH002-11AUG23     1   SPL2        NA       &lt;NA&gt;        NA       &lt;NA&gt;
-3  CG9C4X027-15AUG23     1   SPL3         1       SPL2        NA       &lt;NA&gt;
-4  CGW80A004-15AUG23     1   SPL4         1       SPL3        NA       &lt;NA&gt;
-5 CGC8J44005-17AUG23     1   SPL5         1       SPL4         4       SPL9
-6  NIXBOH908-23AUG23     1   SPL6        NA       &lt;NA&gt;        NA       &lt;NA&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Il-6</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>il6 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers_Il-6.csv&quot;</span>), <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;na&quot;</span>, <span class="st">&quot;N/A&quot;</span>, <span class="st">&quot;N/a&quot;</span>, <span class="st">&quot;n/a&quot;</span>, <span class="st">&quot;?????&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="validate" class="level2">
+<h2 class="anchored" data-anchor-id="validate">Validate</h2>
+<p>Here we will take a look at our files. Everytime you do something, you should do some kind of validation measure to make sure it worked. Here, we are checking to see that reading in the file went smoothly and seeing what it looks like so we can modify it later.</p>
+<section id="crp-1" class="level3">
+<h3 class="anchored" data-anchor-id="crp-1">CRP</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp) <span class="co">#let&#39;s us see the first 6 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sample_ID Plate_FirstRun Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a
+1 CGNAUT003-08AUG23              1      SPL1       A3           NA    0.731
+2              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+3 CGA8TH002-11AUG23              1      SPL2       B3           NA    0.449
+4              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+5 CG9C4X027-15AUG23              1      SPL3       C3           NA    1.678
+6              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+  Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1 Well_1_b Conc.Dil_1_b X450_1_b
+1    0.653       2  0.705     0.073 10.331       A4           NA    0.834
+2     &lt;NA&gt;      NA     NA        NA     NA     &lt;NA&gt;           NA       NA
+3    0.372       2  0.388     0.023  6.014       B4           NA    0.482
+4     &lt;NA&gt;      NA     NA        NA     NA     &lt;NA&gt;           NA       NA
+5    1.601       2  1.559     0.059  3.811       C4           NA    1.594
+6     &lt;NA&gt;      NA     NA        NA     NA     &lt;NA&gt;           NA       NA
+  Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a Conc.Dil_2_a X450_2_a Conc_2_a
+1    0.756               8      SPL1       A3           NA    1.727    1.652
+2     &lt;NA&gt;              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+3    0.404               8      SPL2       B3           NA    0.712    0.644
+4     &lt;NA&gt;              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+5    1.517               8      SPL3       C3           NA    0.643    0.576
+6     &lt;NA&gt;              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+  Count_2 Mean_2 Std.Dev_2  CV_2 Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b
+1       2  1.711     0.083 4.877       A4           NA    1.845    1.770
+2      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
+3       2  0.655     0.016 2.373       B4           NA    0.734    0.666
+4      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
+5       2  0.577     0.001 0.245       C4           NA    0.645    0.578
+6      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
+  Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a X450_3_a Conc_3_a Count_3
+1             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+2             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+3             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+4             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+5             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+6             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+  Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b X450_3_b Conc_3_b Well_ID_R3
+1     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+2     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+3     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+4     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+5     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+6     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+  Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3 Count.R3 Mean.R3 Std.Dev.R3
+1        NA            NA        NA        NA       NA      NA         NA
+2        NA            NA        NA        NA       NA      NA         NA
+3        NA            NA        NA        NA       NA      NA         NA
+4        NA            NA        NA        NA       NA      NA         NA
+5        NA            NA        NA        NA       NA      NA         NA
+6        NA            NA        NA        NA       NA      NA         NA
+  CV.....R3 Well.2.R3 Conc.Dil.2.R3 X450.2.R3 Conc.2.R3
+1        NA        NA            NA        NA        NA
+2        NA        NA            NA        NA        NA
+3        NA        NA            NA        NA        NA
+4        NA        NA            NA        NA        NA
+5        NA        NA            NA        NA        NA
+6        NA        NA            NA        NA        NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crp) <span class="co">#let&#39;s us see the composition of the columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&#39;data.frame&#39;:   543 obs. of  56 variables:
+ $ Sample_ID      : chr  &quot;CGNAUT003-08AUG23&quot; NA &quot;CGA8TH002-11AUG23&quot; NA ...
+ $ Plate_FirstRun : int  1 NA 1 NA 1 NA 1 NA 1 NA ...
+ $ Well.ID_1      : chr  &quot;SPL1&quot; NA &quot;SPL2&quot; NA ...
+ $ Well_1_a       : chr  &quot;A3&quot; NA &quot;B3&quot; NA ...
+ $ Conc.Dil_1_a   : logi  NA NA NA NA NA NA ...
+ $ X450_1_a       : num  0.731 NA 0.449 NA 1.678 ...
+ $ Conc_1_a       : chr  &quot;0.653&quot; NA &quot;0.372&quot; NA ...
+ $ Count_1        : int  2 NA 2 NA 2 NA 2 NA 2 NA ...
+ $ Mean_1         : num  0.705 NA 0.388 NA 1.559 ...
+ $ Std.Dev_1      : num  0.073 NA 0.023 NA 0.059 NA 0.067 NA 0.001 NA ...
+ $ CV_1           : num  10.33 NA 6.01 NA 3.81 ...
+ $ Well_1_b       : chr  &quot;A4&quot; NA &quot;B4&quot; NA ...
+ $ Conc.Dil_1_b   : logi  NA NA NA NA NA NA ...
+ $ X450_1_b       : num  0.834 NA 0.482 NA 1.594 ...
+ $ Conc_1_b       : chr  &quot;0.756&quot; NA &quot;0.404&quot; NA ...
+ $ Plate_SecondRun: int  8 NA 8 NA 8 NA NA NA 8 NA ...
+ $ Well.ID_2      : chr  &quot;SPL1&quot; NA &quot;SPL2&quot; NA ...
+ $ Well_2_a       : chr  &quot;A3&quot; NA &quot;B3&quot; NA ...
+ $ Conc.Dil_2_a   : logi  NA NA NA NA NA NA ...
+ $ X450_2_a       : num  1.727 NA 0.712 NA 0.643 ...
+ $ Conc_2_a       : num  1.652 NA 0.644 NA 0.576 ...
+ $ Count_2        : int  2 NA 2 NA 2 NA NA NA 2 NA ...
+ $ Mean_2         : num  1.711 NA 0.655 NA 0.577 ...
+ $ Std.Dev_2      : num  0.083 NA 0.016 NA 0.001 NA NA NA 0.026 NA ...
+ $ CV_2           : num  4.877 NA 2.373 NA 0.245 ...
+ $ Well_2_b       : chr  &quot;A4&quot; NA &quot;B4&quot; NA ...
+ $ Conc.Dil_2_b   : logi  NA NA NA NA NA NA ...
+ $ X450_2_b       : num  1.845 NA 0.734 NA 0.645 ...
+ $ Conc_2_b       : num  1.77 NA 0.666 NA 0.578 NA NA NA 0.516 NA ...
+ $ Plate_ThirdRun : int  NA NA NA NA NA NA NA NA 11 NA ...
+ $ Well.ID_3      : chr  NA NA NA NA ...
+ $ Well_3_a       : chr  NA NA NA NA ...
+ $ Conc.Dil_3_a   : logi  NA NA NA NA NA NA ...
+ $ X450_3_a       : num  NA NA NA NA NA NA NA NA 0.646 NA ...
+ $ Conc_3_a       : num  NA NA NA NA NA NA NA NA 0.584 NA ...
+ $ Count_3        : int  NA NA NA NA NA NA NA NA 2 NA ...
+ $ Mean_3         : num  NA NA NA NA NA NA NA NA 0.607 NA ...
+ $ Std.Dev_3      : num  NA NA NA NA NA NA NA NA 0.033 NA ...
+ $ CV_3           : num  NA NA NA NA NA ...
+ $ Well_3_b       : chr  NA NA NA NA ...
+ $ Conc.Dil_3_b   : logi  NA NA NA NA NA NA ...
+ $ X450_3_b       : num  NA NA NA NA NA NA NA NA 0.692 NA ...
+ $ Conc_3_b       : chr  NA NA NA NA ...
+ $ Well_ID_R3     : logi  NA NA NA NA NA NA ...
+ $ Well.1.R3      : logi  NA NA NA NA NA NA ...
+ $ Conc.Dil.1.R3  : logi  NA NA NA NA NA NA ...
+ $ X450.1.R3      : logi  NA NA NA NA NA NA ...
+ $ Conc.1.R3      : logi  NA NA NA NA NA NA ...
+ $ Count.R3       : logi  NA NA NA NA NA NA ...
+ $ Mean.R3        : logi  NA NA NA NA NA NA ...
+ $ Std.Dev.R3     : logi  NA NA NA NA NA NA ...
+ $ CV.....R3      : logi  NA NA NA NA NA NA ...
+ $ Well.2.R3      : logi  NA NA NA NA NA NA ...
+ $ Conc.Dil.2.R3  : logi  NA NA NA NA NA NA ...
+ $ X450.2.R3      : logi  NA NA NA NA NA NA ...
+ $ Conc.2.R3      : logi  NA NA NA NA NA NA ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of rows in CRP:&quot;</span>, <span class="fu">nrow</span>(crp))) <span class="co">#let&#39;s us see how many rows there are</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;Number of rows in CRP: 543&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(crp) <span class="co">#let&#39;s us see the names of the columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Sample_ID&quot;       &quot;Plate_FirstRun&quot;  &quot;Well.ID_1&quot;       &quot;Well_1_a&quot;       
+ [5] &quot;Conc.Dil_1_a&quot;    &quot;X450_1_a&quot;        &quot;Conc_1_a&quot;        &quot;Count_1&quot;        
+ [9] &quot;Mean_1&quot;          &quot;Std.Dev_1&quot;       &quot;CV_1&quot;            &quot;Well_1_b&quot;       
+[13] &quot;Conc.Dil_1_b&quot;    &quot;X450_1_b&quot;        &quot;Conc_1_b&quot;        &quot;Plate_SecondRun&quot;
+[17] &quot;Well.ID_2&quot;       &quot;Well_2_a&quot;        &quot;Conc.Dil_2_a&quot;    &quot;X450_2_a&quot;       
+[21] &quot;Conc_2_a&quot;        &quot;Count_2&quot;         &quot;Mean_2&quot;          &quot;Std.Dev_2&quot;      
+[25] &quot;CV_2&quot;            &quot;Well_2_b&quot;        &quot;Conc.Dil_2_b&quot;    &quot;X450_2_b&quot;       
+[29] &quot;Conc_2_b&quot;        &quot;Plate_ThirdRun&quot;  &quot;Well.ID_3&quot;       &quot;Well_3_a&quot;       
+[33] &quot;Conc.Dil_3_a&quot;    &quot;X450_3_a&quot;        &quot;Conc_3_a&quot;        &quot;Count_3&quot;        
+[37] &quot;Mean_3&quot;          &quot;Std.Dev_3&quot;       &quot;CV_3&quot;            &quot;Well_3_b&quot;       
+[41] &quot;Conc.Dil_3_b&quot;    &quot;X450_3_b&quot;        &quot;Conc_3_b&quot;        &quot;Well_ID_R3&quot;     
+[45] &quot;Well.1.R3&quot;       &quot;Conc.Dil.1.R3&quot;   &quot;X450.1.R3&quot;       &quot;Conc.1.R3&quot;      
+[49] &quot;Count.R3&quot;        &quot;Mean.R3&quot;         &quot;Std.Dev.R3&quot;      &quot;CV.....R3&quot;      
+[53] &quot;Well.2.R3&quot;       &quot;Conc.Dil.2.R3&quot;   &quot;X450.2.R3&quot;       &quot;Conc.2.R3&quot;      </code></pre>
+</div>
+</div>
+</section>
+<section id="ige-1" class="level3">
+<h3 class="anchored" data-anchor-id="ige-1">IgE</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ige) <span class="co">#let&#39;s us see the first 6 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sample_ID Plate_FirstRun Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a
+1 CGNAUT003-08AUG23              1      SPL1       A3           NA    0.156
+2              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+3 CGA8TH002-11AUG23              1      SPL2       B3           NA    1.242
+4              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+5 CG9C4X027-15AUG23              1      SPL3       C3           NA    0.166
+6              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+  Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1 Well_1_b Conc.Dil_1_b X450_1_b
+1    2.752       2  2.737     0.021  0.781       A4           NA    0.155
+2     &lt;NA&gt;      NA     NA        NA   &lt;NA&gt;     &lt;NA&gt;           NA       NA
+3    42.97       2 39.596     4.772 12.051       B4           NA    1.100
+4     &lt;NA&gt;      NA     NA        NA   &lt;NA&gt;     &lt;NA&gt;           NA       NA
+5    3.054       2  3.114     0.085  2.736       C4           NA    0.170
+6     &lt;NA&gt;      NA     NA        NA   &lt;NA&gt;     &lt;NA&gt;           NA       NA
+  Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a Conc.Dil_2_a X450_2_a Conc_2_a
+1    2.722              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+2     &lt;NA&gt;              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+3   36.222              12     SPL28       D9           NA    0.626   32.476
+4     &lt;NA&gt;              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+5    3.174              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+6     &lt;NA&gt;              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+  Count_2 Mean_2 Std.Dev_2  CV_2 Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b
+1      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
+2      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
+3       2 33.688     1.713 5.085      D10           NA    0.662   34.899
+4      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
+5      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
+6      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
+  Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a X450_3_a Conc_3_a Count_3
+1             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+2             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+3             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+4             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+5             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+6             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
+  Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b X450_3_b Conc_3_b Well_ID_R3
+1     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA         NA
+2     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA         NA
+3     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA         NA
+4     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA         NA
+5     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA         NA
+6     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA         NA
+  Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3 Count.R3 Mean.R3 Std.Dev.R3
+1        NA            NA        NA        NA       NA      NA         NA
+2        NA            NA        NA        NA       NA      NA         NA
+3        NA            NA        NA        NA       NA      NA         NA
+4        NA            NA        NA        NA       NA      NA         NA
+5        NA            NA        NA        NA       NA      NA         NA
+6        NA            NA        NA        NA       NA      NA         NA
+  CV.....R3 Well.2.R3 Conc.Dil.2.R3 X450.2.R3 Conc.2.R3
+1        NA        NA            NA        NA        NA
+2        NA        NA            NA        NA        NA
+3        NA        NA            NA        NA        NA
+4        NA        NA            NA        NA        NA
+5        NA        NA            NA        NA        NA
+6        NA        NA            NA        NA        NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ige) <span class="co">#let&#39;s us see the composition of the columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&#39;data.frame&#39;:   597 obs. of  56 variables:
+ $ Sample_ID      : chr  &quot;CGNAUT003-08AUG23&quot; NA &quot;CGA8TH002-11AUG23&quot; NA ...
+ $ Plate_FirstRun : int  1 NA 1 NA 1 NA 1 NA 1 NA ...
+ $ Well.ID_1      : chr  &quot;SPL1&quot; NA &quot;SPL2&quot; NA ...
+ $ Well_1_a       : chr  &quot;A3&quot; NA &quot;B3&quot; NA ...
+ $ Conc.Dil_1_a   : logi  NA NA NA NA NA NA ...
+ $ X450_1_a       : num  0.156 NA 1.242 NA 0.166 ...
+ $ Conc_1_a       : chr  &quot;2.752&quot; NA &quot;42.97&quot; NA ...
+ $ Count_1        : int  2 NA 2 NA 2 NA 2 NA 2 NA ...
+ $ Mean_1         : num  2.74 NA 39.6 NA 3.11 ...
+ $ Std.Dev_1      : num  0.021 NA 4.772 NA 0.085 ...
+ $ CV_1           : chr  &quot;0.781&quot; NA &quot;12.051&quot; NA ...
+ $ Well_1_b       : chr  &quot;A4&quot; NA &quot;B4&quot; NA ...
+ $ Conc.Dil_1_b   : logi  NA NA NA NA NA NA ...
+ $ X450_1_b       : num  0.155 NA 1.1 NA 0.17 NA 0.123 NA 0.128 NA ...
+ $ Conc_1_b       : chr  &quot;2.722&quot; NA &quot;36.222&quot; NA ...
+ $ Plate_SecondRun: int  NA NA 12 NA NA NA 12 NA 12 NA ...
+ $ Well.ID_2      : chr  NA NA &quot;SPL28&quot; NA ...
+ $ Well_2_a       : chr  NA NA &quot;D9&quot; NA ...
+ $ Conc.Dil_2_a   : logi  NA NA NA NA NA NA ...
+ $ X450_2_a       : num  NA NA 0.626 NA NA NA 0.109 NA 0.107 NA ...
+ $ Conc_2_a       : num  NA NA 32.5 NA NA ...
+ $ Count_2        : int  NA NA 2 NA NA NA 2 NA 2 NA ...
+ $ Mean_2         : num  NA NA 33.7 NA NA ...
+ $ Std.Dev_2      : num  NA NA 1.71 NA NA ...
+ $ CV_2           : num  NA NA 5.08 NA NA ...
+ $ Well_2_b       : chr  NA NA &quot;D10&quot; NA ...
+ $ Conc.Dil_2_b   : logi  NA NA NA NA NA NA ...
+ $ X450_2_b       : num  NA NA 0.662 NA NA NA 0.114 NA 0.115 NA ...
+ $ Conc_2_b       : num  NA NA 34.9 NA NA ...
+ $ Plate_ThirdRun : int  NA NA NA NA NA NA NA NA NA NA ...
+ $ Well.ID_3      : chr  NA NA NA NA ...
+ $ Well_3_a       : chr  NA NA NA NA ...
+ $ Conc.Dil_3_a   : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_3_a       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Conc_3_a       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Count_3        : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Mean_3         : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Std.Dev_3      : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ CV_3           : chr  NA NA NA NA ...
+ $ Well_3_b       : chr  NA NA NA NA ...
+ $ Conc.Dil_3_b   : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_3_b       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Conc_3_b       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ Well_ID_R3     : logi  NA NA NA NA NA NA ...
+ $ Well.1.R3      : logi  NA NA NA NA NA NA ...
+ $ Conc.Dil.1.R3  : logi  NA NA NA NA NA NA ...
+ $ X450.1.R3      : logi  NA NA NA NA NA NA ...
+ $ Conc.1.R3      : logi  NA NA NA NA NA NA ...
+ $ Count.R3       : logi  NA NA NA NA NA NA ...
+ $ Mean.R3        : logi  NA NA NA NA NA NA ...
+ $ Std.Dev.R3     : logi  NA NA NA NA NA NA ...
+ $ CV.....R3      : logi  NA NA NA NA NA NA ...
+ $ Well.2.R3      : logi  NA NA NA NA NA NA ...
+ $ Conc.Dil.2.R3  : logi  NA NA NA NA NA NA ...
+ $ X450.2.R3      : logi  NA NA NA NA NA NA ...
+ $ Conc.2.R3      : logi  NA NA NA NA NA NA ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of rows in CRP:&quot;</span>, <span class="fu">nrow</span>(ige))) <span class="co">#let&#39;s us see how many rows there are</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;Number of rows in CRP: 597&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ige)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Sample_ID&quot;       &quot;Plate_FirstRun&quot;  &quot;Well.ID_1&quot;       &quot;Well_1_a&quot;       
+ [5] &quot;Conc.Dil_1_a&quot;    &quot;X450_1_a&quot;        &quot;Conc_1_a&quot;        &quot;Count_1&quot;        
+ [9] &quot;Mean_1&quot;          &quot;Std.Dev_1&quot;       &quot;CV_1&quot;            &quot;Well_1_b&quot;       
+[13] &quot;Conc.Dil_1_b&quot;    &quot;X450_1_b&quot;        &quot;Conc_1_b&quot;        &quot;Plate_SecondRun&quot;
+[17] &quot;Well.ID_2&quot;       &quot;Well_2_a&quot;        &quot;Conc.Dil_2_a&quot;    &quot;X450_2_a&quot;       
+[21] &quot;Conc_2_a&quot;        &quot;Count_2&quot;         &quot;Mean_2&quot;          &quot;Std.Dev_2&quot;      
+[25] &quot;CV_2&quot;            &quot;Well_2_b&quot;        &quot;Conc.Dil_2_b&quot;    &quot;X450_2_b&quot;       
+[29] &quot;Conc_2_b&quot;        &quot;Plate_ThirdRun&quot;  &quot;Well.ID_3&quot;       &quot;Well_3_a&quot;       
+[33] &quot;Conc.Dil_3_a&quot;    &quot;X450_3_a&quot;        &quot;Conc_3_a&quot;        &quot;Count_3&quot;        
+[37] &quot;Mean_3&quot;          &quot;Std.Dev_3&quot;       &quot;CV_3&quot;            &quot;Well_3_b&quot;       
+[41] &quot;Conc.Dil_3_b&quot;    &quot;X450_3_b&quot;        &quot;Conc_3_b&quot;        &quot;Well_ID_R3&quot;     
+[45] &quot;Well.1.R3&quot;       &quot;Conc.Dil.1.R3&quot;   &quot;X450.1.R3&quot;       &quot;Conc.1.R3&quot;      
+[49] &quot;Count.R3&quot;        &quot;Mean.R3&quot;         &quot;Std.Dev.R3&quot;      &quot;CV.....R3&quot;      
+[53] &quot;Well.2.R3&quot;       &quot;Conc.Dil.2.R3&quot;   &quot;X450.2.R3&quot;       &quot;Conc.2.R3&quot;      </code></pre>
+</div>
+</div>
+</section>
+<section id="il-6-1" class="level3">
+<h3 class="anchored" data-anchor-id="il-6-1">Il-6</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(il6) <span class="co">#let&#39;s us see the first 6 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sample_ID Plate_FirstRun Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a
+1 CGNAUT003-08AUG23              1      SPL1       A3           NA    0.242
+2              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+3 CGA8TH002-11AUG23              1      SPL2       B3           NA    0.195
+4              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+5 CG9C4X027-15AUG23              1      SPL3       C3           NA    0.100
+6              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+  Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1 Well_1_b Conc.Dil_1_b X450_1_b
+1    0.242       2  0.221     0.030 13.789       A4           NA    0.199
+2       NA      NA   &lt;NA&gt;        NA     NA     &lt;NA&gt;           NA       NA
+3    0.195       2  0.222     0.037 16.919       B4           NA    0.248
+4       NA      NA   &lt;NA&gt;        NA     NA     &lt;NA&gt;           NA       NA
+5    0.100       2  0.097     0.005  5.129       C4           NA    0.093
+6       NA      NA   &lt;NA&gt;        NA     NA     &lt;NA&gt;           NA       NA
+  Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a Conc.Dil_2_a X450_2_a Conc_2_a
+1    0.199              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+2       NA              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+3    0.248               9      SPL1       A3           NA    0.177   25.744
+4       NA              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+5    0.093              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+6       NA              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+  Count_2 Mean_2 Std.Dev_2   CV_2 Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b
+1      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+2      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+3       2  29.18     4.859 16.652       A4           NA     0.22   32.615
+4      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+5      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+6      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+  Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a X450_3_a Conc_3_a Count_3
+1             NA        NA       NA           NA       NA       NA      NA
+2             NA        NA       NA           NA       NA       NA      NA
+3             NA        NA       NA           NA       NA       NA      NA
+4             NA        NA       NA           NA       NA       NA      NA
+5             NA        NA       NA           NA       NA       NA      NA
+6             NA        NA       NA           NA       NA       NA      NA
+  Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b X450_3_b Conc_3_b
+1     NA        NA   NA       NA           NA       NA       NA
+2     NA        NA   NA       NA           NA       NA       NA
+3     NA        NA   NA       NA           NA       NA       NA
+4     NA        NA   NA       NA           NA       NA       NA
+5     NA        NA   NA       NA           NA       NA       NA
+6     NA        NA   NA       NA           NA       NA       NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(il6) <span class="co">#let&#39;s us see the composition of the columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&#39;data.frame&#39;:   483 obs. of  43 variables:
+ $ Sample_ID      : chr  &quot;CGNAUT003-08AUG23&quot; NA &quot;CGA8TH002-11AUG23&quot; NA ...
+ $ Plate_FirstRun : int  1 NA 1 NA 1 NA 1 NA 1 NA ...
+ $ Well.ID_1      : chr  &quot;SPL1&quot; NA &quot;SPL2&quot; NA ...
+ $ Well_1_a       : chr  &quot;A3&quot; NA &quot;B3&quot; NA ...
+ $ Conc.Dil_1_a   : logi  NA NA NA NA NA NA ...
+ $ X450_1_a       : num  0.242 NA 0.195 NA 0.1 NA 0.145 NA 0.145 NA ...
+ $ Conc_1_a       : num  0.242 NA 0.195 NA 0.1 NA 0.145 NA 0.145 NA ...
+ $ Count_1        : int  2 NA 2 NA 2 NA 2 NA 2 NA ...
+ $ Mean_1         : chr  &quot;0.221&quot; NA &quot;0.222&quot; NA ...
+ $ Std.Dev_1      : num  0.03 NA 0.037 NA 0.005 NA 0.018 NA 0.015 NA ...
+ $ CV_1           : num  13.79 NA 16.92 NA 5.13 ...
+ $ Well_1_b       : chr  &quot;A4&quot; NA &quot;B4&quot; NA ...
+ $ Conc.Dil_1_b   : logi  NA NA NA NA NA NA ...
+ $ X450_1_b       : num  0.199 NA 0.248 NA 0.093 NA 0.12 NA 0.124 NA ...
+ $ Conc_1_b       : num  0.199 NA 0.248 NA 0.093 NA 0.12 NA 0.124 NA ...
+ $ Plate_SecondRun: int  NA NA 9 NA NA NA 9 NA 9 NA ...
+ $ Well.ID_2      : chr  NA NA &quot;SPL1&quot; NA ...
+ $ Well_2_a       : chr  NA NA &quot;A3&quot; NA ...
+ $ Conc.Dil_2_a   : logi  NA NA NA NA NA NA ...
+ $ X450_2_a       : num  NA NA 0.177 NA NA NA 0.085 NA 0.154 NA ...
+ $ Conc_2_a       : num  NA NA 25.7 NA NA ...
+ $ Count_2        : int  NA NA 2 NA NA NA 2 NA 2 NA ...
+ $ Mean_2         : num  NA NA 29.2 NA NA ...
+ $ Std.Dev_2      : num  NA NA 4.86 NA NA ...
+ $ CV_2           : num  NA NA 16.7 NA NA ...
+ $ Well_2_b       : chr  NA NA &quot;A4&quot; NA ...
+ $ Conc.Dil_2_b   : logi  NA NA NA NA NA NA ...
+ $ X450_2_b       : num  NA NA 0.22 NA NA NA 0.108 NA 0.159 NA ...
+ $ Conc_2_b       : num  NA NA 32.6 NA NA ...
+ $ Plate_ThirdRun : logi  NA NA NA NA NA NA ...
+ $ Well.ID_3      : logi  NA NA NA NA NA NA ...
+ $ Well_3_a       : logi  NA NA NA NA NA NA ...
+ $ Conc.Dil_3_a   : logi  NA NA NA NA NA NA ...
+ $ X450_3_a       : logi  NA NA NA NA NA NA ...
+ $ Conc_3_a       : logi  NA NA NA NA NA NA ...
+ $ Count_3        : logi  NA NA NA NA NA NA ...
+ $ Mean_3         : logi  NA NA NA NA NA NA ...
+ $ Std.Dev_3      : logi  NA NA NA NA NA NA ...
+ $ CV_3           : logi  NA NA NA NA NA NA ...
+ $ Well_3_b       : logi  NA NA NA NA NA NA ...
+ $ Conc.Dil_3_b   : logi  NA NA NA NA NA NA ...
+ $ X450_3_b       : logi  NA NA NA NA NA NA ...
+ $ Conc_3_b       : logi  NA NA NA NA NA NA ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of rows in CRP:&quot;</span>, <span class="fu">nrow</span>(il6))) <span class="co">#let&#39;s us see how many rows there are</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;Number of rows in CRP: 483&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(il6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Sample_ID&quot;       &quot;Plate_FirstRun&quot;  &quot;Well.ID_1&quot;       &quot;Well_1_a&quot;       
+ [5] &quot;Conc.Dil_1_a&quot;    &quot;X450_1_a&quot;        &quot;Conc_1_a&quot;        &quot;Count_1&quot;        
+ [9] &quot;Mean_1&quot;          &quot;Std.Dev_1&quot;       &quot;CV_1&quot;            &quot;Well_1_b&quot;       
+[13] &quot;Conc.Dil_1_b&quot;    &quot;X450_1_b&quot;        &quot;Conc_1_b&quot;        &quot;Plate_SecondRun&quot;
+[17] &quot;Well.ID_2&quot;       &quot;Well_2_a&quot;        &quot;Conc.Dil_2_a&quot;    &quot;X450_2_a&quot;       
+[21] &quot;Conc_2_a&quot;        &quot;Count_2&quot;         &quot;Mean_2&quot;          &quot;Std.Dev_2&quot;      
+[25] &quot;CV_2&quot;            &quot;Well_2_b&quot;        &quot;Conc.Dil_2_b&quot;    &quot;X450_2_b&quot;       
+[29] &quot;Conc_2_b&quot;        &quot;Plate_ThirdRun&quot;  &quot;Well.ID_3&quot;       &quot;Well_3_a&quot;       
+[33] &quot;Conc.Dil_3_a&quot;    &quot;X450_3_a&quot;        &quot;Conc_3_a&quot;        &quot;Count_3&quot;        
+[37] &quot;Mean_3&quot;          &quot;Std.Dev_3&quot;       &quot;CV_3&quot;            &quot;Well_3_b&quot;       
+[41] &quot;Conc.Dil_3_b&quot;    &quot;X450_3_b&quot;        &quot;Conc_3_b&quot;       </code></pre>
+</div>
+</div>
+<p>What do we notice here after looking at each of the three documents? This will help direct our next steps. - Head shows us that every other row is blank - Structure (str()) tells us that the Sample_ID column is a “character” class, and we can see the classes of the other columns too. You can also see how it lists all of the columns in the format $ [column name]. This is a good reminder that you can reference columns with the $ character. - number of rows (nrow) tells us there are 545 rows. But we can also see this from structure, which told us there are 545 observations (rows) of 56 variables (columns). Rows/observations and Columns/variables are interchangeable terminology. You will start thinking of data frames as variables being the measures for each observation (person, etc.) - column names (colnames) simply lists out the names of the columns. Here it is easy to see that any column name thar begins with a number now has an X in front of it. You might have also noticed this in head() and str().</p>
+<p>Some background about these files that will help us: - the suffix _1 denotes the first run (consists of two measurements) for that individual. _2 or _3 denotes the second or third run for that sample. Every new/next run starts with a column Plate_SecondRun or Plate_ThirdRun so it is easy to understand we are switching runs - The suffix _a and _b denote the two measurements from a single run</p>
+</section>
+<section id="anomalies" class="level3">
+<h3 class="anchored" data-anchor-id="anomalies">Anomalies?</h3>
+<p>using these steps we should be looking for anomalies in the data frames. Let’s take a look at the CRP columns again:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(crp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Sample_ID&quot;       &quot;Plate_FirstRun&quot;  &quot;Well.ID_1&quot;       &quot;Well_1_a&quot;       
+ [5] &quot;Conc.Dil_1_a&quot;    &quot;X450_1_a&quot;        &quot;Conc_1_a&quot;        &quot;Count_1&quot;        
+ [9] &quot;Mean_1&quot;          &quot;Std.Dev_1&quot;       &quot;CV_1&quot;            &quot;Well_1_b&quot;       
+[13] &quot;Conc.Dil_1_b&quot;    &quot;X450_1_b&quot;        &quot;Conc_1_b&quot;        &quot;Plate_SecondRun&quot;
+[17] &quot;Well.ID_2&quot;       &quot;Well_2_a&quot;        &quot;Conc.Dil_2_a&quot;    &quot;X450_2_a&quot;       
+[21] &quot;Conc_2_a&quot;        &quot;Count_2&quot;         &quot;Mean_2&quot;          &quot;Std.Dev_2&quot;      
+[25] &quot;CV_2&quot;            &quot;Well_2_b&quot;        &quot;Conc.Dil_2_b&quot;    &quot;X450_2_b&quot;       
+[29] &quot;Conc_2_b&quot;        &quot;Plate_ThirdRun&quot;  &quot;Well.ID_3&quot;       &quot;Well_3_a&quot;       
+[33] &quot;Conc.Dil_3_a&quot;    &quot;X450_3_a&quot;        &quot;Conc_3_a&quot;        &quot;Count_3&quot;        
+[37] &quot;Mean_3&quot;          &quot;Std.Dev_3&quot;       &quot;CV_3&quot;            &quot;Well_3_b&quot;       
+[41] &quot;Conc.Dil_3_b&quot;    &quot;X450_3_b&quot;        &quot;Conc_3_b&quot;        &quot;Well_ID_R3&quot;     
+[45] &quot;Well.1.R3&quot;       &quot;Conc.Dil.1.R3&quot;   &quot;X450.1.R3&quot;       &quot;Conc.1.R3&quot;      
+[49] &quot;Count.R3&quot;        &quot;Mean.R3&quot;         &quot;Std.Dev.R3&quot;      &quot;CV.....R3&quot;      
+[53] &quot;Well.2.R3&quot;       &quot;Conc.Dil.2.R3&quot;   &quot;X450.2.R3&quot;       &quot;Conc.2.R3&quot;      </code></pre>
+</div>
+</div>
+<p>What happens after the column Conc_3_b?</p>
+<p>Let’s take a closer look by indexing a vector saved from colnames. We can figure this out by looking at the output of column names. The number in brackets right before the start of a new line tells us the indexed position of that string. So if a row in the output begins with 41, then you just need to count in from there to get the indexed position of the string you’re interested in. A vector is really just a list of things, though I will not refer to them as lists generally because “list” has its own definition of R that is more expansive. So you can reference the 18th, 26th, 47th, etc item in a vector, just like if you had a numbered list for say, groceries, or to do items.</p>
+<p>Square brackets tell R to index/subset (look inside) the vector based on what you tell it inside the square brackets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>crp.columns <span class="ot">&lt;-</span> <span class="fu">colnames</span>(crp)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>crp.columns[<span class="dv">44</span><span class="sc">:</span><span class="dv">56</span>] <span class="co">#Here we are telling R, &quot;give us the 44th to 56th items in this vector&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Well_ID_R3&quot;    &quot;Well.1.R3&quot;     &quot;Conc.Dil.1.R3&quot; &quot;X450.1.R3&quot;    
+ [5] &quot;Conc.1.R3&quot;     &quot;Count.R3&quot;      &quot;Mean.R3&quot;       &quot;Std.Dev.R3&quot;   
+ [9] &quot;CV.....R3&quot;     &quot;Well.2.R3&quot;     &quot;Conc.Dil.2.R3&quot; &quot;X450.2.R3&quot;    
+[13] &quot;Conc.2.R3&quot;    </code></pre>
+</div>
+</div>
+<p>Do you see how the pattern I outlined above breaks? <strong>We should check the content of these columns to see if they’re empty.</strong> They are likely a holdover from before we changed the column name convention and we can remove them later (if they’re empty!) I’m going to show you three methods for looking at this.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>crp <span class="sc">%&gt;%</span> <span class="fu">select</span>(Well_ID_R3<span class="sc">:</span>Conc.<span class="fl">2.</span>R3) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Well_ID_R3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Well_ID_R3    Well.1.R3     Conc.Dil.1.R3 X450.1.R3     Conc.1.R3    
+ [6] Count.R3      Mean.R3       Std.Dev.R3    CV.....R3     Well.2.R3    
+[11] Conc.Dil.2.R3 X450.2.R3     Conc.2.R3    
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>crp <span class="sc">%&gt;%</span> <span class="fu">select</span>(Well_ID_R3<span class="sc">:</span>Conc.<span class="fl">2.</span>R3) <span class="sc">%&gt;%</span> <span class="fu">sapply</span>(anyNA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Well_ID_R3     Well.1.R3 Conc.Dil.1.R3     X450.1.R3     Conc.1.R3 
+         TRUE          TRUE          TRUE          TRUE          TRUE 
+     Count.R3       Mean.R3    Std.Dev.R3     CV.....R3     Well.2.R3 
+         TRUE          TRUE          TRUE          TRUE          TRUE 
+Conc.Dil.2.R3     X450.2.R3     Conc.2.R3 
+         TRUE          TRUE          TRUE </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>crp <span class="sc">%&gt;%</span> <span class="fu">select</span>(Well_ID_R3<span class="sc">:</span>Conc.<span class="fl">2.</span>R3) <span class="sc">%&gt;%</span> <span class="fu">complete.cases</span>() <span class="sc">%&gt;%</span> <span class="st">`</span><span class="at">[</span><span class="st">`</span>(. <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>logical(0)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>empty_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(crp)[<span class="fu">colSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(crp)) <span class="sc">==</span> <span class="dv">0</span>]</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>empty_cols</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Conc.Dil_1_a&quot;  &quot;Conc.Dil_1_b&quot;  &quot;Conc.Dil_2_a&quot;  &quot;Conc.Dil_2_b&quot; 
+ [5] &quot;Conc.Dil_3_a&quot;  &quot;Conc.Dil_3_b&quot;  &quot;Well_ID_R3&quot;    &quot;Well.1.R3&quot;    
+ [9] &quot;Conc.Dil.1.R3&quot; &quot;X450.1.R3&quot;     &quot;Conc.1.R3&quot;     &quot;Count.R3&quot;     
+[13] &quot;Mean.R3&quot;       &quot;Std.Dev.R3&quot;    &quot;CV.....R3&quot;     &quot;Well.2.R3&quot;    
+[17] &quot;Conc.Dil.2.R3&quot; &quot;X450.2.R3&quot;     &quot;Conc.2.R3&quot;    </code></pre>
+</div>
+</div>
+<p>Let’s break down what each line of code is doing. Each one starts with a tidyverse select function where we take from the entire dataframe, just a selection of columns we want to look at, referenced by name as if they are vector objects (this is a hallmark of tidy syntax, but you’ll have to learn where you reference columns just by name or with dataframe$ beforehand). The output of this alone is a dataframe which is then fed into the next pipe.</p>
+<ol type="1">
+<li>filter to rows where Well_ID_R3 is NOT missing (! means NOT). This one only checks for non missing values in one of the columns, but knowing the structure of the dataframe (that each observation should have something in the Well ID column) makes this pretty reliable.</li>
+<li>apply the function anyNA() to all of the columns. TRUE means there is an NA in that column. That doesn’t tell us if there are ALL missing values in a column. So ultimately a little useless</li>
+<li>Takes the dataframe, looks for complete cases where there is a value in every column (returns a vector with the length of the nrow, so 546 that is either TRUE for a complete case or FALSE for an incomplete case) and then subsets to where there are TRUES. If there are none, then there is likely no data in these columns.</li>
+<li>This last one is different. It starts with creating a logical vector for each column where TRUE is not misisng and FALSE is missing. TRUE is a value of 1 and FALSE is a value of 0, so colsums is adding up the values of each column. If it sums to 0, that means every value in that column is FALSE, i.e., missing data. Columns that have a value of 0 are listed from the whole dataframe with names(crp)[], remember the square brackets means we are indexing/subsetting an object to whatever is inside the square brackets. Then we print the results from empty_cols.</li>
+</ol>
+<p>The first three of these methods could be used to get us a closer to a conclusion about these columns. from this information we can determine that there is nothing in them so they are safe to remove later. The fourth method is a surefire way, but required a bit more digging online to find so it was not the fastest. But now we have the code, which is nice!</p>
+<p><strong>Do you need to do this for the IgE and Il-6 files? If so, repeat the process!</strong> Looks like igE does.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>ige.columns <span class="ot">&lt;-</span> <span class="fu">colnames</span>(ige)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>ige.columns[<span class="dv">44</span><span class="sc">:</span><span class="dv">56</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Well_ID_R3&quot;    &quot;Well.1.R3&quot;     &quot;Conc.Dil.1.R3&quot; &quot;X450.1.R3&quot;    
+ [5] &quot;Conc.1.R3&quot;     &quot;Count.R3&quot;      &quot;Mean.R3&quot;       &quot;Std.Dev.R3&quot;   
+ [9] &quot;CV.....R3&quot;     &quot;Well.2.R3&quot;     &quot;Conc.Dil.2.R3&quot; &quot;X450.2.R3&quot;    
+[13] &quot;Conc.2.R3&quot;    </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>empty_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(ige)[<span class="fu">colSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(ige)) <span class="sc">==</span> <span class="dv">0</span>]</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>empty_cols</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Conc.Dil_1_a&quot;  &quot;Conc.Dil_1_b&quot;  &quot;Conc.Dil_2_a&quot;  &quot;Conc.Dil_2_b&quot; 
+ [5] &quot;Well_ID_R3&quot;    &quot;Well.1.R3&quot;     &quot;Conc.Dil.1.R3&quot; &quot;X450.1.R3&quot;    
+ [9] &quot;Conc.1.R3&quot;     &quot;Count.R3&quot;      &quot;Mean.R3&quot;       &quot;Std.Dev.R3&quot;   
+[13] &quot;CV.....R3&quot;     &quot;Well.2.R3&quot;     &quot;Conc.Dil.2.R3&quot; &quot;X450.2.R3&quot;    
+[17] &quot;Conc.2.R3&quot;    </code></pre>
+</div>
+</div>
+<p>What we saw with CRP is also true here which is that not only are the last 13 columns empty, but all conc.dil columns are also empty. I don’t necessarily want to remove these because their being empty might be meaningful.</p>
+<p>Quick check for il-6</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>empty_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(il6)[<span class="fu">colSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(il6)) <span class="sc">==</span> <span class="dv">0</span>]</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>empty_cols</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Conc.Dil_1_a&quot;   &quot;Conc.Dil_1_b&quot;   &quot;Conc.Dil_2_a&quot;   &quot;Conc.Dil_2_b&quot;  
+ [5] &quot;Plate_ThirdRun&quot; &quot;Well.ID_3&quot;      &quot;Well_3_a&quot;       &quot;Conc.Dil_3_a&quot;  
+ [9] &quot;X450_3_a&quot;       &quot;Conc_3_a&quot;       &quot;Count_3&quot;        &quot;Mean_3&quot;        
+[13] &quot;Std.Dev_3&quot;      &quot;CV_3&quot;           &quot;Well_3_b&quot;       &quot;Conc.Dil_3_b&quot;  
+[17] &quot;X450_3_b&quot;       &quot;Conc_3_b&quot;      </code></pre>
+</div>
+</div>
+<p>Interestingly, everything from Plate_ThirdRun to Conc_3_b can be removed because nobody had a 3rd run.</p>
+</section>
+</section>
+</section>
+<section id="remove-blank-rows" class="level1">
+<h1>Remove Blank Rows</h1>
+<p>These data files were intentionally made with a blank row between observations due to the structure of the raw data. So we definitely need to remove those blank rows. HOWEVER, this is a step you’ll likely have to do with nearly every file read in because inevitably you’ll end up with weird erroneous rows for different reasons.</p>
+<p>Here’s a reliable way to remove blank rows: - Identify a column that should have a value no matter what (i.e., a column from the 3rd run of measurements would not be suitable since not every sample had a 2nd or 3rd run) - Filter to the rows where they are NOT NA (not missing). (recall from before, filter(!is.na(column))) - Save back into the variable name</p>
+<p><strong>which column do you think is most suitable for filtering on?</strong> Instead of me writing the entire code for CRP, use the following code and enter in the column you want to filter to. You can try different columns if you want before you save it back into the crp variable. crp |&gt; filter(!is.na(COLUMN)) |&gt; nrow() #first let’s just see how many rows this will leave us with crp &lt;- crp |&gt; filter(!is.na(COLUMN)) head(crp)</p>
+<section id="crp-2" class="level2">
+<h2 class="anchored" data-anchor-id="crp-2">CRP</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>crp <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID)) <span class="sc">|&gt;</span> <span class="fu">nrow</span>() <span class="co">#first let&#39;s just see how many rows this will leave us with</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 272</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> crp <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID))</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Sample_ID Plate_FirstRun Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a
 1  CGNAUT003-08AUG23              1      SPL1       A3           NA    0.731
@@ -2309,9 +2906,9 @@ vertical-align: -.125em;
 1       2  1.711     0.083 4.877       A4           NA    1.845    1.770
 2       2  0.655     0.016 2.373       B4           NA    0.734    0.666
 3       2  0.577     0.001 0.245       C4           NA    0.645    0.578
-4      NA     NA        NA  &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+4      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
 5       2  0.498     0.026 5.254       D4           NA    0.584    0.516
-6      NA     NA        NA  &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+6      NA     NA        NA    NA     &lt;NA&gt;           NA       NA       NA
   Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a X450_3_a Conc_3_a Count_3
 1             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
 2             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
@@ -2320,12 +2917,12 @@ vertical-align: -.125em;
 5             11      SPL9       A5           NA    0.646    0.584       2
 6             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
   Mean_3 Std.Dev_3  CV_3 Well_3_b Conc.Dil_3_b X450_3_b Conc_3_b Well_ID_R3
-1     NA      &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
-2     NA      &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
-3     NA      &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
-4     NA      &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+1     NA        NA    NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+2     NA        NA    NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+3     NA        NA    NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+4     NA        NA    NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
 5  0.607     0.033 5.363       A6           NA    0.692     0.63         NA
-6     NA      &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
+6     NA        NA    NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
   Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3 Count.R3 Mean.R3 Std.Dev.R3
 1        NA            NA        NA        NA       NA      NA         NA
 2        NA            NA        NA        NA       NA      NA         NA
@@ -2341,196 +2938,1136 @@ vertical-align: -.125em;
 5        NA        NA            NA        NA        NA
 6        NA        NA            NA        NA        NA</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#IgE</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Il-6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>I chose Sample_ID because I know, from looking at the data, that each row where there is data, there is a Sample_ID filled in. In fact, I probably don’t want rows that were missing a Sample_ID to begin with because</p>
+<p>How many rows are left for crp? 272</p>
 </section>
-<section id="compare" class="level1">
-<h1>Compare</h1>
-<p>Ultimately, we are doing a validation of the results by checking to see that every individual Sample_ID has a match in the IDs dataframe, which contains every ID that has a result. Since the results were input basically by hand, it’s importany anytime you do data entry to check it!</p>
-<p>We want to see who is missing from the results files. We can do this by comparing the Sample_ID column from the key files to the Name column of the data entry files.</p>
-<p>Very preliminarily, we can compare by the number of rows. Here is some code that will tell us about the number of rows in CRP IDs vs CRP reults. Note that I included some text to contextualize the output using cat(), but this is not necessary. Pay attention to the nrow() function and the subtraction between those.</p>
+<section id="ige-2" class="level2">
+<h2 class="anchored" data-anchor-id="ige-2">IgE</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Master list of CRP IDs Number of Rows:&quot;</span>, <span class="fu">nrow</span>(crp_ids), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="do">## IgE</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>ige <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID)) <span class="sc">|&gt;</span> <span class="fu">nrow</span>() <span class="co">#first let&#39;s just see how many rows this will leave us with</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Master list of CRP IDs Number of Rows: 273 </code></pre>
+<pre><code>[1] 299</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;CRP results Rows:&quot;</span>, <span class="fu">nrow</span>(crp_results), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>CRP results Rows: 273 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Difference between number of rows we expect (master list) and what we have so far (results):&quot;</span>, <span class="fu">nrow</span>(crp_ids)<span class="sc">-</span><span class="fu">nrow</span>(crp_results), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Difference between number of rows we expect (master list) and what we have so far (results): 0 </code></pre>
-</div>
-</div>
-<p>How many rows are there in difference?</p>
-<p>Now do this for the other biomarkers:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## IgE</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Master list of IgE IDs Number of Rows:&quot;</span>, <span class="fu">nrow</span>(ige_ids), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Master list of IgE IDs Number of Rows: 299 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;IgE results Rows:&quot;</span>, <span class="fu">nrow</span>(ige_results), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>IgE results Rows: 299 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Difference between number of rows we expect (master list) and what we have so far (results):&quot;</span>, <span class="fu">nrow</span>(ige_ids)<span class="sc">-</span><span class="fu">nrow</span>(ige_results), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Difference between number of rows we expect (master list) and what we have so far (results): 0 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Il-6</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Master list of Il-6 IDs Number of Rows:&quot;</span>, <span class="fu">nrow</span>(il6_ids), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Master list of Il-6 IDs Number of Rows: 242 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Il-6 results Rows:&quot;</span>, <span class="fu">nrow</span>(il6_results), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Il-6 results Rows: 242 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Difference between number of rows we expect (master list) and what we have so far (results):&quot;</span>, <span class="fu">nrow</span>(il6_ids)<span class="sc">-</span><span class="fu">nrow</span>(il6_results), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Difference between number of rows we expect (master list) and what we have so far (results): 0 </code></pre>
-</div>
-</div>
-<p>do these have any discrepancies in their row numbers?</p>
-<p>Even if there are no discrepancies, we still need to make sure all of the sample IDs are the same between files!</p>
-<section id="compare-ids" class="level2">
-<h2 class="anchored" data-anchor-id="compare-ids">Compare IDs</h2>
-<p>We checked how many rows are missing, but now we need to check if there are any mutually exclusive sample IDs. To do this we can use the setdiff() command which compares two vectors and returns the “extras” from the first argument not present in the second.</p>
-<p>Here’s how to do this with CRP. crp_ids$SampleID means we are only looking at that column. The $ let’s us specify a column within a dataframe.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>crp.names <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(crp_ids<span class="sc">$</span>SampleID, crp_results<span class="sc">$</span>Sample_ID)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp.names) <span class="co">#showing the first 6 entries</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;NIAYBT566-09JAN23&quot;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(crp.names) <span class="co">#what is the class of this vector?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;character&quot;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Number of names not present in data entry:&quot;</span>, <span class="fu">length</span>(crp.names), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of names not present in data entry: 1 </code></pre>
-</div>
-</div>
-<p>Are there any IDs present in the ID file that are not present in the results? Who is it?</p>
-<p>Since these have the same number of rows, this also means we need to check the other direction, because there is one row that is in results but now in IDs. Let’s check that one.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(crp_results<span class="sc">$</span>Sample_ID, crp_ids<span class="sc">$</span>SampleID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-</div>
-<p>In results, there are NO sample IDs present that are not also present in the IDs file. This is interesting! We will have to investigate.</p>
-<p>For now though, let’s try doing this with the other biomarkers:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#IgE</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>ige.names <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(ige_ids<span class="sc">$</span>SampleID, ige_results<span class="sc">$</span>Sample_ID)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ige.names) <span class="co">#showing the first 6 entries</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ige.names) <span class="co">#what is the class of this vector?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;character&quot;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Number of names not present in data entry:&quot;</span>, <span class="fu">length</span>(ige.names), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of names not present in data entry: 0 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(ige_results<span class="sc">$</span>Sample_ID, ige_ids<span class="sc">$</span>SampleID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Il-6</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>il6.names <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(il6_ids<span class="sc">$</span>SampleID, il6_results<span class="sc">$</span>Sample_ID)</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(il6.names) <span class="co">#showing the first 6 entries</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(il6.names) <span class="co">#what is the class of this vector?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;character&quot;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Number of names not present in data entry:&quot;</span>, <span class="fu">length</span>(il6.names), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of names not present in data entry: 0 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(il6_results<span class="sc">$</span>Sample_ID, il6_ids<span class="sc">$</span>SampleID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
-</div>
-</div>
-<p>What were the results here? Any differences?</p>
-<p>In this step, we created vectors of the rows that exist in the master Id key list but do not exist in the results list. We checked that these have the same length as what we expected from the difference in rows between the two data frames. We also confirmed there were no extra rows in the data entry that we weren’t expecting.</p>
-</section>
-</section>
-<section id="filter" class="level1">
-<h1>Filter</h1>
-<p>Finally, let’s filter the master ID list to see what the deal is with our missing results. The Master ID list contains the location of where to find the results from the original/raw data output.</p>
-<p>Now, since we only found ONE discrepancy in CRP, we could filter directly to that ID, but this is not very replicable. If we updated the files we read into this script, and now there are new rows and possibly new discrepancies, we want code that will be robust to those source chages. Here’s how we can accomplish that:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>missing.crp <span class="ot">&lt;-</span> crp_ids <span class="sc">%&gt;%</span> <span class="fu">filter</span>(SampleID <span class="sc">%in%</span> crp.names)</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(missing.crp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           SampleID Plate WellID Plate_R_1 WellID_R_1 Plate_R_2 WellID_R_2
-1 NIAYBT566-09JAN23     6  SPL22        NA       &lt;NA&gt;        NA       &lt;NA&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Number of rows in the CRP missing sample IDs:&quot;</span>, <span class="fu">nrow</span>(missing.crp)) <span class="co">#recall that it should be 1 row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of rows in the CRP missing sample IDs: 1</code></pre>
-</div>
-</div>
-<p>Here’s what this is doing: using crp_ids, filter the sampel ID column to anything in the crp.names object. Then we look at the first 6 rows of this to see what it looks like. Finally we have it tell us the number of rows in the CRP missing sample Ids data frame</p>
-<p>Ok so we are missing a result from Plate 6 and well Id SPL22. This should help us fill in the missing result.</p>
-<p>But recall that the results file has the same number of rows as the IDs folder, but none of them were unique IDs to that file, so what’s going on here? Why do they have the same number of rows?</p>
-<p>Likely, there is a duplicate row. Let’s see if we can draw out the duplicated sample IDs.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>crp_results<span class="sc">$</span>Sample_ID[<span class="fu">duplicated</span>(crp_results<span class="sc">$</span>Sample_ID)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;NIA2W3698-08DEC23&quot;</code></pre>
-</div>
-</div>
-<p>This is a little weird, but what this is doing is just taking the column Sample_ID from crp_results and is subsetting it to the duplicated row within the column. This is essentially filtering, but only using base R (no package)</p>
-<p>But now we can filter the entire data frame to this result and see what’s going on.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>crp_duplicate <span class="ot">&lt;-</span> crp_results<span class="sc">$</span>Sample_ID[<span class="fu">duplicated</span>(crp_results<span class="sc">$</span>Sample_ID)] <span class="co">#first saving to an object</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co">#now let&#39;s try a filter:</span></span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>crp_results <span class="sc">|&gt;</span> <span class="fu">filter</span>(Sample_ID <span class="sc">==</span> crp_duplicate) <span class="co">#take the crp_results data frame and filter it where Sample_ID column matches (==) the value saved in crp_duplicate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>ige <span class="ot">&lt;-</span> ige <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID))</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(il6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Sample_ID Plate_FirstRun Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a
-1 NIA2W3698-08DEC23              6     SPL22       F7           NA    0.121
-2 NIA2W3698-08DEC23              6     SPL29       E9           NA    0.528
+1 CGNAUT003-08AUG23              1      SPL1       A3           NA    0.242
+2              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+3 CGA8TH002-11AUG23              1      SPL2       B3           NA    0.195
+4              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+5 CG9C4X027-15AUG23              1      SPL3       C3           NA    0.100
+6              &lt;NA&gt;             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
   Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1 Well_1_b Conc.Dil_1_b X450_1_b
-1    0.747       2   0.86     0.159 18.548       F8           NA    0.139
-2    7.052       2  7.161     0.154  2.155      E10           NA    0.540
+1    0.242       2  0.221     0.030 13.789       A4           NA    0.199
+2       NA      NA   &lt;NA&gt;        NA     NA     &lt;NA&gt;           NA       NA
+3    0.195       2  0.222     0.037 16.919       B4           NA    0.248
+4       NA      NA   &lt;NA&gt;        NA     NA     &lt;NA&gt;           NA       NA
+5    0.100       2  0.097     0.005  5.129       C4           NA    0.093
+6       NA      NA   &lt;NA&gt;        NA     NA     &lt;NA&gt;           NA       NA
   Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a Conc.Dil_2_a X450_2_a Conc_2_a
-1    0.972              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
-2     7.27              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
-  Count_2 Mean_2 Std.Dev_2 CV_2 Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b
-1      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
-2      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+1    0.199              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+2       NA              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+3    0.248               9      SPL1       A3           NA    0.177   25.744
+4       NA              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+5    0.093              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+6       NA              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+  Count_2 Mean_2 Std.Dev_2   CV_2 Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b
+1      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+2      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+3       2  29.18     4.859 16.652       A4           NA     0.22   32.615
+4      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+5      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+6      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
   Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a X450_3_a Conc_3_a Count_3
-1             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
-2             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA      NA
-  Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b X450_3_b Conc_3_b Well_ID_R3
-1     NA      &lt;NA&gt; &lt;NA&gt;     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
-2     NA      &lt;NA&gt; &lt;NA&gt;     &lt;NA&gt;           NA       NA     &lt;NA&gt;         NA
-  Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3 Count.R3 Mean.R3 Std.Dev.R3
-1        NA            NA        NA        NA       NA      NA         NA
-2        NA            NA        NA        NA       NA      NA         NA
-  CV.....R3 Well.2.R3 Conc.Dil.2.R3 X450.2.R3 Conc.2.R3
-1        NA        NA            NA        NA        NA
-2        NA        NA            NA        NA        NA</code></pre>
+1             NA        NA       NA           NA       NA       NA      NA
+2             NA        NA       NA           NA       NA       NA      NA
+3             NA        NA       NA           NA       NA       NA      NA
+4             NA        NA       NA           NA       NA       NA      NA
+5             NA        NA       NA           NA       NA       NA      NA
+6             NA        NA       NA           NA       NA       NA      NA
+  Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b X450_3_b Conc_3_b
+1     NA        NA   NA       NA           NA       NA       NA
+2     NA        NA   NA       NA           NA       NA       NA
+3     NA        NA   NA       NA           NA       NA       NA
+4     NA        NA   NA       NA           NA       NA       NA
+5     NA        NA   NA       NA           NA       NA       NA
+6     NA        NA   NA       NA           NA       NA       NA</code></pre>
 </div>
 </div>
-<p>Note: |&gt; is the base r pipe, which was added recently. My keyboard shortcut for the tidyverse pipe (%&gt;%) has been changed over to the base r pipe, so I sometimes use them interchangeably. There are some functional differences, but they shouldn’t get in the way for what we are doing.</p>
-<p>Ok interesting! What do we notice here? Are these completely identical rows or are there differences? What plate and Well.IDs are used here? This might help us get to the bottom of the missing result!</p>
-<p>If you would like, you can try doing these filter steps with IgE and Il-6 just to practice writing out the code. Otherwise this is it!</p>
+<p>How many rows are left for ige? 299</p>
+</section>
+<section id="il-6-2" class="level2">
+<h2 class="anchored" data-anchor-id="il-6-2">Il-6</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>il6 <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID)) <span class="sc">|&gt;</span> <span class="fu">nrow</span>() <span class="co">#first let&#39;s just see how many rows this will leave us with</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 242</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>il6 <span class="ot">&lt;-</span> il6 <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Sample_ID))</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(il6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Sample_ID Plate_FirstRun Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a
+1  CGNAUT003-08AUG23              1      SPL1       A3           NA    0.242
+2  CGA8TH002-11AUG23              1      SPL2       B3           NA    0.195
+3  CG9C4X027-15AUG23              1      SPL3       C3           NA    0.100
+4  CGW80A004-15AUG23              1      SPL4       D3           NA    0.145
+5 CGC8J44005-17AUG23              1      SPL5       E3           NA    0.145
+6  NIXBOH908-23AUG23              1      SPL6       F3           NA    0.084
+  Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1 Well_1_b Conc.Dil_1_b X450_1_b
+1    0.242       2  0.221     0.030 13.789       A4           NA    0.199
+2    0.195       2  0.222     0.037 16.919       B4           NA    0.248
+3    0.100       2  0.097     0.005  5.129       C4           NA    0.093
+4    0.145       2  0.133     0.018 13.342       D4           NA    0.120
+5    0.145       2  0.135     0.015 11.040       E4           NA    0.124
+6    0.084       2  0.084     0.001  0.847       F4           NA    0.083
+  Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a Conc.Dil_2_a X450_2_a Conc_2_a
+1    0.199              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+2    0.248               9      SPL1       A3           NA    0.177   25.744
+3    0.093              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+4    0.120               9      SPL2       B3           NA    0.085   11.041
+5    0.124               9      SPL3       C3           NA    0.154   22.068
+6    0.083              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+  Count_2 Mean_2 Std.Dev_2   CV_2 Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b
+1      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+2       2 29.180     4.859 16.652       A4           NA    0.220   32.615
+3      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+4       2 12.879     2.599 20.180       B4           NA    0.108   14.717
+5       2 22.468     0.565  2.515       C4           NA    0.159   22.867
+6      NA     NA        NA     NA     &lt;NA&gt;           NA       NA       NA
+  Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a X450_3_a Conc_3_a Count_3
+1             NA        NA       NA           NA       NA       NA      NA
+2             NA        NA       NA           NA       NA       NA      NA
+3             NA        NA       NA           NA       NA       NA      NA
+4             NA        NA       NA           NA       NA       NA      NA
+5             NA        NA       NA           NA       NA       NA      NA
+6             NA        NA       NA           NA       NA       NA      NA
+  Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b X450_3_b Conc_3_b
+1     NA        NA   NA       NA           NA       NA       NA
+2     NA        NA   NA       NA           NA       NA       NA
+3     NA        NA   NA       NA           NA       NA       NA
+4     NA        NA   NA       NA           NA       NA       NA
+5     NA        NA   NA       NA           NA       NA       NA
+6     NA        NA   NA       NA           NA       NA       NA</code></pre>
+</div>
+</div>
+<p>How many rows are left for crp? 242</p>
+</section>
+<section id="x-dilutions" class="level2">
+<h2 class="anchored" data-anchor-id="x-dilutions">2x dilutions</h2>
+<p>There’s also one more thing we need to do. Some of the IDs are marked -D2 at the end. This is a 2x dilution from the assays. Let’s filter those out to their own dataframe and get rid of them in the main dataframe. Once we do this with CRP, you should check to see if this needs to be done for IgE and Il-6 (use R instead of visually inspecting the dataframe) and perform the same actions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>crp <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(Sample_ID, <span class="st">&quot;-D2&quot;</span>)) <span class="co">#see what this looks like</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  Sample_ID Plate_FirstRun Well.ID_1 Well_1_a Conc.Dil_1_a
+1      CG9C4X027-15AUG23-D2             11      SPL8       H3           NA
+2      NIJADE426-22JAN24-D2             11     SPL18       B7           NA
+3  CGKERDELIA005-05MAR24-D2             11     SPL24       H7           NA
+4 CGALEXANDRA239-14FEB24-D2             11     SPL25       A9           NA
+5     CGGELIN103-19MAR24-D2             11     SPL26       B9           NA
+6      NIWRLB733-19DEC23-D2             11     SPL28       D9           NA
+7      NI9K4T457-29APR23-D2             11     SPL29       E9           NA
+8      NIK4NT894-23JAN23-D2             12      SPL9       A5           NA
+  X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1  CV_1 Well_1_b Conc.Dil_1_b
+1    2.757   44.972       2 45.698     1.027 2.247       H4           NA
+2    3.450  &gt;52.500       0     NA        NA    NA       B8           NA
+3    3.066   50.966       2 51.125     0.224 0.438       H8           NA
+4    2.379   37.951       2 39.472     2.152 5.452      A10           NA
+5    2.587   41.774       2 43.831     2.909 6.637      B10           NA
+6    2.669   43.308       2 43.874     0.801 1.825      D10           NA
+7    3.903  &gt;52.500       0     NA        NA    NA      E10           NA
+8    1.474   35.264       2 37.112     2.614 7.043       A6           NA
+  X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a Conc.Dil_2_a X450_2_a
+1    2.833   46.424              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+2    3.352  &gt;52.500              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+3    3.082   51.283              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+4    2.545   40.994              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+5    2.805   45.887              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+6    2.729   44.441              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+7    3.930  &gt;52.500              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+8    1.601    38.96              NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA
+  Conc_2_a Count_2 Mean_2 Std.Dev_2 CV_2 Well_2_b Conc.Dil_2_b X450_2_b
+1       NA      NA     NA        NA   NA     &lt;NA&gt;           NA       NA
+2       NA      NA     NA        NA   NA     &lt;NA&gt;           NA       NA
+3       NA      NA     NA        NA   NA     &lt;NA&gt;           NA       NA
+4       NA      NA     NA        NA   NA     &lt;NA&gt;           NA       NA
+5       NA      NA     NA        NA   NA     &lt;NA&gt;           NA       NA
+6       NA      NA     NA        NA   NA     &lt;NA&gt;           NA       NA
+7       NA      NA     NA        NA   NA     &lt;NA&gt;           NA       NA
+8       NA      NA     NA        NA   NA     &lt;NA&gt;           NA       NA
+  Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a X450_3_a Conc_3_a
+1       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+2       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+3       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+4       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+5       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+6       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+7       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+8       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA       NA       NA
+  Count_3 Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b X450_3_b Conc_3_b
+1      NA     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;
+2      NA     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;
+3      NA     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;
+4      NA     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;
+5      NA     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;
+6      NA     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;
+7      NA     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;
+8      NA     NA        NA   NA     &lt;NA&gt;           NA       NA     &lt;NA&gt;
+  Well_ID_R3 Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3 Count.R3 Mean.R3
+1         NA        NA            NA        NA        NA       NA      NA
+2         NA        NA            NA        NA        NA       NA      NA
+3         NA        NA            NA        NA        NA       NA      NA
+4         NA        NA            NA        NA        NA       NA      NA
+5         NA        NA            NA        NA        NA       NA      NA
+6         NA        NA            NA        NA        NA       NA      NA
+7         NA        NA            NA        NA        NA       NA      NA
+8         NA        NA            NA        NA        NA       NA      NA
+  Std.Dev.R3 CV.....R3 Well.2.R3 Conc.Dil.2.R3 X450.2.R3 Conc.2.R3
+1         NA        NA        NA            NA        NA        NA
+2         NA        NA        NA            NA        NA        NA
+3         NA        NA        NA            NA        NA        NA
+4         NA        NA        NA            NA        NA        NA
+5         NA        NA        NA            NA        NA        NA
+6         NA        NA        NA            NA        NA        NA
+7         NA        NA        NA            NA        NA        NA
+8         NA        NA        NA            NA        NA        NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>crp<span class="fl">.2</span>xdilutions <span class="ot">&lt;-</span> crp <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(Sample_ID, <span class="st">&quot;-D2&quot;</span>)) <span class="co">#save</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> crp <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(Sample_ID, <span class="st">&quot;-D2&quot;</span>)) <span class="co">#save the inverse as our new CRP object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s worry about the 2xdilutions object later.</p>
+<section id="check-ige" class="level3">
+<h3 class="anchored" data-anchor-id="check-ige">Check IgE</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>ige <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(Sample_ID, <span class="st">&quot;-D2&quot;</span>)) <span class="co">#see what this looks like</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Sample_ID       Plate_FirstRun  Well.ID_1       Well_1_a       
+ [5] Conc.Dil_1_a    X450_1_a        Conc_1_a        Count_1        
+ [9] Mean_1          Std.Dev_1       CV_1            Well_1_b       
+[13] Conc.Dil_1_b    X450_1_b        Conc_1_b        Plate_SecondRun
+[17] Well.ID_2       Well_2_a        Conc.Dil_2_a    X450_2_a       
+[21] Conc_2_a        Count_2         Mean_2          Std.Dev_2      
+[25] CV_2            Well_2_b        Conc.Dil_2_b    X450_2_b       
+[29] Conc_2_b        Plate_ThirdRun  Well.ID_3       Well_3_a       
+[33] Conc.Dil_3_a    X450_3_a        Conc_3_a        Count_3        
+[37] Mean_3          Std.Dev_3       CV_3            Well_3_b       
+[41] Conc.Dil_3_b    X450_3_b        Conc_3_b        Well_ID_R3     
+[45] Well.1.R3       Conc.Dil.1.R3   X450.1.R3       Conc.1.R3      
+[49] Count.R3        Mean.R3         Std.Dev.R3      CV.....R3      
+[53] Well.2.R3       Conc.Dil.2.R3   X450.2.R3       Conc.2.R3      
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+</div>
+<p>IgE does not have any 2x dilutions</p>
+</section>
+<section id="check-il-6" class="level3">
+<h3 class="anchored" data-anchor-id="check-il-6">Check Il-6</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>il6 <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(Sample_ID, <span class="st">&quot;-D2&quot;</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] Sample_ID       Plate_FirstRun  Well.ID_1       Well_1_a       
+ [5] Conc.Dil_1_a    X450_1_a        Conc_1_a        Count_1        
+ [9] Mean_1          Std.Dev_1       CV_1            Well_1_b       
+[13] Conc.Dil_1_b    X450_1_b        Conc_1_b        Plate_SecondRun
+[17] Well.ID_2       Well_2_a        Conc.Dil_2_a    X450_2_a       
+[21] Conc_2_a        Count_2         Mean_2          Std.Dev_2      
+[25] CV_2            Well_2_b        Conc.Dil_2_b    X450_2_b       
+[29] Conc_2_b        Plate_ThirdRun  Well.ID_3       Well_3_a       
+[33] Conc.Dil_3_a    X450_3_a        Conc_3_a        Count_3        
+[37] Mean_3          Std.Dev_3       CV_3            Well_3_b       
+[41] Conc.Dil_3_b    X450_3_b        Conc_3_b       
+&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+</div>
+</div>
+<p>Il6 does not have any 2xdiutions</p>
+</section>
+</section>
+</section>
+<section id="split-ids-and-dates" class="level1">
+<h1>Split IDs and Dates</h1>
+<p>Ok now that we have whittled down the the files to their essential rows, we need to split the Sample_ID column into ID and Date of measurement.</p>
+<p>The logic for splitting objects in a vector is to identify a common element that will easily create the split. In this case, that would be the hyphen between the ID and the date. In other cases it might be by number of digits/characters from the beginning or the end (we will see this later) or match a pattern of sorts. Keep it simple!</p>
+<p>Luckily there is a very easy tidyverse function separate() that will make this extremely easy!</p>
+<section id="crp-3" class="level2">
+<h2 class="anchored" data-anchor-id="crp-3">CRP</h2>
+<p>I will do CRP, you do the rest!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> crp <span class="sc">|&gt;</span> <span class="fu">separate</span>(Sample_ID, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Date.of.measurement.Blood&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>you will see a warning. This is because there are repeated samples that got D2 appended to the end. Let’s ignore that for now.</p>
+<p>Let’s check this worked!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1 Well_1_a
+1  CGNAUT003                   08AUG23              1      SPL1       A3
+2  CGA8TH002                   11AUG23              1      SPL2       B3
+3  CG9C4X027                   15AUG23              1      SPL3       C3
+4  CGW80A004                   15AUG23              1      SPL4       D3
+5 CGC8J44005                   17AUG23              1      SPL5       E3
+6  NIXBOH908                   23AUG23              1      SPL6       F3
+  Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1 Well_1_b
+1           NA    0.731    0.653       2  0.705     0.073 10.331       A4
+2           NA    0.449    0.372       2  0.388     0.023  6.014       B4
+3           NA    1.678    1.601       2  1.559     0.059  3.811       C4
+4           NA    1.821    1.744       2  1.791     0.067  3.751       D4
+5           NA    1.580    1.503       2  1.503     0.001  0.047       E4
+6           NA    0.098    0.021       2  0.022     0.001  6.578       F4
+  Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1           NA    0.834    0.756               8      SPL1       A3
+2           NA    0.482    0.404               8      SPL2       B3
+3           NA    1.594    1.517               8      SPL3       C3
+4           NA    1.916    1.839              NA      &lt;NA&gt;     &lt;NA&gt;
+5           NA    1.581    1.504               8      SPL4       D3
+6           NA    0.100    0.023              NA      &lt;NA&gt;     &lt;NA&gt;
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2  CV_2 Well_2_b
+1           NA    1.727    1.652       2  1.711     0.083 4.877       A4
+2           NA    0.712    0.644       2  0.655     0.016 2.373       B4
+3           NA    0.643    0.576       2  0.577     0.001 0.245       C4
+4           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+5           NA    0.547    0.480       2  0.498     0.026 5.254       D4
+6           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+  Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a
+1           NA    1.845    1.770             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+2           NA    0.734    0.666             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+3           NA    0.645    0.578             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+4           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+5           NA    0.584    0.516             11      SPL9       A5           NA
+6           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3  CV_3 Well_3_b Conc.Dil_3_b
+1       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+2       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+3       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+4       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+5    0.646    0.584       2  0.607     0.033 5.363       A6           NA
+6       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+  X450_3_b Conc_3_b Well_ID_R3 Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3
+1       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+2       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+3       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+4       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+5    0.692     0.63         NA        NA            NA        NA        NA
+6       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+  Count.R3 Mean.R3 Std.Dev.R3 CV.....R3 Well.2.R3 Conc.Dil.2.R3 X450.2.R3
+1       NA      NA         NA        NA        NA            NA        NA
+2       NA      NA         NA        NA        NA            NA        NA
+3       NA      NA         NA        NA        NA            NA        NA
+4       NA      NA         NA        NA        NA            NA        NA
+5       NA      NA         NA        NA        NA            NA        NA
+6       NA      NA         NA        NA        NA            NA        NA
+  Conc.2.R3
+1        NA
+2        NA
+3        NA
+4        NA
+5        NA
+6        NA</code></pre>
+</div>
+</div>
+<p>Looks good! Two new columns where Sample_ID used to be.</p>
+</section>
+<section id="ige-3" class="level2">
+<h2 class="anchored" data-anchor-id="ige-3">IgE</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#IgE</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>ige <span class="ot">&lt;-</span> ige <span class="sc">|&gt;</span> <span class="fu">separate</span>(Sample_ID, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Date.of.measurement.Blood&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ige)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1 Well_1_a
+1  CGNAUT003                   08AUG23              1      SPL1       A3
+2  CGA8TH002                   11AUG23              1      SPL2       B3
+3  CG9C4X027                   15AUG23              1      SPL3       C3
+4  CGW80A004                   15AUG23              1      SPL4       D3
+5 CGC8J44005                   17AUG23              1      SPL5       E3
+6  NIXBOH908                   23AUG23              1      SPL6       F3
+  Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1 Well_1_b
+1           NA    0.156    2.752       2  2.737     0.021  0.781       A4
+2           NA    1.242    42.97       2 39.596     4.772 12.051       B4
+3           NA    0.166    3.054       2  3.114     0.085  2.736       C4
+4           NA    0.132    2.023       2  1.885     0.195 10.361       D4
+5           NA    0.141    2.297       2  2.099     0.281 13.375       E4
+6           NA    1.239   42.821       2 39.817     4.248 10.669       F4
+  Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1           NA    0.155    2.722              NA      &lt;NA&gt;     &lt;NA&gt;
+2           NA    1.100   36.222              12     SPL28       D9
+3           NA    0.170    3.174              NA      &lt;NA&gt;     &lt;NA&gt;
+4           NA    0.123    1.747              12     SPL27       C9
+5           NA    0.128      1.9              12     SPL26       B9
+6           NA    1.113   36.813              12     SPL25       A9
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2  CV_2 Well_2_b
+1           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+2           NA    0.626   32.476       2 33.688     1.713 5.085      D10
+3           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+4           NA    0.109    2.887       2  3.017     0.185 6.127      C10
+5           NA    0.107    2.782       2  2.991     0.296 9.892      B10
+6           NA    0.647   33.882       2 33.848     0.048 0.141      A10
+  Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a
+1           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+2           NA    0.662   34.899             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+3           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+4           NA    0.114    3.148             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+5           NA    0.115    3.200             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+6           NA    0.646   33.814             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b
+1       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+2       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+3       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+4       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+5       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+6       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_b Conc_3_b Well_ID_R3 Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3
+1       NA       NA         NA        NA            NA        NA        NA
+2       NA       NA         NA        NA            NA        NA        NA
+3       NA       NA         NA        NA            NA        NA        NA
+4       NA       NA         NA        NA            NA        NA        NA
+5       NA       NA         NA        NA            NA        NA        NA
+6       NA       NA         NA        NA            NA        NA        NA
+  Count.R3 Mean.R3 Std.Dev.R3 CV.....R3 Well.2.R3 Conc.Dil.2.R3 X450.2.R3
+1       NA      NA         NA        NA        NA            NA        NA
+2       NA      NA         NA        NA        NA            NA        NA
+3       NA      NA         NA        NA        NA            NA        NA
+4       NA      NA         NA        NA        NA            NA        NA
+5       NA      NA         NA        NA        NA            NA        NA
+6       NA      NA         NA        NA        NA            NA        NA
+  Conc.2.R3
+1        NA
+2        NA
+3        NA
+4        NA
+5        NA
+6        NA</code></pre>
+</div>
+</div>
+</section>
+<section id="il-6-3" class="level2">
+<h2 class="anchored" data-anchor-id="il-6-3">Il-6</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Il-6</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>il6 <span class="ot">&lt;-</span> il6 <span class="sc">|&gt;</span> <span class="fu">separate</span>(Sample_ID, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;Date.of.measurement.Blood&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(il6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1 Well_1_a
+1  CGNAUT003                   08AUG23              1      SPL1       A3
+2  CGA8TH002                   11AUG23              1      SPL2       B3
+3  CG9C4X027                   15AUG23              1      SPL3       C3
+4  CGW80A004                   15AUG23              1      SPL4       D3
+5 CGC8J44005                   17AUG23              1      SPL5       E3
+6  NIXBOH908                   23AUG23              1      SPL6       F3
+  Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1 Well_1_b
+1           NA    0.242    0.242       2  0.221     0.030 13.789       A4
+2           NA    0.195    0.195       2  0.222     0.037 16.919       B4
+3           NA    0.100    0.100       2  0.097     0.005  5.129       C4
+4           NA    0.145    0.145       2  0.133     0.018 13.342       D4
+5           NA    0.145    0.145       2  0.135     0.015 11.040       E4
+6           NA    0.084    0.084       2  0.084     0.001  0.847       F4
+  Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1           NA    0.199    0.199              NA      &lt;NA&gt;     &lt;NA&gt;
+2           NA    0.248    0.248               9      SPL1       A3
+3           NA    0.093    0.093              NA      &lt;NA&gt;     &lt;NA&gt;
+4           NA    0.120    0.120               9      SPL2       B3
+5           NA    0.124    0.124               9      SPL3       C3
+6           NA    0.083    0.083              NA      &lt;NA&gt;     &lt;NA&gt;
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2   CV_2 Well_2_b
+1           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+2           NA    0.177   25.744       2 29.180     4.859 16.652       A4
+3           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+4           NA    0.085   11.041       2 12.879     2.599 20.180       B4
+5           NA    0.154   22.068       2 22.468     0.565  2.515       C4
+6           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+  Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a
+1           NA       NA       NA             NA        NA       NA           NA
+2           NA    0.220   32.615             NA        NA       NA           NA
+3           NA       NA       NA             NA        NA       NA           NA
+4           NA    0.108   14.717             NA        NA       NA           NA
+5           NA    0.159   22.867             NA        NA       NA           NA
+6           NA       NA       NA             NA        NA       NA           NA
+  X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b
+1       NA       NA      NA     NA        NA   NA       NA           NA
+2       NA       NA      NA     NA        NA   NA       NA           NA
+3       NA       NA      NA     NA        NA   NA       NA           NA
+4       NA       NA      NA     NA        NA   NA       NA           NA
+5       NA       NA      NA     NA        NA   NA       NA           NA
+6       NA       NA      NA     NA        NA   NA       NA           NA
+  X450_3_b Conc_3_b
+1       NA       NA
+2       NA       NA
+3       NA       NA
+4       NA       NA
+5       NA       NA
+6       NA       NA</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="reformat-date" class="level1">
+<h1>Reformat Date</h1>
+<p>Working with dates can be complicated. The best way to do this in R is with the package {lubridate} which is within the tidyverse, so it’s already installed and loaded in.</p>
+<p>This will be pretty easy because the Date column is already all in one format. I’ll do CRP, you do the rest.</p>
+<section id="crp-4" class="level2">
+<h2 class="anchored" data-anchor-id="crp-4">CRP</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>crp<span class="sc">$</span>Date.of.measurement.Blood <span class="ot">&lt;-</span> <span class="fu">parse_date_time2</span>(crp<span class="sc">$</span>Date.of.measurement.Blood, <span class="at">orders =</span> <span class="st">&quot;dmy&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;America/Belize&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This function applies just to the column of dates you want to work on. the orders argument tells the function the format it is in right now, which in this case was day month year. The tz argument tells the function which timezone we are in. Even though we aren’t dealing with time, this is important for making things consistent across data frames (for later).</p>
+<p>Let’s see the output</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>crp <span class="sc">|&gt;</span> <span class="fu">select</span>(Date.of.measurement.Blood) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Date.of.measurement.Blood
+1                2023-08-08
+2                2023-08-11
+3                2023-08-15
+4                2023-08-15
+5                2023-08-17
+6                2023-08-23</code></pre>
+</div>
+</div>
+<p>This is international date format: YYYY-MM-DD. This is the most unambiguous way to write the date without writing out the month. It goes from least specific date unit to most specific (year to month to day).</p>
+<p>Now do the rest:</p>
+</section>
+<section id="ige-4" class="level2">
+<h2 class="anchored" data-anchor-id="ige-4">IgE</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>ige<span class="sc">$</span>Date.of.measurement.Blood <span class="ot">&lt;-</span> <span class="fu">parse_date_time2</span>(ige<span class="sc">$</span>Date.of.measurement.Blood, <span class="at">orders =</span> <span class="st">&quot;dmy&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;America/Belize&quot;</span>)</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>ige <span class="sc">|&gt;</span> <span class="fu">select</span>(Date.of.measurement.Blood) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Date.of.measurement.Blood
+1                2023-08-08
+2                2023-08-11
+3                2023-08-15
+4                2023-08-15
+5                2023-08-17
+6                2023-08-23</code></pre>
+</div>
+</div>
+</section>
+<section id="il-6-4" class="level2">
+<h2 class="anchored" data-anchor-id="il-6-4">Il-6</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>il6<span class="sc">$</span>Date.of.measurement.Blood <span class="ot">&lt;-</span> <span class="fu">parse_date_time2</span>(il6<span class="sc">$</span>Date.of.measurement.Blood, <span class="at">orders =</span> <span class="st">&quot;dmy&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;America/Belize&quot;</span>)</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>il6 <span class="sc">|&gt;</span> <span class="fu">select</span>(Date.of.measurement.Blood) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Date.of.measurement.Blood
+1                2023-08-08
+2                2023-08-11
+3                2023-08-15
+4                2023-08-15
+5                2023-08-17
+6                2023-08-23</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="derive-short-ids" class="level1">
+<h1>Derive Short IDs</h1>
+<p>This is going to be more string manipulation. The IDs in these files will not match the long IDs from other files, but the Short IDs will. For this we will be creating a new column called “Short.ID” within a mutate() function. We will take the last three digits from the ID column.</p>
+<section id="crp-5" class="level2">
+<h2 class="anchored" data-anchor-id="crp-5">CRP</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> crp <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Short.ID =</span> <span class="fu">str_sub</span>(crp<span class="sc">$</span>ID,<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span>)) <span class="sc">|&gt;</span> <span class="fu">relocate</span>(Short.ID, <span class="at">.after =</span> ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Read the help page for str_sub to see how this one works!</p>
+<section id="validation" class="level3">
+<h3 class="anchored" data-anchor-id="validation">validation</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Short.ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1
+1  CGNAUT003      003                2023-08-08              1      SPL1
+2  CGA8TH002      002                2023-08-11              1      SPL2
+3  CG9C4X027      027                2023-08-15              1      SPL3
+4  CGW80A004      004                2023-08-15              1      SPL4
+5 CGC8J44005      005                2023-08-17              1      SPL5
+6  NIXBOH908      908                2023-08-23              1      SPL6
+  Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1
+1       A3           NA    0.731    0.653       2  0.705     0.073 10.331
+2       B3           NA    0.449    0.372       2  0.388     0.023  6.014
+3       C3           NA    1.678    1.601       2  1.559     0.059  3.811
+4       D3           NA    1.821    1.744       2  1.791     0.067  3.751
+5       E3           NA    1.580    1.503       2  1.503     0.001  0.047
+6       F3           NA    0.098    0.021       2  0.022     0.001  6.578
+  Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1       A4           NA    0.834    0.756               8      SPL1       A3
+2       B4           NA    0.482    0.404               8      SPL2       B3
+3       C4           NA    1.594    1.517               8      SPL3       C3
+4       D4           NA    1.916    1.839              NA      &lt;NA&gt;     &lt;NA&gt;
+5       E4           NA    1.581    1.504               8      SPL4       D3
+6       F4           NA    0.100    0.023              NA      &lt;NA&gt;     &lt;NA&gt;
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2  CV_2 Well_2_b
+1           NA    1.727    1.652       2  1.711     0.083 4.877       A4
+2           NA    0.712    0.644       2  0.655     0.016 2.373       B4
+3           NA    0.643    0.576       2  0.577     0.001 0.245       C4
+4           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+5           NA    0.547    0.480       2  0.498     0.026 5.254       D4
+6           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+  Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a
+1           NA    1.845    1.770             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+2           NA    0.734    0.666             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+3           NA    0.645    0.578             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+4           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+5           NA    0.584    0.516             11      SPL9       A5           NA
+6           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3  CV_3 Well_3_b Conc.Dil_3_b
+1       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+2       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+3       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+4       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+5    0.646    0.584       2  0.607     0.033 5.363       A6           NA
+6       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+  X450_3_b Conc_3_b Well_ID_R3 Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3
+1       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+2       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+3       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+4       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+5    0.692     0.63         NA        NA            NA        NA        NA
+6       NA     &lt;NA&gt;         NA        NA            NA        NA        NA
+  Count.R3 Mean.R3 Std.Dev.R3 CV.....R3 Well.2.R3 Conc.Dil.2.R3 X450.2.R3
+1       NA      NA         NA        NA        NA            NA        NA
+2       NA      NA         NA        NA        NA            NA        NA
+3       NA      NA         NA        NA        NA            NA        NA
+4       NA      NA         NA        NA        NA            NA        NA
+5       NA      NA         NA        NA        NA            NA        NA
+6       NA      NA         NA        NA        NA            NA        NA
+  Conc.2.R3
+1        NA
+2        NA
+3        NA
+4        NA
+5        NA
+6        NA</code></pre>
+</div>
+</div>
+<p>So now you can see the Short ID next to the ID.</p>
+</section>
+</section>
+<section id="ige-5" class="level2">
+<h2 class="anchored" data-anchor-id="ige-5">IgE</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>ige <span class="ot">&lt;-</span> ige <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Short.ID =</span> <span class="fu">str_sub</span>(ige<span class="sc">$</span>ID,<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span>)) <span class="sc">|&gt;</span> <span class="fu">relocate</span>(Short.ID, <span class="at">.after =</span> ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="validation-1" class="level3">
+<h3 class="anchored" data-anchor-id="validation-1">validation</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ige)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Short.ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1
+1  CGNAUT003      003                2023-08-08              1      SPL1
+2  CGA8TH002      002                2023-08-11              1      SPL2
+3  CG9C4X027      027                2023-08-15              1      SPL3
+4  CGW80A004      004                2023-08-15              1      SPL4
+5 CGC8J44005      005                2023-08-17              1      SPL5
+6  NIXBOH908      908                2023-08-23              1      SPL6
+  Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1
+1       A3           NA    0.156    2.752       2  2.737     0.021  0.781
+2       B3           NA    1.242    42.97       2 39.596     4.772 12.051
+3       C3           NA    0.166    3.054       2  3.114     0.085  2.736
+4       D3           NA    0.132    2.023       2  1.885     0.195 10.361
+5       E3           NA    0.141    2.297       2  2.099     0.281 13.375
+6       F3           NA    1.239   42.821       2 39.817     4.248 10.669
+  Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1       A4           NA    0.155    2.722              NA      &lt;NA&gt;     &lt;NA&gt;
+2       B4           NA    1.100   36.222              12     SPL28       D9
+3       C4           NA    0.170    3.174              NA      &lt;NA&gt;     &lt;NA&gt;
+4       D4           NA    0.123    1.747              12     SPL27       C9
+5       E4           NA    0.128      1.9              12     SPL26       B9
+6       F4           NA    1.113   36.813              12     SPL25       A9
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2  CV_2 Well_2_b
+1           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+2           NA    0.626   32.476       2 33.688     1.713 5.085      D10
+3           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+4           NA    0.109    2.887       2  3.017     0.185 6.127      C10
+5           NA    0.107    2.782       2  2.991     0.296 9.892      B10
+6           NA    0.647   33.882       2 33.848     0.048 0.141      A10
+  Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a
+1           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+2           NA    0.662   34.899             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+3           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+4           NA    0.114    3.148             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+5           NA    0.115    3.200             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+6           NA    0.646   33.814             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b
+1       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+2       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+3       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+4       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+5       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+6       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_b Conc_3_b Well_ID_R3 Well.1.R3 Conc.Dil.1.R3 X450.1.R3 Conc.1.R3
+1       NA       NA         NA        NA            NA        NA        NA
+2       NA       NA         NA        NA            NA        NA        NA
+3       NA       NA         NA        NA            NA        NA        NA
+4       NA       NA         NA        NA            NA        NA        NA
+5       NA       NA         NA        NA            NA        NA        NA
+6       NA       NA         NA        NA            NA        NA        NA
+  Count.R3 Mean.R3 Std.Dev.R3 CV.....R3 Well.2.R3 Conc.Dil.2.R3 X450.2.R3
+1       NA      NA         NA        NA        NA            NA        NA
+2       NA      NA         NA        NA        NA            NA        NA
+3       NA      NA         NA        NA        NA            NA        NA
+4       NA      NA         NA        NA        NA            NA        NA
+5       NA      NA         NA        NA        NA            NA        NA
+6       NA      NA         NA        NA        NA            NA        NA
+  Conc.2.R3
+1        NA
+2        NA
+3        NA
+4        NA
+5        NA
+6        NA</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="il-6-5" class="level2">
+<h2 class="anchored" data-anchor-id="il-6-5">Il-6</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>il6 <span class="ot">&lt;-</span> il6 <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Short.ID =</span> <span class="fu">str_sub</span>(il6<span class="sc">$</span>ID,<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span>)) <span class="sc">|&gt;</span> <span class="fu">relocate</span>(Short.ID, <span class="at">.after =</span> ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="validation-2" class="level3">
+<h3 class="anchored" data-anchor-id="validation-2">validation</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(il6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Short.ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1
+1  CGNAUT003      003                2023-08-08              1      SPL1
+2  CGA8TH002      002                2023-08-11              1      SPL2
+3  CG9C4X027      027                2023-08-15              1      SPL3
+4  CGW80A004      004                2023-08-15              1      SPL4
+5 CGC8J44005      005                2023-08-17              1      SPL5
+6  NIXBOH908      908                2023-08-23              1      SPL6
+  Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1
+1       A3           NA    0.242    0.242       2  0.221     0.030 13.789
+2       B3           NA    0.195    0.195       2  0.222     0.037 16.919
+3       C3           NA    0.100    0.100       2  0.097     0.005  5.129
+4       D3           NA    0.145    0.145       2  0.133     0.018 13.342
+5       E3           NA    0.145    0.145       2  0.135     0.015 11.040
+6       F3           NA    0.084    0.084       2  0.084     0.001  0.847
+  Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1       A4           NA    0.199    0.199              NA      &lt;NA&gt;     &lt;NA&gt;
+2       B4           NA    0.248    0.248               9      SPL1       A3
+3       C4           NA    0.093    0.093              NA      &lt;NA&gt;     &lt;NA&gt;
+4       D4           NA    0.120    0.120               9      SPL2       B3
+5       E4           NA    0.124    0.124               9      SPL3       C3
+6       F4           NA    0.083    0.083              NA      &lt;NA&gt;     &lt;NA&gt;
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2   CV_2 Well_2_b
+1           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+2           NA    0.177   25.744       2 29.180     4.859 16.652       A4
+3           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+4           NA    0.085   11.041       2 12.879     2.599 20.180       B4
+5           NA    0.154   22.068       2 22.468     0.565  2.515       C4
+6           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+  Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a
+1           NA       NA       NA             NA        NA       NA           NA
+2           NA    0.220   32.615             NA        NA       NA           NA
+3           NA       NA       NA             NA        NA       NA           NA
+4           NA    0.108   14.717             NA        NA       NA           NA
+5           NA    0.159   22.867             NA        NA       NA           NA
+6           NA       NA       NA             NA        NA       NA           NA
+  X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b
+1       NA       NA      NA     NA        NA   NA       NA           NA
+2       NA       NA      NA     NA        NA   NA       NA           NA
+3       NA       NA      NA     NA        NA   NA       NA           NA
+4       NA       NA      NA     NA        NA   NA       NA           NA
+5       NA       NA      NA     NA        NA   NA       NA           NA
+6       NA       NA      NA     NA        NA   NA       NA           NA
+  X450_3_b Conc_3_b
+1       NA       NA
+2       NA       NA
+3       NA       NA
+4       NA       NA
+5       NA       NA
+6       NA       NA</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="select-columns" class="level1">
+<h1>Select columns</h1>
+<section id="remove-empty-columns" class="level2">
+<h2 class="anchored" data-anchor-id="remove-empty-columns">Remove empty columns</h2>
+<p>first let’s start with something easy. Let’s remove those columns at the end that don’t help us. This might only apply to CRP, but you should check the other ones too. You can’t blindly paste this code in for IgE and Il-6 because it will throw an error if they do not contain these columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>crp <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Well_ID_R3<span class="sc">:</span>Conc.<span class="fl">2.</span>R3)) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Short.ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1
+1  CGNAUT003      003                2023-08-08              1      SPL1
+2  CGA8TH002      002                2023-08-11              1      SPL2
+3  CG9C4X027      027                2023-08-15              1      SPL3
+4  CGW80A004      004                2023-08-15              1      SPL4
+5 CGC8J44005      005                2023-08-17              1      SPL5
+6  NIXBOH908      908                2023-08-23              1      SPL6
+  Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1
+1       A3           NA    0.731    0.653       2  0.705     0.073 10.331
+2       B3           NA    0.449    0.372       2  0.388     0.023  6.014
+3       C3           NA    1.678    1.601       2  1.559     0.059  3.811
+4       D3           NA    1.821    1.744       2  1.791     0.067  3.751
+5       E3           NA    1.580    1.503       2  1.503     0.001  0.047
+6       F3           NA    0.098    0.021       2  0.022     0.001  6.578
+  Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1       A4           NA    0.834    0.756               8      SPL1       A3
+2       B4           NA    0.482    0.404               8      SPL2       B3
+3       C4           NA    1.594    1.517               8      SPL3       C3
+4       D4           NA    1.916    1.839              NA      &lt;NA&gt;     &lt;NA&gt;
+5       E4           NA    1.581    1.504               8      SPL4       D3
+6       F4           NA    0.100    0.023              NA      &lt;NA&gt;     &lt;NA&gt;
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2  CV_2 Well_2_b
+1           NA    1.727    1.652       2  1.711     0.083 4.877       A4
+2           NA    0.712    0.644       2  0.655     0.016 2.373       B4
+3           NA    0.643    0.576       2  0.577     0.001 0.245       C4
+4           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+5           NA    0.547    0.480       2  0.498     0.026 5.254       D4
+6           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+  Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a
+1           NA    1.845    1.770             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+2           NA    0.734    0.666             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+3           NA    0.645    0.578             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+4           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+5           NA    0.584    0.516             11      SPL9       A5           NA
+6           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3  CV_3 Well_3_b Conc.Dil_3_b
+1       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+2       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+3       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+4       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+5    0.646    0.584       2  0.607     0.033 5.363       A6           NA
+6       NA       NA      NA     NA        NA    NA     &lt;NA&gt;           NA
+  X450_3_b Conc_3_b
+1       NA     &lt;NA&gt;
+2       NA     &lt;NA&gt;
+3       NA     &lt;NA&gt;
+4       NA     &lt;NA&gt;
+5    0.692     0.63
+6       NA     &lt;NA&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> crp <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Well_ID_R3<span class="sc">:</span>Conc.<span class="fl">2.</span>R3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Make sure to check this for IgE and Il-6 and perform it as necessary!</p>
+<section id="ige-6" class="level3">
+<h3 class="anchored" data-anchor-id="ige-6">ige</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>ige <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Well_ID_R3<span class="sc">:</span>Conc.<span class="fl">2.</span>R3)) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Short.ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1
+1  CGNAUT003      003                2023-08-08              1      SPL1
+2  CGA8TH002      002                2023-08-11              1      SPL2
+3  CG9C4X027      027                2023-08-15              1      SPL3
+4  CGW80A004      004                2023-08-15              1      SPL4
+5 CGC8J44005      005                2023-08-17              1      SPL5
+6  NIXBOH908      908                2023-08-23              1      SPL6
+  Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1
+1       A3           NA    0.156    2.752       2  2.737     0.021  0.781
+2       B3           NA    1.242    42.97       2 39.596     4.772 12.051
+3       C3           NA    0.166    3.054       2  3.114     0.085  2.736
+4       D3           NA    0.132    2.023       2  1.885     0.195 10.361
+5       E3           NA    0.141    2.297       2  2.099     0.281 13.375
+6       F3           NA    1.239   42.821       2 39.817     4.248 10.669
+  Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1       A4           NA    0.155    2.722              NA      &lt;NA&gt;     &lt;NA&gt;
+2       B4           NA    1.100   36.222              12     SPL28       D9
+3       C4           NA    0.170    3.174              NA      &lt;NA&gt;     &lt;NA&gt;
+4       D4           NA    0.123    1.747              12     SPL27       C9
+5       E4           NA    0.128      1.9              12     SPL26       B9
+6       F4           NA    1.113   36.813              12     SPL25       A9
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2  CV_2 Well_2_b
+1           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+2           NA    0.626   32.476       2 33.688     1.713 5.085      D10
+3           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+4           NA    0.109    2.887       2  3.017     0.185 6.127      C10
+5           NA    0.107    2.782       2  2.991     0.296 9.892      B10
+6           NA    0.647   33.882       2 33.848     0.048 0.141      A10
+  Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a Conc.Dil_3_a
+1           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+2           NA    0.662   34.899             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+3           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+4           NA    0.114    3.148             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+5           NA    0.115    3.200             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+6           NA    0.646   33.814             NA      &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3 CV_3 Well_3_b Conc.Dil_3_b
+1       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+2       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+3       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+4       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+5       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+6       NA       NA      NA     NA        NA &lt;NA&gt;     &lt;NA&gt;           NA
+  X450_3_b Conc_3_b
+1       NA       NA
+2       NA       NA
+3       NA       NA
+4       NA       NA
+5       NA       NA
+6       NA       NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>ige <span class="ot">&lt;-</span> ige <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Well_ID_R3<span class="sc">:</span>Conc.<span class="fl">2.</span>R3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="il6" class="level3">
+<h3 class="anchored" data-anchor-id="il6">il6</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>il6 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Plate_ThirdRun<span class="sc">:</span>Conc_3_b)) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          ID Short.ID Date.of.measurement.Blood Plate_FirstRun Well.ID_1
+1  CGNAUT003      003                2023-08-08              1      SPL1
+2  CGA8TH002      002                2023-08-11              1      SPL2
+3  CG9C4X027      027                2023-08-15              1      SPL3
+4  CGW80A004      004                2023-08-15              1      SPL4
+5 CGC8J44005      005                2023-08-17              1      SPL5
+6  NIXBOH908      908                2023-08-23              1      SPL6
+  Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1   CV_1
+1       A3           NA    0.242    0.242       2  0.221     0.030 13.789
+2       B3           NA    0.195    0.195       2  0.222     0.037 16.919
+3       C3           NA    0.100    0.100       2  0.097     0.005  5.129
+4       D3           NA    0.145    0.145       2  0.133     0.018 13.342
+5       E3           NA    0.145    0.145       2  0.135     0.015 11.040
+6       F3           NA    0.084    0.084       2  0.084     0.001  0.847
+  Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2 Well_2_a
+1       A4           NA    0.199    0.199              NA      &lt;NA&gt;     &lt;NA&gt;
+2       B4           NA    0.248    0.248               9      SPL1       A3
+3       C4           NA    0.093    0.093              NA      &lt;NA&gt;     &lt;NA&gt;
+4       D4           NA    0.120    0.120               9      SPL2       B3
+5       E4           NA    0.124    0.124               9      SPL3       C3
+6       F4           NA    0.083    0.083              NA      &lt;NA&gt;     &lt;NA&gt;
+  Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2   CV_2 Well_2_b
+1           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+2           NA    0.177   25.744       2 29.180     4.859 16.652       A4
+3           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+4           NA    0.085   11.041       2 12.879     2.599 20.180       B4
+5           NA    0.154   22.068       2 22.468     0.565  2.515       C4
+6           NA       NA       NA      NA     NA        NA     NA     &lt;NA&gt;
+  Conc.Dil_2_b X450_2_b Conc_2_b
+1           NA       NA       NA
+2           NA    0.220   32.615
+3           NA       NA       NA
+4           NA    0.108   14.717
+5           NA    0.159   22.867
+6           NA       NA       NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>il6 <span class="ot">&lt;-</span> il6 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Plate_ThirdRun<span class="sc">:</span>Conc_3_b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="choose-best-results" class="level2">
+<h2 class="anchored" data-anchor-id="choose-best-results">Choose best results</h2>
+<p>Ok this is going to get a lot more complicated. There are 45 columns in the CRP data frame. We don’t want to carry all of those over to our final spreadsheets because it will be too much. We also dont want all of the runs for every person, because they were rerurns to improve quality for most of them. We only want the highest quality results!</p>
+<p>I asked around to see the best way to decide this. The CV percentage is a quality assurance measure that tells you how close together the two measurements are for a single sample. (Or something like that, I’m actually not sure). I was told that the reruns were performed if the CV was too high. So we need to choose the run for each sample that has the LOWEST CV. I find it helpful to walk through the logic of what I’m doing, because that often helps frame the code I end up writing</p>
+<p>So here’s what we need to do: 1. Determine for each row the lowest CV between CV_1, CV_2, and CV_3 If they are missing CV_3, choose between CV_1 and CV_2 If missing CV_2 and CV_3, default to CV_1 2. Keep only the data from the run that corresponds to the lowest CV</p>
+<p>In full transparency, I’m going to ask chatGPT to help me write this, because it’s really complicated. But this is part of the process! Here’s the text I sent to Chat: “I have a 56 column data frame of results from an ELISA in R. The columns are results from up to three different runs on the same samples. If the CV% was too high in the first run, the sample was rerun. If it still wasn’t good, then it was rerun again. I want to keep the results for each row that go with the column with the lowest CV%. The columns for CV% are called CV_1, CV_2, and CV_3. As I understand it, I need to first determine (for each row) the lowest value between CV_1, CV_2, and CV_3 and make sure it is robust to NA values in CV_2 and CV_3 since not every row has a value in those columns. Then I need to keep only the columns that correspond to that CV value. If for example, it comes from CV_2, then I need to keep all columns that have a _2 in the name. They don’t all end with _2 though, so that might be tricky. Can you help me write this code, using the tidyverse?” I also made sure to give it the column names from crp so that it could tailor the code exactly to what we have, since I anticipate there will be a lot of pattern matching to pull the correct columns.</p>
+</section>
+<section id="crp-6" class="level2">
+<h2 class="anchored" data-anchor-id="crp-6">CRP</h2>
+<section id="convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings." class="level3">
+<h3 class="anchored" data-anchor-id="convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.">1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> crp <span class="sc">%&gt;%</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(</span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">matches</span>(<span class="st">&quot;_[123]$|_[123]_[a-z]$&quot;</span>) <span class="sc">&amp;</span> <span class="co">#two conditions to mutate across, the first is that it has a suffix</span></span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">!</span><span class="fu">matches</span>(<span class="st">&quot;^Well&quot;</span>), <span class="co">#the second condition is that it does NOT match the Well columns</span></span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(.))</span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check that it worked:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&#39;data.frame&#39;:   264 obs. of  45 variables:
+ $ ID                       : chr  &quot;CGNAUT003&quot; &quot;CGA8TH002&quot; &quot;CG9C4X027&quot; &quot;CGW80A004&quot; ...
+ $ Short.ID                 : chr  &quot;003&quot; &quot;002&quot; &quot;027&quot; &quot;004&quot; ...
+ $ Date.of.measurement.Blood: POSIXct, format: &quot;2023-08-08&quot; &quot;2023-08-11&quot; ...
+ $ Plate_FirstRun           : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Well.ID_1                : chr  &quot;SPL1&quot; &quot;SPL2&quot; &quot;SPL3&quot; &quot;SPL4&quot; ...
+ $ Well_1_a                 : chr  &quot;A3&quot; &quot;B3&quot; &quot;C3&quot; &quot;D3&quot; ...
+ $ Conc.Dil_1_a             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_1_a                 : num  0.731 0.449 1.678 1.821 1.58 ...
+ $ Conc_1_a                 : num  0.653 0.372 1.601 1.744 1.503 ...
+ $ Count_1                  : num  2 2 2 2 2 2 2 2 2 2 ...
+ $ Mean_1                   : num  0.705 0.388 1.559 1.791 1.503 ...
+ $ Std.Dev_1                : num  0.073 0.023 0.059 0.067 0.001 0.001 0.009 0.003 0.009 0.021 ...
+ $ CV_1                     : num  10.331 6.014 3.811 3.751 0.047 ...
+ $ Well_1_b                 : chr  &quot;A4&quot; &quot;B4&quot; &quot;C4&quot; &quot;D4&quot; ...
+ $ Conc.Dil_1_b             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_1_b                 : num  0.834 0.482 1.594 1.916 1.581 ...
+ $ Conc_1_b                 : num  0.756 0.404 1.517 1.839 1.504 ...
+ $ Plate_SecondRun          : int  8 8 8 NA 8 NA 8 NA NA 8 ...
+ $ Well.ID_2                : chr  &quot;SPL1&quot; &quot;SPL2&quot; &quot;SPL3&quot; NA ...
+ $ Well_2_a                 : chr  &quot;A3&quot; &quot;B3&quot; &quot;C3&quot; NA ...
+ $ Conc.Dil_2_a             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_2_a                 : num  1.727 0.712 0.643 NA 0.547 ...
+ $ Conc_2_a                 : num  1.652 0.644 0.576 NA 0.48 ...
+ $ Count_2                  : num  2 2 2 NA 2 NA 2 NA NA 2 ...
+ $ Mean_2                   : num  1.711 0.655 0.577 NA 0.498 ...
+ $ Std.Dev_2                : num  0.083 0.016 0.001 NA 0.026 NA 0.013 NA NA 0.003 ...
+ $ CV_2                     : num  4.877 2.373 0.245 NA 5.254 ...
+ $ Well_2_b                 : chr  &quot;A4&quot; &quot;B4&quot; &quot;C4&quot; NA ...
+ $ Conc.Dil_2_b             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_2_b                 : num  1.845 0.734 0.645 NA 0.584 ...
+ $ Conc_2_b                 : num  1.77 0.666 0.578 NA 0.516 NA 0.005 NA NA -0.001 ...
+ $ Plate_ThirdRun           : int  NA NA NA NA 11 NA NA NA NA 11 ...
+ $ Well.ID_3                : chr  NA NA NA NA ...
+ $ Well_3_a                 : chr  NA NA NA NA ...
+ $ Conc.Dil_3_a             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_3_a                 : num  NA NA NA NA 0.646 NA NA NA NA 0.07 ...
+ $ Conc_3_a                 : num  NA NA NA NA 0.584 NA NA NA NA 0.008 ...
+ $ Count_3                  : num  NA NA NA NA 2 NA NA NA NA 2 ...
+ $ Mean_3                   : num  NA NA NA NA 0.607 NA NA NA NA 0.01 ...
+ $ Std.Dev_3                : num  NA NA NA NA 0.033 NA NA NA NA 0.003 ...
+ $ CV_3                     : num  NA NA NA NA 5.36 ...
+ $ Well_3_b                 : chr  NA NA NA NA ...
+ $ Conc.Dil_3_b             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_3_b                 : num  NA NA NA NA 0.692 NA NA NA NA 0.074 ...
+ $ Conc_3_b                 : num  NA NA NA NA 0.63 NA NA NA NA 0.011 ...</code></pre>
+</div>
+</div>
+<p>Make sure the columns that contain numbers are characterized as numeric class.</p>
+</section>
+<section id="create-unique-identifier" class="level3">
+<h3 class="anchored" data-anchor-id="create-unique-identifier">2. Create unique identifier</h3>
+<p>This might seem backwards, but we are going to change the ID column back to one that has date in the string because we need something that is hyper-specific to the sample. some IDs have samples from two different dates. But now we will have the correct date formate which is nice.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> crp <span class="sc">|&gt;</span> <span class="fu">unite</span>(ID, ID, Date.of.measurement.Blood, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     ID Short.ID Date.of.measurement.Blood Plate_FirstRun
+1  CGNAUT003-2023-08-08      003                2023-08-08              1
+2  CGA8TH002-2023-08-11      002                2023-08-11              1
+3  CG9C4X027-2023-08-15      027                2023-08-15              1
+4  CGW80A004-2023-08-15      004                2023-08-15              1
+5 CGC8J44005-2023-08-17      005                2023-08-17              1
+6  NIXBOH908-2023-08-23      908                2023-08-23              1
+  Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1
+1      SPL1       A3           NA    0.731    0.653       2  0.705     0.073
+2      SPL2       B3           NA    0.449    0.372       2  0.388     0.023
+3      SPL3       C3           NA    1.678    1.601       2  1.559     0.059
+4      SPL4       D3           NA    1.821    1.744       2  1.791     0.067
+5      SPL5       E3           NA    1.580    1.503       2  1.503     0.001
+6      SPL6       F3           NA    0.098    0.021       2  0.022     0.001
+    CV_1 Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2
+1 10.331       A4           NA    0.834    0.756               8      SPL1
+2  6.014       B4           NA    0.482    0.404               8      SPL2
+3  3.811       C4           NA    1.594    1.517               8      SPL3
+4  3.751       D4           NA    1.916    1.839              NA      &lt;NA&gt;
+5  0.047       E4           NA    1.581    1.504               8      SPL4
+6  6.578       F4           NA    0.100    0.023              NA      &lt;NA&gt;
+  Well_2_a Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2  CV_2
+1       A3           NA    1.727    1.652       2  1.711     0.083 4.877
+2       B3           NA    0.712    0.644       2  0.655     0.016 2.373
+3       C3           NA    0.643    0.576       2  0.577     0.001 0.245
+4     &lt;NA&gt;           NA       NA       NA      NA     NA        NA    NA
+5       D3           NA    0.547    0.480       2  0.498     0.026 5.254
+6     &lt;NA&gt;           NA       NA       NA      NA     NA        NA    NA
+  Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a
+1       A4           NA    1.845    1.770             NA      &lt;NA&gt;     &lt;NA&gt;
+2       B4           NA    0.734    0.666             NA      &lt;NA&gt;     &lt;NA&gt;
+3       C4           NA    0.645    0.578             NA      &lt;NA&gt;     &lt;NA&gt;
+4     &lt;NA&gt;           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;
+5       D4           NA    0.584    0.516             11      SPL9       A5
+6     &lt;NA&gt;           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;
+  Conc.Dil_3_a X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3  CV_3 Well_3_b
+1           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+2           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+3           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+4           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+5           NA    0.646    0.584       2  0.607     0.033 5.363       A6
+6           NA       NA       NA      NA     NA        NA    NA     &lt;NA&gt;
+  Conc.Dil_3_b X450_3_b Conc_3_b
+1           NA       NA       NA
+2           NA       NA       NA
+3           NA       NA       NA
+4           NA       NA       NA
+5           NA    0.692     0.63
+6           NA       NA       NA</code></pre>
+</div>
+</div>
+<p>This makes a new column called ID, made from ID and Date with a - separator. Does not remove original columns</p>
+</section>
+<section id="identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results" class="level3">
+<h3 class="anchored" data-anchor-id="identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results">3. Identify the lowest CV and create a dataframe that contains only those results</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>crp_selected <span class="ot">&lt;-</span> crp <span class="sc">%&gt;%</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 1: Identify the best run (lowest CV per row)</span></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">best_run =</span> <span class="fu">pmap_chr</span>(<span class="fu">select</span>(., CV_1, CV_2, CV_3), <span class="sc">~</span> {</span>
+<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a>      cvs <span class="ot">&lt;-</span> <span class="fu">c</span>(...)</span>
+<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a>      run_index <span class="ot">&lt;-</span> <span class="fu">which.min</span>(<span class="fu">replace</span>(cvs, <span class="fu">is.na</span>(cvs), <span class="cn">Inf</span>))</span>
+<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(run_index) <span class="sc">==</span> <span class="dv">0</span>) <span class="cn">NA_character_</span> <span class="cf">else</span> <span class="fu">as.character</span>(run_index)</span>
+<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb108-9"><a href="#cb108-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb108-10"><a href="#cb108-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 2: Reshape to long format for all run-specific columns</span></span>
+<span id="cb108-11"><a href="#cb108-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb108-12"><a href="#cb108-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">matches</span>(<span class="st">&quot;_[123]&quot;</span>),  <span class="co"># select all run-specific columns</span></span>
+<span id="cb108-13"><a href="#cb108-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;run&quot;</span>),</span>
+<span id="cb108-14"><a href="#cb108-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pattern matches columns like Conc_1_a, Conc_1_b, Mean_3, etc.</span></span>
+<span id="cb108-15"><a href="#cb108-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">&quot;^(.*)_([123])(?:_[a-z])?$&quot;</span></span>
+<span id="cb108-16"><a href="#cb108-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb108-17"><a href="#cb108-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 3: Keep only the columns from the best run</span></span>
+<span id="cb108-18"><a href="#cb108-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(run <span class="sc">==</span> best_run) <span class="sc">%&gt;%</span></span>
+<span id="cb108-19"><a href="#cb108-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>run) <span class="sc">%&gt;%</span></span>
+<span id="cb108-20"><a href="#cb108-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 4: Fill down the run-level columns to both replicate rows</span></span>
+<span id="cb108-21"><a href="#cb108-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID, best_run) <span class="sc">%&gt;%</span></span>
+<span id="cb108-22"><a href="#cb108-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(Well.ID, Count, Mean, Std.Dev, CV, <span class="at">.direction =</span> <span class="st">&quot;downup&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb108-23"><a href="#cb108-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="pivot-wide-again" class="level4">
+<h4 class="anchored" data-anchor-id="pivot-wide-again">4. Pivot wide again</h4>
+<p>To make it so that each ID is a row!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>crp_selected <span class="ot">&lt;-</span> crp_selected <span class="sc">%&gt;%</span></span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span></span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rep =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="co"># label first and second row per ID</span></span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_cols =</span> <span class="fu">c</span>(ID, Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, Plate_ThirdRun, best_run, Well.ID, Count, Mean, Std.Dev, CV),</span>
+<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> rep,</span>
+<span id="cb109-8"><a href="#cb109-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="fu">c</span>(Well, Conc.Dil, X450, Conc),</span>
+<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_glue =</span> <span class="st">&quot;{.value}_{rep}&quot;</span></span>
+<span id="cb109-10"><a href="#cb109-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="remove-the-crazy-id-row" class="level4">
+<h4 class="anchored" data-anchor-id="remove-the-crazy-id-row">5. Remove the Crazy ID row</h4>
+<p>That we created to help make the above step easier</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>crp_selected <span class="ot">&lt;-</span> crp_selected <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="examine" class="level4">
+<h4 class="anchored" data-anchor-id="examine">6. Examine!</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crp_selected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 19
+  Short.ID Date.of.measurement.B…¹ Plate_FirstRun Plate_SecondRun Plate_ThirdRun
+  &lt;chr&gt;    &lt;dttm&gt;                           &lt;int&gt;           &lt;int&gt;          &lt;int&gt;
+1 003      2023-08-08 00:00:00                  1               8             NA
+2 002      2023-08-11 00:00:00                  1               8             NA
+3 027      2023-08-15 00:00:00                  1               8             NA
+4 004      2023-08-15 00:00:00                  1              NA             NA
+5 005      2023-08-17 00:00:00                  1               8             11
+6 908      2023-08-23 00:00:00                  1              NA             NA
+# ℹ abbreviated name: ¹​Date.of.measurement.Blood
+# ℹ 14 more variables: best_run &lt;chr&gt;, Well.ID &lt;chr&gt;, Count &lt;dbl&gt;, Mean &lt;dbl&gt;,
+#   Std.Dev &lt;dbl&gt;, CV &lt;dbl&gt;, Well_a &lt;chr&gt;, Well_b &lt;chr&gt;, Conc.Dil_a &lt;dbl&gt;,
+#   Conc.Dil_b &lt;dbl&gt;, X450_a &lt;dbl&gt;, X450_b &lt;dbl&gt;, Conc_a &lt;dbl&gt;, Conc_b &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Now repeat this with the other biomarkers</p>
+</section>
+</section>
+</section>
+<section id="ige-7" class="level2">
+<h2 class="anchored" data-anchor-id="ige-7">IgE</h2>
+</section>
+<section id="il-6-6" class="level2">
+<h2 class="anchored" data-anchor-id="il-6-6">Il-6</h2>
+</section>
+</section>
+<section id="write" class="level1">
+<h1>Write</h1>
+<p>Now we need to write final files for these.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(crp_selected, <span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers-CRP_Compiled.csv&quot;</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Do the same for IgE and Il-6!</p>
 </section>
 
 </main>

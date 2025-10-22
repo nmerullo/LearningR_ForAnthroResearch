@@ -1,0 +1,523 @@
+---
+title: "Step4 Basic Reformatting of Files - Part 1 - Solutionsssss"
+author: "Nicole Merullo"
+format: 
+  html:
+    theme: flatly
+    embed-resources: true
+    self-contained-math: true
+    toc: true
+---
+
+# Introduction
+
+In this exercise, we will continue with cleaning up data files by reformatting a file and writing new versions.
+
+Here is what we will cover:
+- Remove missing rows
+- Separating the ID and Dates to create two columns from one
+- Rename columnsif necessary
+- Deriving Short IDs from the long IDs which is more legible/compatible with other files
+- Selecting necessary columns for analysis
+- Mutating values so they are ready for analysis (maybe)
+
+As always we will start by loading in the libraries {tidyverse} and {here}.
+
+This module will follow a similar structure to the last one, where I will write the code for CRP, and you will write the code for the other two files.
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+here()
+```
+
+Make sure your working directory is LearningR_ForAnthroResearch.
+
+# Read files
+
+Now we need to read in the files we are going to look at. There are three biomarkers, each with a results and ID key file for 6 total files. **Today we are only working with the results files, e.g., UCHP_InflammationBiomarkers_CRP.csv**
+
+Recall that we need to use the here() function inside of a read.csv() so that we can reference directories relative to our working directory (especially important since this file is nested inside a subdirectory).
+
+Let's start with CRP. Note how I am using the hashtag to create headers and subheaders for each section. This will make it easy to navigate the document. 
+
+## CRP 
+NOTE!! Make sure you get the new version of this file that is corrected after Step 3.
+```{r}
+crp <- read.csv(here("Data", "UCHP_InflammationBiomarkers_CRP.csv"), na.strings = c("", "NA", "na", "N/A", "N/a", "n/a", "?????"))
+ #remember we need to tell R what a missing value is with the na.strings argument
+```
+
+If you are having trouble reading in these files, navigate to the Data folder and make sure the files have the same spelling as specified in the code above.
+
+
+## IgE
+
+```{r}
+#IgE
+
+ige <- read.csv(here("Data", "UCHP_InflammationBiomarkers_IgE.csv"), na.strings = c("", "NA", "na", "N/A", "N/a", "n/a", "?????"))
+
+
+```
+
+
+## Il-6
+
+```{r}
+#Il-6
+
+il6 <- read.csv(here("Data", "UCHP_InflammationBiomarkers_Il-6.csv"), na.strings = c("", "NA", "na", "N/A", "N/a", "n/a", "?????"))
+
+```
+
+## Validate
+Here we will take a look at our files. Everytime you do something, you should do some kind of validation measure to make sure it worked. Here, we are checking to see that reading in the file went smoothly and seeing what it looks like so we can modify it later.
+
+### CRP
+```{r}
+head(crp) #let's us see the first 6 rows
+str(crp) #let's us see the composition of the columns
+print(paste("Number of rows in CRP:", nrow(crp))) #let's us see how many rows there are
+colnames(crp) #let's us see the names of the columns
+
+```
+
+### IgE
+
+```{r}
+head(ige) #let's us see the first 6 rows
+str(ige) #let's us see the composition of the columns
+print(paste("Number of rows in CRP:", nrow(ige))) #let's us see how many rows there are
+colnames(ige)
+```
+
+### Il-6
+
+```{r}
+head(il6) #let's us see the first 6 rows
+str(il6) #let's us see the composition of the columns
+print(paste("Number of rows in CRP:", nrow(il6))) #let's us see how many rows there are
+colnames(il6)
+
+```
+
+What do we notice here after looking at each of the three documents? This will help direct our next steps.
+- Head shows us that every other row is blank
+- Structure (str()) tells us that the Sample_ID column is a "character" class, and we can see the classes of the other columns too. You can also see how it lists all of the columns in the format $ [column name]. This is a good reminder that you can reference columns with the $ character.
+- number of rows (nrow) tells us there are 545 rows. But we can also see this from structure, which told us there are 545 observations (rows) of 56 variables (columns). Rows/observations and Columns/variables are interchangeable terminology. You will start thinking of data frames as variables being the measures for each observation (person, etc.)
+- column names (colnames) simply lists out the names of the columns. Here it is easy to see that any column name thar begins with a number now has an X in front of it. You might have also noticed this in head() and str(). 
+
+Some background about these files that will help us:
+- the suffix _1 denotes the first run (consists of two measurements) for that individual. _2 or _3 denotes the second or third run for that sample. Every new/next run starts with a column Plate_SecondRun or Plate_ThirdRun so it is easy to understand we are switching runs
+- The suffix _a and _b denote the two measurements from a single run
+
+### Anomalies?
+
+using these steps we should be looking for anomalies in the data frames. Let's take a look at the CRP columns again:
+
+```{r}
+colnames(crp)
+```
+
+What happens after the column Conc_3_b?
+
+Let's take a closer look by indexing a vector saved from colnames. We can figure this out by looking at the output of column names. The number in brackets right before the start of a new line tells us the indexed position of that string. So if a row in the output begins with 41, then you just need to count in from there to get the indexed position of the string you're interested in. A vector is really just a list of things, though I will not refer to them as lists generally because "list" has its own definition of R that is more expansive. So you can reference the 18th, 26th, 47th, etc item in a vector, just like if you had a numbered list for say, groceries, or to do items. 
+
+Square brackets tell R to index/subset (look inside) the vector based on what you tell it inside the square brackets.
+
+```{r}
+crp.columns <- colnames(crp)
+crp.columns[44:56] #Here we are telling R, "give us the 44th to 56th items in this vector"
+```
+
+Do you see how the pattern I outlined above breaks? **We should check the content of these columns to see if they're empty.** They are likely a holdover from before we changed the column name convention and we can remove them later (if they're empty!) I'm going to show you three methods for looking at this.
+
+```{r}
+crp %>% select(Well_ID_R3:Conc.2.R3) %>% filter(!is.na(Well_ID_R3))
+crp %>% select(Well_ID_R3:Conc.2.R3) %>% sapply(anyNA)
+crp %>% select(Well_ID_R3:Conc.2.R3) %>% complete.cases() %>% `[`(. == TRUE)
+empty_cols <- names(crp)[colSums(!is.na(crp)) == 0]
+empty_cols
+```
+
+Let's break down what each line of code is doing. Each one starts with a tidyverse select function where we take from the entire dataframe, just a selection of columns we want to look at, referenced by name as if they are vector objects (this is a hallmark of tidy syntax, but you'll have to learn where you reference columns just by name or with dataframe$ beforehand). The output of this alone is a dataframe which is then fed into the next pipe.
+
+1. filter to rows where Well_ID_R3 is NOT missing (! means NOT). This one only checks for non missing values in one of the columns, but knowing the structure of the dataframe (that each observation should have something in the Well ID column) makes this pretty reliable.
+2. apply the function anyNA() to all of the columns. TRUE means there is an NA in that column. That doesn't tell us if there are ALL missing values in a column. So ultimately a little useless
+3. Takes the dataframe, looks for complete cases where there is a value in every column (returns a vector with the length of the nrow, so 546 that is either TRUE for a complete case or FALSE for an incomplete case) and then subsets to where there are TRUES. If there are none, then there is likely no data in these columns.
+4. This last one is different. It starts with creating a logical vector for each column where TRUE is not misisng and FALSE is missing. TRUE is a value of 1 and FALSE is a value of 0, so colsums is adding up the values of each column. If it sums to 0, that means every value in that column is FALSE, i.e., missing data. Columns that have a value of 0 are listed from the whole dataframe with names(crp)[], remember the square brackets means we are indexing/subsetting an object to whatever is inside the square brackets. Then we print the results from empty_cols.
+
+The first three of these methods could be used to get us a closer to a conclusion about these columns. from this information we can determine that there is nothing in them so they are safe to remove later. The fourth method is a surefire way, but required a bit more digging online to find so it was not the fastest. But now we have the code, which is nice!
+
+**Do you need to do this for the IgE and Il-6 files? If so, repeat the process!**
+Looks like igE does.
+```{r}
+ige.columns <- colnames(ige)
+ige.columns[44:56]
+```
+
+```{r}
+empty_cols <- names(ige)[colSums(!is.na(ige)) == 0]
+empty_cols
+```
+
+What we saw with CRP is also true here which is that not only are the last 13 columns empty, but all conc.dil columns are also empty. I don't necessarily want to remove these because their being empty might be meaningful.
+
+Quick check for il-6
+
+```{r}
+empty_cols <- names(il6)[colSums(!is.na(il6)) == 0]
+empty_cols
+```
+
+Interestingly, everything from Plate_ThirdRun to Conc_3_b can be removed because nobody had a 3rd run.
+
+# Remove Blank Rows
+
+These data files were intentionally made with a blank row between observations due to the structure of the raw data. So we definitely need to remove those blank rows. HOWEVER, this is a step you'll likely have to do with nearly every file read in because inevitably you'll end up with weird erroneous rows for different reasons. 
+
+Here's a reliable way to remove blank rows:
+- Identify a column that should have a value no matter what (i.e., a column from the 3rd run of measurements would not be suitable since not every sample had a 2nd or 3rd run)
+- Filter to the rows where they are NOT NA (not missing). (recall from before, filter(!is.na(column)))
+- Save back into the variable name
+
+**which column do you think is most suitable for filtering on?**
+Instead of me writing the entire code for CRP, use the following code and enter in the column you want to filter to. You can try different columns if you want before you save it back into the crp variable. 
+crp |> filter(!is.na(COLUMN)) |> nrow() #first let's just see how many rows this will leave us with
+crp <- crp |> filter(!is.na(COLUMN))
+head(crp)
+
+## CRP
+
+```{r}
+crp |> filter(!is.na(Sample_ID)) |> nrow() #first let's just see how many rows this will leave us with
+crp <- crp |> filter(!is.na(Sample_ID))
+head(crp)
+```
+
+I chose Sample_ID because I know, from looking at the data, that each row where there is data, there is a Sample_ID filled in. In fact, I probably don't want rows that were missing a Sample_ID to begin with because 
+
+How many rows are left for crp?
+272
+
+## IgE
+
+```{r}
+## IgE
+ige |> filter(!is.na(Sample_ID)) |> nrow() #first let's just see how many rows this will leave us with
+ige <- ige |> filter(!is.na(Sample_ID))
+head(il6)
+```
+
+How many rows are left for ige?
+299
+
+## Il-6
+
+```{r}
+il6 |> filter(!is.na(Sample_ID)) |> nrow() #first let's just see how many rows this will leave us with
+il6 <- il6 |> filter(!is.na(Sample_ID))
+head(il6)
+```
+
+How many rows are left for crp?
+242
+
+## 2x dilutions 
+There's also one more thing we need to do. Some of the IDs are marked -D2 at the end. This is a 2x dilution from the assays. Let's filter those out to their own dataframe and get rid of them in the main dataframe. Once we do this with CRP, you should check to see if this needs to be done for IgE and Il-6 (use R instead of visually inspecting the dataframe) and perform the same actions.
+
+```{r}
+crp |> filter(str_detect(Sample_ID, "-D2")) #see what this looks like
+crp.2xdilutions <- crp |> filter(str_detect(Sample_ID, "-D2")) #save
+crp <- crp |> filter(!str_detect(Sample_ID, "-D2")) #save the inverse as our new CRP object
+```
+
+Let's worry about the 2xdilutions object later. 
+
+### Check IgE
+
+```{r}
+ige |> filter(str_detect(Sample_ID, "-D2")) #see what this looks like
+
+```
+
+IgE does not have any 2x dilutions
+
+### Check Il-6
+
+```{r}
+il6 |> filter(str_detect(Sample_ID, "-D2")) 
+```
+
+Il6 does not have any 2xdiutions
+
+# Split IDs and Dates
+
+Ok now that we have whittled down the the files to their essential rows, we need to split the Sample_ID column into ID and Date of measurement.
+
+The logic for splitting objects in a vector is to identify a common element that will easily create the split. In this case, that would be the hyphen between the ID and the date. In other cases it might be by number of digits/characters from the beginning or the end (we will see this later) or match a pattern of sorts. Keep it simple!
+
+Luckily there is a very easy tidyverse function separate() that will make this extremely easy!
+
+## CRP
+I will do CRP, you do the rest!
+
+```{r}
+crp <- crp |> separate(Sample_ID, into = c("ID", "Date.of.measurement.Blood"), sep = "-")
+```
+
+you will see a warning. This is because there are repeated samples that got D2 appended to the end. Let's ignore that for now.
+
+Let's check this worked!
+
+```{r}
+head(crp)
+```
+
+Looks good! Two new columns where Sample_ID used to be.
+
+## IgE
+```{r}
+#IgE
+ige <- ige |> separate(Sample_ID, into = c("ID", "Date.of.measurement.Blood"), sep = "-")
+head(ige)
+```
+
+## Il-6
+
+```{r}
+#Il-6
+il6 <- il6 |> separate(Sample_ID, into = c("ID", "Date.of.measurement.Blood"), sep = "-")
+head(il6)
+```
+
+# Reformat Date
+
+Working with dates can be complicated. The best way to do this in R is with the package {lubridate} which is within the tidyverse, so it's already installed and loaded in.
+
+This will be pretty easy because the Date column is already all in one format. I'll do CRP, you do the rest.
+
+## CRP
+
+```{r}
+crp$Date.of.measurement.Blood <- parse_date_time2(crp$Date.of.measurement.Blood, orders = "dmy", tz = "America/Belize")
+```
+
+This function applies just to the column of dates you want to work on. the orders argument tells the function the format it is in right now, which in this case was day month year. The tz argument tells the function which timezone we are in. Even though we aren't dealing with time, this is important for making things consistent across data frames (for later). 
+
+Let's see the output
+
+```{r}
+crp |> select(Date.of.measurement.Blood) |> head()
+```
+
+This is international date format: YYYY-MM-DD. This is the most unambiguous way to write the date without writing out the month. It goes from least specific date unit to most specific (year to month to day).
+
+Now do the rest:
+
+## IgE
+
+```{r}
+ige$Date.of.measurement.Blood <- parse_date_time2(ige$Date.of.measurement.Blood, orders = "dmy", tz = "America/Belize")
+ige |> select(Date.of.measurement.Blood) |> head()
+```
+
+## Il-6
+
+```{r}
+il6$Date.of.measurement.Blood <- parse_date_time2(il6$Date.of.measurement.Blood, orders = "dmy", tz = "America/Belize")
+il6 |> select(Date.of.measurement.Blood) |> head()
+```
+
+# Derive Short IDs
+
+This is going to be more string manipulation. The IDs in these files will not match the long IDs from other files, but the Short IDs will. For this we will be creating a new column called "Short.ID" within a mutate() function. We will take the last three digits from the ID column.
+
+## CRP
+
+```{r}
+crp <- crp |> mutate(Short.ID = str_sub(crp$ID,-3,-1)) |> relocate(Short.ID, .after = ID)
+```
+
+Read the help page for str_sub to see how this one works!
+
+### validation
+
+```{r}
+head(crp)
+```
+
+So now you can see the Short ID next to the ID.
+
+## IgE
+
+```{r}
+ige <- ige |> mutate(Short.ID = str_sub(ige$ID,-3,-1)) |> relocate(Short.ID, .after = ID)
+```
+
+### validation
+
+```{r}
+head(ige)
+```
+
+## Il-6
+```{r}
+il6 <- il6 |> mutate(Short.ID = str_sub(il6$ID,-3,-1)) |> relocate(Short.ID, .after = ID)
+```
+
+### validation
+
+```{r}
+head(il6)
+```
+
+# Select columns
+
+## Remove empty columns
+first let's start with something easy. Let's remove those columns at the end that don't help us. This might only apply to CRP, but you should check the other ones too. You can't blindly paste this code in for IgE and Il-6 because it will throw an error if they do not contain these columns.
+
+```{r}
+crp |> select(-c(Well_ID_R3:Conc.2.R3)) |> head()
+crp <- crp |> select(-c(Well_ID_R3:Conc.2.R3))
+```
+
+Make sure to check this for IgE and Il-6 and perform it as necessary!
+
+### ige 
+
+```{r}
+ige |> select(-c(Well_ID_R3:Conc.2.R3)) |> head()
+ige <- ige |> select(-c(Well_ID_R3:Conc.2.R3))
+```
+
+### il6
+
+```{r}
+il6 |> select(-c(Plate_ThirdRun:Conc_3_b)) |> head()
+il6 <- il6 |> select(-c(Plate_ThirdRun:Conc_3_b))
+```
+
+## Choose best results
+Ok this is going to get a lot more complicated. There are 45 columns in the CRP data frame. We don't want to carry all of those over to our final spreadsheets because it will be too much. We also dont want all of the runs for every person, because they were rerurns to improve quality for most of them. We only want the highest quality results!
+
+I asked around to see the best way to decide this. The CV percentage is a quality assurance measure that tells you how close together the two measurements are for a single sample. (Or something like that, I'm actually not sure). I was told that the reruns were performed if the CV was too high. So we need to choose the run for each sample that has the LOWEST CV. I find it helpful to walk through the logic of what I'm doing, because that often helps frame the code I end up writing
+
+So here's what we need to do:
+1. Determine for each row the lowest CV between CV_1, CV_2, and CV_3
+  If they are missing CV_3, choose between CV_1 and CV_2
+  If missing CV_2 and CV_3, default to CV_1
+2. Keep only the data from the run that corresponds to the lowest CV
+
+In full transparency, I'm going to ask chatGPT to help me write this, because it's really complicated. But this is part of the process! Here's the text I sent to Chat:
+"I have a 56 column data frame of results from an ELISA in R. The columns are results from up to three different runs on the same samples. If the CV% was too high in the first run, the sample was rerun. If it still wasn't good, then it was rerun again. I want to keep the results for each row that go with the column with the lowest CV%. The columns for CV% are called CV_1, CV_2, and CV_3. As I understand it, I need to first determine (for each row) the lowest value between CV_1, CV_2, and CV_3 and make sure it is robust to NA values in CV_2 and CV_3 since not every row has a value in those columns. Then I need to keep only the columns that correspond to that CV value. If for example, it comes from CV_2, then I need to keep all columns that have a _2 in the name. They don't all end with _2 though, so that might be tricky. Can you help me write this code, using the tidyverse?" I also made sure to give it the column names from crp so that it could tailor the code exactly to what we have, since I anticipate there will be a lot of pattern matching to pull the correct columns.
+
+## CRP
+
+### 1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.
+
+```{r}
+crp <- crp %>%
+  mutate(across(
+    matches("_[123]$|_[123]_[a-z]$") & #two conditions to mutate across, the first is that it has a suffix
+      !matches("^Well"), #the second condition is that it does NOT match the Well columns
+    ~ suppressWarnings(as.numeric(.))
+  ))
+```
+
+Check that it worked:
+
+```{r}
+str(crp)
+```
+
+Make sure the columns that contain numbers are characterized as numeric class.
+
+### 2. Create unique identifier
+This might seem backwards, but we are going to change the ID column back to one that has date in the string because we need something that is hyper-specific to the sample. some IDs have samples from two different dates. But now we will have the correct date formate which is nice.
+
+```{r}
+crp <- crp |> unite(ID, ID, Date.of.measurement.Blood, sep = "-", remove = FALSE)
+head(crp)
+```
+
+This makes a new column called ID, made from ID and Date with a - separator. Does not remove original columns
+
+### 3. Identify the lowest CV and create a dataframe that contains only those results
+```{r}
+
+crp_selected <- crp %>%
+  # Step 1: Identify the best run (lowest CV per row)
+  mutate(
+    best_run = pmap_chr(select(., CV_1, CV_2, CV_3), ~ {
+      cvs <- c(...)
+      run_index <- which.min(replace(cvs, is.na(cvs), Inf))
+      if (length(run_index) == 0) NA_character_ else as.character(run_index)
+    })
+  ) %>%
+  # Step 2: Reshape to long format for all run-specific columns
+  pivot_longer(
+    cols = matches("_[123]"),  # select all run-specific columns
+    names_to = c(".value", "run"),
+    # pattern matches columns like Conc_1_a, Conc_1_b, Mean_3, etc.
+    names_pattern = "^(.*)_([123])(?:_[a-z])?$"
+  ) %>%
+  # Step 3: Keep only the columns from the best run
+  filter(run == best_run) %>%
+  select(-run) %>%
+  # Step 4: Fill down the run-level columns to both replicate rows
+  group_by(ID, best_run) %>%
+  fill(Well.ID, Count, Mean, Std.Dev, CV, .direction = "downup") %>%
+  ungroup()
+```
+
+#### 4. Pivot wide again
+To make it so that each ID is a row!
+
+```{r}
+crp_selected <- crp_selected %>%
+  group_by(ID) %>%
+  mutate(rep = c("a", "b")) %>%  # label first and second row per ID
+  ungroup() %>%
+  pivot_wider(
+    id_cols = c(ID, Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, Plate_ThirdRun, best_run, Well.ID, Count, Mean, Std.Dev, CV),
+    names_from = rep,
+    values_from = c(Well, Conc.Dil, X450, Conc),
+    names_glue = "{.value}_{rep}"
+  )
+
+```
+
+
+#### 5. Remove the Crazy ID row
+That we created to help make the above step easier
+
+```{r}
+crp_selected <- crp_selected |> select(-ID)
+```
+
+#### 6. Examine!
+
+```{r}
+head(crp_selected)
+```
+
+Now repeat this with the other biomarkers
+
+## IgE
+
+## Il-6
+
+# Write
+Now we need to write final files for these.
+
+```{r}
+write.csv(crp_selected, here("Data", "UCHP_InflammationBiomarkers-CRP_Compiled.csv"), row.names = FALSE)
+```
+
+Do the same for IgE and Il-6!
+

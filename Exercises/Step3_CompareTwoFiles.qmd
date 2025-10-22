@@ -17,7 +17,7 @@ Here we will be comparing the results of a biomarker to the ID list we expect to
 
 The first thing we need to do is load in the package {tidyverse} which contains a bunch of helpful packages that introduce easy to use data management functions. If you haven't already installed tidyverse, do so now with install.packages("tidyverse"). Also we need to load in {here} and initialize our working directory.
 
-Important note! The tidyverse family of functions introduces the pipe operator %>% which is super helpful for chaining together a lot of functions! You'll see me use this in the example code, but it's important to know what it does too. It takes whatever is on the left side of the pump and feeds it into the first argument of the right side of the pipe. There are a lot of implications for this but mostly just helps us move output quickly without having to save an intermediary to an object we don't need.
+Important note! The tidyverse family of functions introduces the pipe operator %>% which is super helpful for chaining together a lot of functions! You'll see me use this in the example code, but it's important to know what it does too. It takes whatever is on the left side of the pipe and feeds it into the first argument of the right side of the pipe. There are a lot of implications for this but mostly just helps us move output quickly without having to save an intermediary object we don't need.
 
 ```{r}
 library(tidyverse)
@@ -43,6 +43,8 @@ Here are the first two, then you can try the other biomarkers. While we do this,
 crp_ids <- read.csv(here("Data", "CRP_IDS.csv"))
 crp_results <- read.csv(here("Data", "UCHP_InflammationBiomarkers_CRP.csv"), na.strings = c("", "NA", "na")) %>% filter(!is.na(Sample_ID))
 ```
+
+If you are having trouble reading in these files, navigate to the Data folder and make sure the files have the same spelling as specified in the code above.
 
 **Important notes:**
 for the results file, we have to do some extra modifictions to make this look right when we read it in.

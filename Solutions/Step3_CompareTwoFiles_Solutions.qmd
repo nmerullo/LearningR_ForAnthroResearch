@@ -44,6 +44,8 @@ crp_ids <- read.csv(here("Data", "CRP_IDS.csv"))
 crp_results <- read.csv(here("Data", "UCHP_InflammationBiomarkers_CRP.csv"), na.strings = c("", "NA", "na")) %>% filter(!is.na(Sample_ID))
 ```
 
+If you are having trouble reading in these files, navigate to the Data folder and make sure the files have the same spelling as specified in the code above.
+
 **Important notes:**
 for the results file, we have to do some extra modifictions to make this look right when we read it in.
 1. Make sure missing data is in the correct format with the argument na.strings. Almost all functions have more than one argument. If you go to the help page for the function you can see what the options are. Arguments bascially tell R how to customize what you get from that function. read.csv()'s first argument is the file path, which is why we can put here(file paths) inside read.csv where the first argument would go. Then you can specify a number of other arguments depending on what you want to do. Here we are using na.strings to tell R how to handle missing data. c("", "NA", "na") is a vector of options that we might encounter in this spreadsheet that all mean there are missing data points there. If you open the document in excel, for instance, you'll see that every other row is blank (this was intentional for data entry purposes). We need to make sure empty cells are treated as NA. NA is the native R way of reading missing data- but we also allow for "na" to get read in as NA.
