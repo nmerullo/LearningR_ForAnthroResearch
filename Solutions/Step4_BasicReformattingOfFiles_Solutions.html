@@ -2245,8 +2245,18 @@ vertical-align: -.125em;
   <li><a href="#create-unique-identifier" id="toc-create-unique-identifier" class="nav-link" data-scroll-target="#create-unique-identifier">2. Create unique identifier</a></li>
   <li><a href="#identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results" id="toc-identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results" class="nav-link" data-scroll-target="#identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results">3. Identify the lowest CV and create a dataframe that contains only those results</a></li>
   </ul></li>
-  <li><a href="#ige-7" id="toc-ige-7" class="nav-link" data-scroll-target="#ige-7">IgE</a></li>
-  <li><a href="#il-6-6" id="toc-il-6-6" class="nav-link" data-scroll-target="#il-6-6">Il-6</a></li>
+  <li><a href="#ige-7" id="toc-ige-7" class="nav-link" data-scroll-target="#ige-7">IgE</a>
+  <ul class="collapse">
+  <li><a href="#convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-1" id="toc-convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-1" class="nav-link" data-scroll-target="#convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-1">1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.</a></li>
+  <li><a href="#create-unique-identifier-1" id="toc-create-unique-identifier-1" class="nav-link" data-scroll-target="#create-unique-identifier-1">2. Create unique identifier</a></li>
+  <li><a href="#identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-1" id="toc-identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-1" class="nav-link" data-scroll-target="#identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-1">3. Identify the lowest CV and create a dataframe that contains only those results</a></li>
+  </ul></li>
+  <li><a href="#il-6-6" id="toc-il-6-6" class="nav-link" data-scroll-target="#il-6-6">Il-6</a>
+  <ul class="collapse">
+  <li><a href="#convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-2" id="toc-convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-2" class="nav-link" data-scroll-target="#convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-2">1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.</a></li>
+  <li><a href="#create-unique-identifier-2" id="toc-create-unique-identifier-2" class="nav-link" data-scroll-target="#create-unique-identifier-2">2. Create unique identifier</a></li>
+  <li><a href="#identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-2" id="toc-identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-2" class="nav-link" data-scroll-target="#identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-2">3. Identify the lowest CV and create a dataframe that contains only those results</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write">Write</a></li>
   </ul>
@@ -2612,9 +2622,9 @@ vertical-align: -.125em;
  $ X450.2.R3      : logi  NA NA NA NA NA NA ...
  $ Conc.2.R3      : logi  NA NA NA NA NA NA ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of rows in CRP:&quot;</span>, <span class="fu">nrow</span>(ige))) <span class="co">#let&#39;s us see how many rows there are</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of rows in IgE:&quot;</span>, <span class="fu">nrow</span>(ige))) <span class="co">#let&#39;s us see how many rows there are</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Number of rows in CRP: 597&quot;</code></pre>
+<pre><code>[1] &quot;Number of rows in IgE: 597&quot;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ige)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2730,9 +2740,9 @@ vertical-align: -.125em;
  $ X450_3_b       : logi  NA NA NA NA NA NA ...
  $ Conc_3_b       : logi  NA NA NA NA NA NA ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of rows in CRP:&quot;</span>, <span class="fu">nrow</span>(il6))) <span class="co">#let&#39;s us see how many rows there are</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of rows in Il-6:&quot;</span>, <span class="fu">nrow</span>(il6))) <span class="co">#let&#39;s us see how many rows there are</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Number of rows in CRP: 483&quot;</code></pre>
+<pre><code>[1] &quot;Number of rows in Il-6: 483&quot;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(il6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -4056,18 +4066,388 @@ Conc.Dil.2.R3     X450.2.R3     Conc.2.R3
 </section>
 <section id="ige-7" class="level2">
 <h2 class="anchored" data-anchor-id="ige-7">IgE</h2>
+<section id="convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-1" class="level3">
+<h3 class="anchored" data-anchor-id="convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-1">1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>ige <span class="ot">&lt;-</span> ige <span class="sc">%&gt;%</span></span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">matches</span>(<span class="st">&quot;_[123]$|_[123]_[a-z]$&quot;</span>) <span class="sc">&amp;</span> <span class="co">#two conditions to mutate across, the first is that it has a suffix</span></span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">!</span><span class="fu">matches</span>(<span class="st">&quot;^Well&quot;</span>), <span class="co">#the second condition is that it does NOT match the Well columns</span></span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(.))</span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check that it worked:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ige)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&#39;data.frame&#39;:   299 obs. of  45 variables:
+ $ ID                       : chr  &quot;CGNAUT003&quot; &quot;CGA8TH002&quot; &quot;CG9C4X027&quot; &quot;CGW80A004&quot; ...
+ $ Short.ID                 : chr  &quot;003&quot; &quot;002&quot; &quot;027&quot; &quot;004&quot; ...
+ $ Date.of.measurement.Blood: POSIXct, format: &quot;2023-08-08&quot; &quot;2023-08-11&quot; ...
+ $ Plate_FirstRun           : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Well.ID_1                : chr  &quot;SPL1&quot; &quot;SPL2&quot; &quot;SPL3&quot; &quot;SPL4&quot; ...
+ $ Well_1_a                 : chr  &quot;A3&quot; &quot;B3&quot; &quot;C3&quot; &quot;D3&quot; ...
+ $ Conc.Dil_1_a             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_1_a                 : num  0.156 1.242 0.166 0.132 0.141 ...
+ $ Conc_1_a                 : num  2.75 42.97 3.05 2.02 2.3 ...
+ $ Count_1                  : num  2 2 2 2 2 2 2 2 2 2 ...
+ $ Mean_1                   : num  2.74 39.6 3.11 1.89 2.1 ...
+ $ Std.Dev_1                : num  0.021 4.772 0.085 0.195 0.281 ...
+ $ CV_1                     : num  0.781 12.051 2.736 10.361 13.375 ...
+ $ Well_1_b                 : chr  &quot;A4&quot; &quot;B4&quot; &quot;C4&quot; &quot;D4&quot; ...
+ $ Conc.Dil_1_b             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_1_b                 : num  0.155 1.1 0.17 0.123 0.128 ...
+ $ Conc_1_b                 : num  2.72 36.22 3.17 1.75 1.9 ...
+ $ Plate_SecondRun          : int  NA 12 NA 12 12 12 NA NA NA 12 ...
+ $ Well.ID_2                : chr  NA &quot;SPL28&quot; NA &quot;SPL27&quot; ...
+ $ Well_2_a                 : chr  NA &quot;D9&quot; NA &quot;C9&quot; ...
+ $ Conc.Dil_2_a             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_2_a                 : num  NA 0.626 NA 0.109 0.107 0.647 NA NA NA 0.131 ...
+ $ Conc_2_a                 : num  NA 32.48 NA 2.89 2.78 ...
+ $ Count_2                  : num  NA 2 NA 2 2 2 NA NA NA 2 ...
+ $ Mean_2                   : num  NA 33.69 NA 3.02 2.99 ...
+ $ Std.Dev_2                : num  NA 1.713 NA 0.185 0.296 ...
+ $ CV_2                     : num  NA 5.08 NA 6.13 9.89 ...
+ $ Well_2_b                 : chr  NA &quot;D10&quot; NA &quot;C10&quot; ...
+ $ Conc.Dil_2_b             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_2_b                 : num  NA 0.662 NA 0.114 0.115 0.646 NA NA NA 0.144 ...
+ $ Conc_2_b                 : num  NA 34.9 NA 3.15 3.2 ...
+ $ Plate_ThirdRun           : int  NA NA NA NA NA NA NA NA NA 13 ...
+ $ Well.ID_3                : chr  NA NA NA NA ...
+ $ Well_3_a                 : chr  NA NA NA NA ...
+ $ Conc.Dil_3_a             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_3_a                 : num  NA NA NA NA NA NA NA NA NA 0.125 ...
+ $ Conc_3_a                 : num  NA NA NA NA NA NA NA NA NA 3.6 ...
+ $ Count_3                  : num  NA NA NA NA NA NA NA NA NA 2 ...
+ $ Mean_3                   : num  NA NA NA NA NA ...
+ $ Std.Dev_3                : num  NA NA NA NA NA NA NA NA NA 0.527 ...
+ $ CV_3                     : num  NA NA NA NA NA ...
+ $ Well_3_b                 : chr  NA NA NA NA ...
+ $ Conc.Dil_3_b             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_3_b                 : num  NA NA NA NA NA NA NA NA NA 0.112 ...
+ $ Conc_3_b                 : num  NA NA NA NA NA ...</code></pre>
+</div>
+</div>
+<p>Make sure the columns that contain numbers are characterized as numeric class.</p>
+</section>
+<section id="create-unique-identifier-1" class="level3">
+<h3 class="anchored" data-anchor-id="create-unique-identifier-1">2. Create unique identifier</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>ige <span class="ot">&lt;-</span> ige <span class="sc">|&gt;</span> <span class="fu">unite</span>(ID, ID, Date.of.measurement.Blood, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ige)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     ID Short.ID Date.of.measurement.Blood Plate_FirstRun
+1  CGNAUT003-2023-08-08      003                2023-08-08              1
+2  CGA8TH002-2023-08-11      002                2023-08-11              1
+3  CG9C4X027-2023-08-15      027                2023-08-15              1
+4  CGW80A004-2023-08-15      004                2023-08-15              1
+5 CGC8J44005-2023-08-17      005                2023-08-17              1
+6  NIXBOH908-2023-08-23      908                2023-08-23              1
+  Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1
+1      SPL1       A3           NA    0.156    2.752       2  2.737     0.021
+2      SPL2       B3           NA    1.242   42.970       2 39.596     4.772
+3      SPL3       C3           NA    0.166    3.054       2  3.114     0.085
+4      SPL4       D3           NA    0.132    2.023       2  1.885     0.195
+5      SPL5       E3           NA    0.141    2.297       2  2.099     0.281
+6      SPL6       F3           NA    1.239   42.821       2 39.817     4.248
+    CV_1 Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2
+1  0.781       A4           NA    0.155    2.722              NA      &lt;NA&gt;
+2 12.051       B4           NA    1.100   36.222              12     SPL28
+3  2.736       C4           NA    0.170    3.174              NA      &lt;NA&gt;
+4 10.361       D4           NA    0.123    1.747              12     SPL27
+5 13.375       E4           NA    0.128    1.900              12     SPL26
+6 10.669       F4           NA    1.113   36.813              12     SPL25
+  Well_2_a Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2  CV_2
+1     &lt;NA&gt;           NA       NA       NA      NA     NA        NA    NA
+2       D9           NA    0.626   32.476       2 33.688     1.713 5.085
+3     &lt;NA&gt;           NA       NA       NA      NA     NA        NA    NA
+4       C9           NA    0.109    2.887       2  3.017     0.185 6.127
+5       B9           NA    0.107    2.782       2  2.991     0.296 9.892
+6       A9           NA    0.647   33.882       2 33.848     0.048 0.141
+  Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b Plate_ThirdRun Well.ID_3 Well_3_a
+1     &lt;NA&gt;           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;
+2      D10           NA    0.662   34.899             NA      &lt;NA&gt;     &lt;NA&gt;
+3     &lt;NA&gt;           NA       NA       NA             NA      &lt;NA&gt;     &lt;NA&gt;
+4      C10           NA    0.114    3.148             NA      &lt;NA&gt;     &lt;NA&gt;
+5      B10           NA    0.115    3.200             NA      &lt;NA&gt;     &lt;NA&gt;
+6      A10           NA    0.646   33.814             NA      &lt;NA&gt;     &lt;NA&gt;
+  Conc.Dil_3_a X450_3_a Conc_3_a Count_3 Mean_3 Std.Dev_3 CV_3 Well_3_b
+1           NA       NA       NA      NA     NA        NA   NA     &lt;NA&gt;
+2           NA       NA       NA      NA     NA        NA   NA     &lt;NA&gt;
+3           NA       NA       NA      NA     NA        NA   NA     &lt;NA&gt;
+4           NA       NA       NA      NA     NA        NA   NA     &lt;NA&gt;
+5           NA       NA       NA      NA     NA        NA   NA     &lt;NA&gt;
+6           NA       NA       NA      NA     NA        NA   NA     &lt;NA&gt;
+  Conc.Dil_3_b X450_3_b Conc_3_b
+1           NA       NA       NA
+2           NA       NA       NA
+3           NA       NA       NA
+4           NA       NA       NA
+5           NA       NA       NA
+6           NA       NA       NA</code></pre>
+</div>
+</div>
+<p>This makes a new column called ID, made from ID and Date with a - separator. Does not remove original columns</p>
+</section>
+<section id="identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-1">3. Identify the lowest CV and create a dataframe that contains only those results</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>ige_selected <span class="ot">&lt;-</span> ige <span class="sc">%&gt;%</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 1: Identify the best run (lowest CV per row)</span></span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">best_run =</span> <span class="fu">pmap_chr</span>(<span class="fu">select</span>(., CV_1, CV_2, CV_3), <span class="sc">~</span> {</span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a>      cvs <span class="ot">&lt;-</span> <span class="fu">c</span>(...)</span>
+<span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a>      run_index <span class="ot">&lt;-</span> <span class="fu">which.min</span>(<span class="fu">replace</span>(cvs, <span class="fu">is.na</span>(cvs), <span class="cn">Inf</span>))</span>
+<span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(run_index) <span class="sc">==</span> <span class="dv">0</span>) <span class="cn">NA_character_</span> <span class="cf">else</span> <span class="fu">as.character</span>(run_index)</span>
+<span id="cb118-8"><a href="#cb118-8" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb118-9"><a href="#cb118-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb118-10"><a href="#cb118-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 2: Reshape to long format for all run-specific columns</span></span>
+<span id="cb118-11"><a href="#cb118-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb118-12"><a href="#cb118-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">matches</span>(<span class="st">&quot;_[123]&quot;</span>),  <span class="co"># select all run-specific columns</span></span>
+<span id="cb118-13"><a href="#cb118-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;run&quot;</span>),</span>
+<span id="cb118-14"><a href="#cb118-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pattern matches columns like Conc_1_a, Conc_1_b, Mean_3, etc.</span></span>
+<span id="cb118-15"><a href="#cb118-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">&quot;^(.*)_([123])(?:_[a-z])?$&quot;</span></span>
+<span id="cb118-16"><a href="#cb118-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb118-17"><a href="#cb118-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 3: Keep only the columns from the best run</span></span>
+<span id="cb118-18"><a href="#cb118-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(run <span class="sc">==</span> best_run) <span class="sc">%&gt;%</span></span>
+<span id="cb118-19"><a href="#cb118-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>run) <span class="sc">%&gt;%</span></span>
+<span id="cb118-20"><a href="#cb118-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 4: Fill down the run-level columns to both replicate rows</span></span>
+<span id="cb118-21"><a href="#cb118-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID, best_run) <span class="sc">%&gt;%</span></span>
+<span id="cb118-22"><a href="#cb118-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(Well.ID, Count, Mean, Std.Dev, CV, <span class="at">.direction =</span> <span class="st">&quot;downup&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb118-23"><a href="#cb118-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that after the “_selected” object is made, they have twice as many rows as before.</p>
+<section id="pivot-wide-again-1" class="level4">
+<h4 class="anchored" data-anchor-id="pivot-wide-again-1">4. Pivot wide again</h4>
+<p>To make it so that each ID is a row!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>ige_selected <span class="ot">&lt;-</span> ige_selected <span class="sc">%&gt;%</span></span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span></span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rep =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="co"># label first and second row per ID</span></span>
+<span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb119-6"><a href="#cb119-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_cols =</span> <span class="fu">c</span>(ID, Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, Plate_ThirdRun, best_run, Well.ID, Count, Mean, Std.Dev, CV),</span>
+<span id="cb119-7"><a href="#cb119-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> rep,</span>
+<span id="cb119-8"><a href="#cb119-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="fu">c</span>(Well, Conc.Dil, X450, Conc),</span>
+<span id="cb119-9"><a href="#cb119-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_glue =</span> <span class="st">&quot;{.value}_{rep}&quot;</span></span>
+<span id="cb119-10"><a href="#cb119-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And then back to 299</p>
+</section>
+<section id="remove-the-crazy-id-row-1" class="level4">
+<h4 class="anchored" data-anchor-id="remove-the-crazy-id-row-1">5. Remove the Crazy ID row</h4>
+<p>That we created to help make the above step easier</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>ige_selected <span class="ot">&lt;-</span> ige_selected <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="examine-1" class="level4">
+<h4 class="anchored" data-anchor-id="examine-1">6. Examine!</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ige_selected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 19
+  Short.ID Date.of.measurement.B…¹ Plate_FirstRun Plate_SecondRun Plate_ThirdRun
+  &lt;chr&gt;    &lt;dttm&gt;                           &lt;int&gt;           &lt;int&gt;          &lt;int&gt;
+1 003      2023-08-08 00:00:00                  1              NA             NA
+2 002      2023-08-11 00:00:00                  1              12             NA
+3 027      2023-08-15 00:00:00                  1              NA             NA
+4 004      2023-08-15 00:00:00                  1              12             NA
+5 005      2023-08-17 00:00:00                  1              12             NA
+6 908      2023-08-23 00:00:00                  1              12             NA
+# ℹ abbreviated name: ¹​Date.of.measurement.Blood
+# ℹ 14 more variables: best_run &lt;chr&gt;, Well.ID &lt;chr&gt;, Count &lt;dbl&gt;, Mean &lt;dbl&gt;,
+#   Std.Dev &lt;dbl&gt;, CV &lt;dbl&gt;, Well_a &lt;chr&gt;, Well_b &lt;chr&gt;, Conc.Dil_a &lt;dbl&gt;,
+#   Conc.Dil_b &lt;dbl&gt;, X450_a &lt;dbl&gt;, X450_b &lt;dbl&gt;, Conc_a &lt;dbl&gt;, Conc_b &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+</section>
 </section>
 <section id="il-6-6" class="level2">
 <h2 class="anchored" data-anchor-id="il-6-6">Il-6</h2>
+<section id="convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-2" class="level3">
+<h3 class="anchored" data-anchor-id="convert-columns-that-are-supposed-to-be-numeric-class-to-numeric-class-instead-of-character-strings.-2">1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>il6 <span class="ot">&lt;-</span> il6 <span class="sc">%&gt;%</span></span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(</span>
+<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">matches</span>(<span class="st">&quot;_[123]$|_[123]_[a-z]$&quot;</span>) <span class="sc">&amp;</span> <span class="co">#two conditions to mutate across, the first is that it has a suffix</span></span>
+<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">!</span><span class="fu">matches</span>(<span class="st">&quot;^Well&quot;</span>), <span class="co">#the second condition is that it does NOT match the Well columns</span></span>
+<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(.))</span>
+<span id="cb123-6"><a href="#cb123-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check that it worked:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(il6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&#39;data.frame&#39;:   242 obs. of  31 variables:
+ $ ID                       : chr  &quot;CGNAUT003&quot; &quot;CGA8TH002&quot; &quot;CG9C4X027&quot; &quot;CGW80A004&quot; ...
+ $ Short.ID                 : chr  &quot;003&quot; &quot;002&quot; &quot;027&quot; &quot;004&quot; ...
+ $ Date.of.measurement.Blood: POSIXct, format: &quot;2023-08-08&quot; &quot;2023-08-11&quot; ...
+ $ Plate_FirstRun           : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Well.ID_1                : chr  &quot;SPL1&quot; &quot;SPL2&quot; &quot;SPL3&quot; &quot;SPL4&quot; ...
+ $ Well_1_a                 : chr  &quot;A3&quot; &quot;B3&quot; &quot;C3&quot; &quot;D3&quot; ...
+ $ Conc.Dil_1_a             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_1_a                 : num  0.242 0.195 0.1 0.145 0.145 0.084 0.082 0.079 0.088 0.076 ...
+ $ Conc_1_a                 : num  0.242 0.195 0.1 0.145 0.145 0.084 0.082 0.079 0.088 0.076 ...
+ $ Count_1                  : num  2 2 2 2 2 2 2 2 2 2 ...
+ $ Mean_1                   : num  0.221 0.222 0.097 0.133 0.135 0.084 0.104 0.08 0.085 0.073 ...
+ $ Std.Dev_1                : num  0.03 0.037 0.005 0.018 0.015 0.001 0.03 0.001 0.004 0.004 ...
+ $ CV_1                     : num  13.79 16.92 5.13 13.34 11.04 ...
+ $ Well_1_b                 : chr  &quot;A4&quot; &quot;B4&quot; &quot;C4&quot; &quot;D4&quot; ...
+ $ Conc.Dil_1_b             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_1_b                 : num  0.199 0.248 0.093 0.12 0.124 0.083 0.125 0.081 0.082 0.07 ...
+ $ Conc_1_b                 : num  0.199 0.248 0.093 0.12 0.124 0.083 0.125 0.081 0.082 0.07 ...
+ $ Plate_SecondRun          : int  NA 9 NA 9 9 NA 9 NA NA NA ...
+ $ Well.ID_2                : chr  NA &quot;SPL1&quot; NA &quot;SPL2&quot; ...
+ $ Well_2_a                 : chr  NA &quot;A3&quot; NA &quot;B3&quot; ...
+ $ Conc.Dil_2_a             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_2_a                 : num  NA 0.177 NA 0.085 0.154 NA 0.104 NA NA NA ...
+ $ Conc_2_a                 : num  NA 25.7 NA 11 22.1 ...
+ $ Count_2                  : num  NA 2 NA 2 2 NA 2 NA NA NA ...
+ $ Mean_2                   : num  NA 29.2 NA 12.9 22.5 ...
+ $ Std.Dev_2                : num  NA 4.859 NA 2.599 0.565 ...
+ $ CV_2                     : num  NA 16.65 NA 20.18 2.52 ...
+ $ Well_2_b                 : chr  NA &quot;A4&quot; NA &quot;B4&quot; ...
+ $ Conc.Dil_2_b             : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ X450_2_b                 : num  NA 0.22 NA 0.108 0.159 NA 0.1 NA NA NA ...
+ $ Conc_2_b                 : num  NA 32.6 NA 14.7 22.9 ...</code></pre>
+</div>
+</div>
+<p>Make sure the columns that contain numbers are characterized as numeric class.</p>
+</section>
+<section id="create-unique-identifier-2" class="level3">
+<h3 class="anchored" data-anchor-id="create-unique-identifier-2">2. Create unique identifier</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>il6 <span class="ot">&lt;-</span> il6 <span class="sc">|&gt;</span> <span class="fu">unite</span>(ID, ID, Date.of.measurement.Blood, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(il6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     ID Short.ID Date.of.measurement.Blood Plate_FirstRun
+1  CGNAUT003-2023-08-08      003                2023-08-08              1
+2  CGA8TH002-2023-08-11      002                2023-08-11              1
+3  CG9C4X027-2023-08-15      027                2023-08-15              1
+4  CGW80A004-2023-08-15      004                2023-08-15              1
+5 CGC8J44005-2023-08-17      005                2023-08-17              1
+6  NIXBOH908-2023-08-23      908                2023-08-23              1
+  Well.ID_1 Well_1_a Conc.Dil_1_a X450_1_a Conc_1_a Count_1 Mean_1 Std.Dev_1
+1      SPL1       A3           NA    0.242    0.242       2  0.221     0.030
+2      SPL2       B3           NA    0.195    0.195       2  0.222     0.037
+3      SPL3       C3           NA    0.100    0.100       2  0.097     0.005
+4      SPL4       D3           NA    0.145    0.145       2  0.133     0.018
+5      SPL5       E3           NA    0.145    0.145       2  0.135     0.015
+6      SPL6       F3           NA    0.084    0.084       2  0.084     0.001
+    CV_1 Well_1_b Conc.Dil_1_b X450_1_b Conc_1_b Plate_SecondRun Well.ID_2
+1 13.789       A4           NA    0.199    0.199              NA      &lt;NA&gt;
+2 16.919       B4           NA    0.248    0.248               9      SPL1
+3  5.129       C4           NA    0.093    0.093              NA      &lt;NA&gt;
+4 13.342       D4           NA    0.120    0.120               9      SPL2
+5 11.040       E4           NA    0.124    0.124               9      SPL3
+6  0.847       F4           NA    0.083    0.083              NA      &lt;NA&gt;
+  Well_2_a Conc.Dil_2_a X450_2_a Conc_2_a Count_2 Mean_2 Std.Dev_2   CV_2
+1     &lt;NA&gt;           NA       NA       NA      NA     NA        NA     NA
+2       A3           NA    0.177   25.744       2 29.180     4.859 16.652
+3     &lt;NA&gt;           NA       NA       NA      NA     NA        NA     NA
+4       B3           NA    0.085   11.041       2 12.879     2.599 20.180
+5       C3           NA    0.154   22.068       2 22.468     0.565  2.515
+6     &lt;NA&gt;           NA       NA       NA      NA     NA        NA     NA
+  Well_2_b Conc.Dil_2_b X450_2_b Conc_2_b
+1     &lt;NA&gt;           NA       NA       NA
+2       A4           NA    0.220   32.615
+3     &lt;NA&gt;           NA       NA       NA
+4       B4           NA    0.108   14.717
+5       C4           NA    0.159   22.867
+6     &lt;NA&gt;           NA       NA       NA</code></pre>
+</div>
+</div>
+<p>This makes a new column called ID, made from ID and Date with a - separator. Does not remove original columns</p>
+</section>
+<section id="identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-2" class="level3">
+<h3 class="anchored" data-anchor-id="identify-the-lowest-cv-and-create-a-dataframe-that-contains-only-those-results-2">3. Identify the lowest CV and create a dataframe that contains only those results</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>il6_selected <span class="ot">&lt;-</span> il6 <span class="sc">%&gt;%</span></span>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 1: Identify the best run (lowest CV per row)</span></span>
+<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">best_run =</span> <span class="fu">pmap_chr</span>(<span class="fu">select</span>(., CV_1, CV_2), <span class="sc">~</span> {</span>
+<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a>      cvs <span class="ot">&lt;-</span> <span class="fu">c</span>(...)</span>
+<span id="cb128-6"><a href="#cb128-6" aria-hidden="true" tabindex="-1"></a>      run_index <span class="ot">&lt;-</span> <span class="fu">which.min</span>(<span class="fu">replace</span>(cvs, <span class="fu">is.na</span>(cvs), <span class="cn">Inf</span>))</span>
+<span id="cb128-7"><a href="#cb128-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(run_index) <span class="sc">==</span> <span class="dv">0</span>) <span class="cn">NA_character_</span> <span class="cf">else</span> <span class="fu">as.character</span>(run_index)</span>
+<span id="cb128-8"><a href="#cb128-8" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb128-9"><a href="#cb128-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb128-10"><a href="#cb128-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 2: Reshape to long format for all run-specific columns</span></span>
+<span id="cb128-11"><a href="#cb128-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb128-12"><a href="#cb128-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">matches</span>(<span class="st">&quot;_[123]&quot;</span>),  <span class="co"># select all run-specific columns</span></span>
+<span id="cb128-13"><a href="#cb128-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;run&quot;</span>),</span>
+<span id="cb128-14"><a href="#cb128-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pattern matches columns like Conc_1_a, Conc_1_b, Mean_3, etc.</span></span>
+<span id="cb128-15"><a href="#cb128-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">&quot;^(.*)_([123])(?:_[a-z])?$&quot;</span></span>
+<span id="cb128-16"><a href="#cb128-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb128-17"><a href="#cb128-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 3: Keep only the columns from the best run</span></span>
+<span id="cb128-18"><a href="#cb128-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(run <span class="sc">==</span> best_run) <span class="sc">%&gt;%</span></span>
+<span id="cb128-19"><a href="#cb128-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>run) <span class="sc">%&gt;%</span></span>
+<span id="cb128-20"><a href="#cb128-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Step 4: Fill down the run-level columns to both replicate rows</span></span>
+<span id="cb128-21"><a href="#cb128-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID, best_run) <span class="sc">%&gt;%</span></span>
+<span id="cb128-22"><a href="#cb128-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(Well.ID, Count, Mean, Std.Dev, CV, <span class="at">.direction =</span> <span class="st">&quot;downup&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb128-23"><a href="#cb128-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that after the “_selected” object is made, they have twice as many rows as before.</p>
+<section id="pivot-wide-again-2" class="level4">
+<h4 class="anchored" data-anchor-id="pivot-wide-again-2">4. Pivot wide again</h4>
+<p>To make it so that each ID is a row!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>il6_selected <span class="ot">&lt;-</span> il6_selected <span class="sc">%&gt;%</span></span>
+<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span></span>
+<span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rep =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="co"># label first and second row per ID</span></span>
+<span id="cb129-4"><a href="#cb129-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb129-5"><a href="#cb129-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb129-6"><a href="#cb129-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_cols =</span> <span class="fu">c</span>(ID, Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, best_run, Well.ID, Count, Mean, Std.Dev, CV),</span>
+<span id="cb129-7"><a href="#cb129-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> rep,</span>
+<span id="cb129-8"><a href="#cb129-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="fu">c</span>(Well, Conc.Dil, X450, Conc),</span>
+<span id="cb129-9"><a href="#cb129-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_glue =</span> <span class="st">&quot;{.value}_{rep}&quot;</span></span>
+<span id="cb129-10"><a href="#cb129-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And then back to 299</p>
+</section>
+<section id="remove-the-crazy-id-row-2" class="level4">
+<h4 class="anchored" data-anchor-id="remove-the-crazy-id-row-2">5. Remove the Crazy ID row</h4>
+<p>That we created to help make the above step easier</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>il6_selected <span class="ot">&lt;-</span> il6_selected <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="examine-2" class="level4">
+<h4 class="anchored" data-anchor-id="examine-2">6. Examine!</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(il6_selected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 18
+  Short.ID Date.of.measurement.Blood Plate_FirstRun Plate_SecondRun best_run
+  &lt;chr&gt;    &lt;dttm&gt;                             &lt;int&gt;           &lt;int&gt; &lt;chr&gt;   
+1 003      2023-08-08 00:00:00                    1              NA 1       
+2 002      2023-08-11 00:00:00                    1               9 2       
+3 027      2023-08-15 00:00:00                    1              NA 1       
+4 004      2023-08-15 00:00:00                    1               9 1       
+5 005      2023-08-17 00:00:00                    1               9 2       
+6 908      2023-08-23 00:00:00                    1              NA 1       
+# ℹ 13 more variables: Well.ID &lt;chr&gt;, Count &lt;dbl&gt;, Mean &lt;dbl&gt;, Std.Dev &lt;dbl&gt;,
+#   CV &lt;dbl&gt;, Well_a &lt;chr&gt;, Well_b &lt;chr&gt;, Conc.Dil_a &lt;dbl&gt;, Conc.Dil_b &lt;dbl&gt;,
+#   X450_a &lt;dbl&gt;, X450_b &lt;dbl&gt;, Conc_a &lt;dbl&gt;, Conc_b &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+</section>
 </section>
 </section>
 <section id="write" class="level1">
 <h1>Write</h1>
 <p>Now we need to write final files for these.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(crp_selected, <span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers-CRP_Compiled.csv&quot;</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(crp_selected, <span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers-CRP_Compiled.csv&quot;</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Do the same for IgE and Il-6!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(ige_selected, <span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers-IgE_Compiled.csv&quot;</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(il6_selected, <span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;UCHP_InflammationBiomarkers-Il-6_Compiled.csv&quot;</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 
 </main>

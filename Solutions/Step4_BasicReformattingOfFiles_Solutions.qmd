@@ -91,7 +91,7 @@ colnames(crp) #let's us see the names of the columns
 ```{r}
 head(ige) #let's us see the first 6 rows
 str(ige) #let's us see the composition of the columns
-print(paste("Number of rows in CRP:", nrow(ige))) #let's us see how many rows there are
+print(paste("Number of rows in IgE:", nrow(ige))) #let's us see how many rows there are
 colnames(ige)
 ```
 
@@ -100,7 +100,7 @@ colnames(ige)
 ```{r}
 head(il6) #let's us see the first 6 rows
 str(il6) #let's us see the composition of the columns
-print(paste("Number of rows in CRP:", nrow(il6))) #let's us see how many rows there are
+print(paste("Number of rows in Il-6:", nrow(il6))) #let's us see how many rows there are
 colnames(il6)
 
 ```
@@ -510,7 +510,189 @@ Now repeat this with the other biomarkers
 
 ## IgE
 
+### 1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.
+
+```{r}
+ige <- ige %>%
+  mutate(across(
+    matches("_[123]$|_[123]_[a-z]$") & #two conditions to mutate across, the first is that it has a suffix
+      !matches("^Well"), #the second condition is that it does NOT match the Well columns
+    ~ suppressWarnings(as.numeric(.))
+  ))
+```
+
+Check that it worked:
+
+```{r}
+str(ige)
+```
+
+Make sure the columns that contain numbers are characterized as numeric class.
+
+### 2. Create unique identifier
+
+
+```{r}
+ige <- ige |> unite(ID, ID, Date.of.measurement.Blood, sep = "-", remove = FALSE)
+head(ige)
+```
+
+This makes a new column called ID, made from ID and Date with a - separator. Does not remove original columns
+
+### 3. Identify the lowest CV and create a dataframe that contains only those results
+```{r}
+
+ige_selected <- ige %>%
+  # Step 1: Identify the best run (lowest CV per row)
+  mutate(
+    best_run = pmap_chr(select(., CV_1, CV_2, CV_3), ~ {
+      cvs <- c(...)
+      run_index <- which.min(replace(cvs, is.na(cvs), Inf))
+      if (length(run_index) == 0) NA_character_ else as.character(run_index)
+    })
+  ) %>%
+  # Step 2: Reshape to long format for all run-specific columns
+  pivot_longer(
+    cols = matches("_[123]"),  # select all run-specific columns
+    names_to = c(".value", "run"),
+    # pattern matches columns like Conc_1_a, Conc_1_b, Mean_3, etc.
+    names_pattern = "^(.*)_([123])(?:_[a-z])?$"
+  ) %>%
+  # Step 3: Keep only the columns from the best run
+  filter(run == best_run) %>%
+  select(-run) %>%
+  # Step 4: Fill down the run-level columns to both replicate rows
+  group_by(ID, best_run) %>%
+  fill(Well.ID, Count, Mean, Std.Dev, CV, .direction = "downup") %>%
+  ungroup()
+```
+
+Note that after the "_selected" object is made, they have twice as many rows as before.
+
+#### 4. Pivot wide again
+To make it so that each ID is a row!
+
+```{r}
+ige_selected <- ige_selected %>%
+  group_by(ID) %>%
+  mutate(rep = c("a", "b")) %>%  # label first and second row per ID
+  ungroup() %>%
+  pivot_wider(
+    id_cols = c(ID, Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, Plate_ThirdRun, best_run, Well.ID, Count, Mean, Std.Dev, CV),
+    names_from = rep,
+    values_from = c(Well, Conc.Dil, X450, Conc),
+    names_glue = "{.value}_{rep}"
+  )
+
+```
+
+And then back to 299 
+
+#### 5. Remove the Crazy ID row
+That we created to help make the above step easier
+
+```{r}
+ige_selected <- ige_selected |> select(-ID)
+```
+
+#### 6. Examine!
+
+```{r}
+head(ige_selected)
+```
+
 ## Il-6
+
+### 1. Convert columns that are supposed to be numeric class to numeric class instead of character strings.
+
+```{r}
+il6 <- il6 %>%
+  mutate(across(
+    matches("_[123]$|_[123]_[a-z]$") & #two conditions to mutate across, the first is that it has a suffix
+      !matches("^Well"), #the second condition is that it does NOT match the Well columns
+    ~ suppressWarnings(as.numeric(.))
+  ))
+```
+
+Check that it worked:
+
+```{r}
+str(il6)
+```
+
+Make sure the columns that contain numbers are characterized as numeric class.
+
+### 2. Create unique identifier
+
+
+```{r}
+il6 <- il6 |> unite(ID, ID, Date.of.measurement.Blood, sep = "-", remove = FALSE)
+head(il6)
+```
+
+This makes a new column called ID, made from ID and Date with a - separator. Does not remove original columns
+
+### 3. Identify the lowest CV and create a dataframe that contains only those results
+```{r}
+
+il6_selected <- il6 %>%
+  # Step 1: Identify the best run (lowest CV per row)
+  mutate(
+    best_run = pmap_chr(select(., CV_1, CV_2), ~ {
+      cvs <- c(...)
+      run_index <- which.min(replace(cvs, is.na(cvs), Inf))
+      if (length(run_index) == 0) NA_character_ else as.character(run_index)
+    })
+  ) %>%
+  # Step 2: Reshape to long format for all run-specific columns
+  pivot_longer(
+    cols = matches("_[123]"),  # select all run-specific columns
+    names_to = c(".value", "run"),
+    # pattern matches columns like Conc_1_a, Conc_1_b, Mean_3, etc.
+    names_pattern = "^(.*)_([123])(?:_[a-z])?$"
+  ) %>%
+  # Step 3: Keep only the columns from the best run
+  filter(run == best_run) %>%
+  select(-run) %>%
+  # Step 4: Fill down the run-level columns to both replicate rows
+  group_by(ID, best_run) %>%
+  fill(Well.ID, Count, Mean, Std.Dev, CV, .direction = "downup") %>%
+  ungroup()
+```
+
+Note that after the "_selected" object is made, they have twice as many rows as before.
+
+#### 4. Pivot wide again
+To make it so that each ID is a row!
+
+```{r}
+il6_selected <- il6_selected %>%
+  group_by(ID) %>%
+  mutate(rep = c("a", "b")) %>%  # label first and second row per ID
+  ungroup() %>%
+  pivot_wider(
+    id_cols = c(ID, Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, best_run, Well.ID, Count, Mean, Std.Dev, CV),
+    names_from = rep,
+    values_from = c(Well, Conc.Dil, X450, Conc),
+    names_glue = "{.value}_{rep}"
+  )
+
+```
+
+And then back to 299 
+
+#### 5. Remove the Crazy ID row
+That we created to help make the above step easier
+
+```{r}
+il6_selected <- il6_selected |> select(-ID)
+```
+
+#### 6. Examine!
+
+```{r}
+head(il6_selected)
+```
 
 # Write
 Now we need to write final files for these.
@@ -519,5 +701,10 @@ Now we need to write final files for these.
 write.csv(crp_selected, here("Data", "UCHP_InflammationBiomarkers-CRP_Compiled.csv"), row.names = FALSE)
 ```
 
-Do the same for IgE and Il-6!
+```{r}
+write.csv(ige_selected, here("Data", "UCHP_InflammationBiomarkers-IgE_Compiled.csv"), row.names = FALSE)
+```
 
+```{r}
+write.csv(il6_selected, here("Data", "UCHP_InflammationBiomarkers-Il-6_Compiled.csv"), row.names = FALSE)
+```
