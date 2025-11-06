@@ -1,5 +1,5 @@
 ---
-title: "Step4 Basic Reformatting of Files - Part 1 - Solutionsssss"
+title: "Step4 Basic Reformatting of Files - Part 1 - Solutions"
 author: "Nicole Merullo"
 format: 
   html:
@@ -210,11 +210,17 @@ How many rows are left for crp?
 ## IgE
 ige |> filter(!is.na(Sample_ID)) |> nrow() #first let's just see how many rows this will leave us with
 ige <- ige |> filter(!is.na(Sample_ID))
-head(il6)
+head(ige)
 ```
 
 How many rows are left for ige?
 299
+
+We also need to remove a sample ID that is XXX
+
+```{r}
+ige <- ige |> filter(!str_detect(Sample_ID, "XXX"))
+```
 
 ## Il-6
 

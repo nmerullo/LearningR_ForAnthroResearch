@@ -1,0 +1,419 @@
+---
+title: "Step5 Transform Biomarker columns - Part 2 - Solutions"
+author: "Nicole Merullo"
+format: 
+  html:
+    theme: flatly
+    embed-resources: true
+    self-contained-math: true
+    toc: true
+---
+
+# Introduction
+
+In this exercise, we will continue with cleaning up data files by transforming values based on an equation Aaron Blackwell sent.
+
+Here is what we will cover:
+- read in the new files from step 4
+- use mutate() to create a new column based on the values of old columns
+- Write new files
+
+As always we will start by loading in the libraries {tidyverse} and {here}.
+
+This module will follow a similar structure to the last one, where I will write the code for CRP, and you will write the code for the other two files.
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+here()
+```
+
+Make sure your working directory is LearningR_ForAnthroResearch.
+
+# Read files
+
+Now we need to read in the files we are going to look at. There are three biomarkers 3 total files. **Today we are only working with the files we made in step 4, e.g., UCHP_InflammationBiomarkers-CRP_Compiled.csv**
+
+Recall that we need to use the here() function inside of a read.csv() so that we can reference directories relative to our working directory (especially important since this file is nested inside a subdirectory).
+
+Let's start with CRP. Note how I am using the hashtag to create headers and subheaders for each section. This will make it easy to navigate the document. 
+
+## CRP 
+NOTE!! Make sure you get the new version of this file that is corrected after Step 4.
+
+```{r}
+crp <- read.csv(here("Data", "UCHP_InflammationBiomarkers-CRP_Compiled.csv"))
+```
+
+If you are having trouble reading in these files, navigate to the Data folder and make sure the files have the same spelling as specified in the code above.
+
+
+## IgE
+
+```{r}
+#IgE
+ige <- read.csv(here("Data", "UCHP_InflammationBiomarkers-IgE_Compiled.csv"))
+```
+
+
+
+## Il-6
+
+```{r}
+#il-6
+il6 <- read.csv(here("Data", "UCHP_InflammationBiomarkers-Il-6_Compiled.csv"))
+```
+
+
+## Validate
+Here we will take a look at our files. Everytime you do something, you should do some kind of validation measure to make sure it worked. Here, we are checking to see that reading in the file went smoothly and seeing what it looks like so we can modify it later.
+
+### CRP
+```{r}
+head(crp) #let's us see the first 6 rows
+colnames(crp) #let's us see the names of the columns
+
+```
+
+recall from step 4 that we had it choose the best run based on the CV %. So it compared the three CV values and chose the run corresponding to the lowest CV%. So now we should only have columns representing one of the three runs.
+
+### IgE
+
+```{r}
+head(ige) #let's us see the first 6 rows
+colnames(ige)
+```
+
+### Il-6
+
+```{r}
+head(il6) #let's us see the first 6 rows
+colnames(il6)
+
+```
+
+
+# Transform values
+
+Here is the body of the email Aaron sent me:
+
+"CRP
+sample diluent volume comes from the 
+Concentration * (sample diluent volume * dilution factor) / (blood volume in punch out x (1-hematocrit))
+ So Conc * (150*1) / (3.1ul * 0.6)
+Or use 2 instead of 1 for those that were diluted by a factor of two
+This is in ng/mL so to convert to mg/L divide by 1000 
+
+IgE
+Sample diluent is different, otherwise the same
+Conc * 250*dilution / (3.1 * 0.6)
+again in ng/mL so to convert to IU/mL multiply by 0.42 IU/ng
+
+IL6
+Uses two 6mm punches instead of one 3mm punch so blood volume is higher. 6mm punch is 4 times more than 3mm, so should be 3.1*2*4 = 24.8ul: (Madison, please verify you used the larger hole punch for IL6.)
+Conc * 250*dilution / (24.8 * 0.6)
+Assay is already in pg/ml so no unit adjustment needed."
+
+As you can see each biomarker is SLIGHTLY different. But this is easy enough to do in a mutate()
+
+## CRP
+So the conc we want to use in these equations comes from the mean column. I checked Aaron's email for an example which showed this.
+
+```{r}
+crp <- crp |> rowwise() |> mutate(CRP_mg.dL = (Mean*(150*1)/(3.1*0.6)/1000))
+```
+
+Validate the above
+
+```{r}
+crp |> select(Short.ID, CRP_mg.dL) |> head()
+```
+
+Ok this looks good!
+
+
+
+## IgE
+
+Make sure to change the name of the new column and adjust the final units we use. Also make sure to change the /1000 to the unit conversion Aaron specified (*0.42)
+```{r}
+#IgE
+ige <- ige |> rowwise() |> mutate(IgE_IU.ng = (Mean*(250*1)/(3.1*0.6)*0.42))
+ige |> select(Short.ID, IgE_IU.ng) |> head()
+```
+
+## Il-6
+
+And here's the il-6 equation: Conc * 250*dilution / (24.8 * 0.6) with no unit conversion. It is pg/ml already.
+
+```{r}
+#Il-6
+il6 <- il6 |> rowwise() |> mutate(Il6_pg.ml = (Mean*(250*1)/(24.8*0.6)))
+il6 |> select(Short.ID, Il6_pg.ml) |> head()
+```
+
+## Write these
+
+We need to make sure that the name of this file is different from the one we started with. Make sure it is clear what this might contain.
+
+```{r}
+write.csv(crp, here("Data", "UCHP_InflammationBiomarkers-CRP-transformed_Compiled.csv"), row.names = FALSE)
+```
+
+```{r}
+write.csv(ige, here("Data", "UCHP_InflammationBiomarkers-IgE-transformed_Compiled.csv"), row.names = FALSE)
+```
+
+```{r}
+write.csv(il6, here("Data", "UCHP_InflammationBiomarkers-Il-6-transformed_Compiled.csv"), row.names = FALSE)
+```
+
+# Select and Rename columns
+
+Ok so this is all well and good that we have the new values, but ultimately we want to join these data with all the other data we have (anthropometrics, salivary hormones, etc etc). And there are probably too many columns here than are necessary. For each data frame we will select a few relevant columns and rename them approrpriately. Eventually, we will join the three biomarkers so we need to make sure each column has the biomarker it belongs to.
+
+## CRP
+
+```{r}
+crp <- crp |> select(Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, Plate_ThirdRun, best_run, Well.ID, Mean, Std.Dev, CV, CRP_mg.dL) |> rename(
+  CRP_Well.ID = Well.ID,
+  CRP_mean = Mean,
+  CRP_Std.Dev = Std.Dev,
+  CRP_CV = CV
+) |> mutate(CRP_Plate = case_when( 
+  best_run == 1 ~ Plate_FirstRun,
+  best_run == 2 ~ Plate_SecondRun,
+  best_run == 3 ~ Plate_ThirdRun,
+  TRUE ~ NA
+)) |> relocate(CRP_Plate, .before = CRP_Well.ID) |> select(-c(Plate_FirstRun, Plate_SecondRun, Plate_ThirdRun, best_run))
+
+#we still want to know where to look in the original raw data in case we need to check something, that's why we include the Well.ID and the plate corresponding to the best run.
+```
+
+
+I don't change the name of Short.ID or Date.of.measurement.Blood because these will be the join criteria later and we need them to be the same.
+
+Let's see the output
+
+```{r}
+head(crp)
+```
+
+
+Now do the rest:
+
+## IgE
+Make sure to change the select() for the IgE transformed value. Then make sure to change the prefixes from CRP to IgE
+```{r}
+ige <- ige |> select(Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, Plate_ThirdRun, best_run, Well.ID, Mean, Std.Dev, CV, IgE_IU.ng) |> rename(
+  IgE_Well.ID = Well.ID,
+  IgE_mean = Mean,
+  IgE_Std.Dev = Std.Dev,
+  IgE_CV = CV
+) |> mutate(IgE_Plate = case_when( 
+  best_run == 1 ~ Plate_FirstRun,
+  best_run == 2 ~ Plate_SecondRun,
+  best_run == 3 ~ Plate_ThirdRun,
+  TRUE ~ NA
+)) |> relocate(IgE_Plate, .before = IgE_Well.ID) |> select(-c(Plate_FirstRun, Plate_SecondRun, Plate_ThirdRun, best_run))
+```
+
+```{r}
+head(ige)
+```
+
+One thing I am noticing is that Short.ID is a character class, not integer. And ultimately we will want them all to be character since we want to maintain the leading 0s in front of 003 for example.
+
+## Il-6
+
+```{r}
+il6 <- il6 |> select(Short.ID, Date.of.measurement.Blood, Plate_FirstRun, Plate_SecondRun, best_run, Well.ID, Mean, Std.Dev, CV, Il6_pg.ml) |> rename(
+  Il6_Well.ID = Well.ID,
+  Il6_mean = Mean,
+  Il6_Std.Dev = Std.Dev,
+  Il6_CV = CV
+)|> mutate(Il6_Plate = case_when( 
+  best_run == 1 ~ Plate_FirstRun,
+  best_run == 2 ~ Plate_SecondRun,
+  TRUE ~ NA
+)) |> relocate(Il6_Plate, .before = Il6_Well.ID) |> select(-c(Plate_FirstRun, Plate_SecondRun, best_run))
+```
+
+```{r}
+head(il6)
+```
+
+# Join Together
+
+The goal of the section is to join the three dataframes into one, using Short.ID and Date.of.measurement.Blood as the join keys (R will match a short ID from one dataframe to the short ID of another and also make sure the dates match). The IDs and dates that don't match will be added to the bottom. There should be 20 columns when we finish, two for ID and date, 6 each for biomarker specific columns.
+
+But first we need to make sure the Short.ID columns and the date columns match across all three data frames.
+
+## CRP
+
+```{r}
+class(crp$Short.ID)
+class(crp$Date.of.measurement.Blood)
+```
+
+Integer and character. We want both to be characters and we will want the IDs that are not three digits long to have leading zeroes.
+
+```{r}
+crp <- crp |> mutate(Short.ID = str_pad(as.character(Short.ID), width = 3, pad = "0"))
+```
+
+**how do you think mutate() and str_pad() are working together here to give us the result we want?**
+
+mutate() creates a column or modifies an exisiting one based on what is on the other side of =. str_pad() "pads" a vector based on the specifications of width and pad arguments. So here we used a width of 3 and add 0s to the short ID column, saved as a character string.
+
+### validation
+
+```{r}
+head(crp)
+```
+
+```{r}
+class(crp$Short.ID)
+```
+
+Looks GOOD!
+
+now perform the same for IgE and Il-6, first checking the classes then making corrections as needed (and don't forget to validate!)
+
+## IgE
+
+```{r}
+class(il6$Short.ID)
+class(il6$Date.of.measurement.Blood)
+```
+
+```{r}
+ige <- ige |> mutate(Short.ID = str_pad(as.character(Short.ID), width = 3, pad = "0"))
+```
+
+### validation
+
+```{r}
+head(ige)
+```
+
+```{r}
+class(ige$Short.ID)
+```
+
+## Il-6
+
+```{r}
+class(il6$Short.ID)
+class(il6$Date.of.measurement.Blood)
+```
+
+```{r}
+il6 <- il6 |> mutate(Short.ID = str_pad(as.character(Short.ID), width = 3, pad = "0"))
+```
+
+### validation
+
+```{r}
+head(il6)
+```
+
+```{r}
+class(il6$Short.ID)
+```
+
+## Join!
+
+we will perform a "full_join" which means we take the observations from both files we join. We need to do it in two steps since there are three files. I recommend looking at the documentation for left_join, right_join, and full_join if you're curious about how this function works.
+
+For the following code, there will not be a CRP example followed by sections for you to try the other two. Instead I will go through it myself but add hashtags where I think there is code that could be helpful to look at before proceeding, or prompt you to write your own code to explore the process. Delete the hashtags to run those lines.
+
+First, I like to see what the full_join does to the data before saving it as a variable. See below:
+
+```{r}
+#full_join(crp, ige, by = c("Short.ID", "Date.of.measurement.Blood"))
+```
+
+If we think it's working correctly, then proceed. I look at row and column numbers. Do these seem reasonable? How many columns should we expect by joining two data frames each with 8 columns, but two of those columns shared? Do the number of rows greater than either of the two previous dataframes? Think about why we might be adding rows. Scroll to the bottom to see what those "extra" rows look like.
+
+If we are happy with that (I am) then we can save it as a variable.
+
+```{r}
+d <- full_join(crp, ige, by = c("Short.ID", "Date.of.measurement.Blood"))
+```
+
+```{r}
+head(d)
+```
+
+Upon examining this I did notice that there were quite a few instances where there are misisng values- this is fine.
+
+**try experimenting with removing the "by" argument from the full join and see what happens. What changes?** 
+
+Now we must join d to il6
+
+```{r}
+#full_join(d, il6)
+```
+
+
+Save it into d
+
+```{r}
+d <- full_join(d, il6)
+```
+
+
+```{r}
+head(d)
+```
+
+## write this file
+
+this file will be super easy to work with now, and we should save it
+
+```{r}
+write.csv(d, here("Data", "UCHP_InflammationBiomarker_All.csv"), row.names = FALSE)
+```
+
+# Split by year
+
+finally we will create three different files, sorted by the time periods that encompass camp and post camp 2023 and 2024 (there is no 2025 here). There will be individuals that do not fall into these time frames, which is why we saved the file before this too. For example, caregivers (IDs < 400) will not be included.
+
+First we will remove the caregivers
+
+```{r}
+d <- d |> filter(Short.ID > 399) #just to be really really sure. There is no 399 so this is fine
+```
+
+Now we need to filter by date. Which requires us to make the date column as PosixCT format
+
+```{r}
+d$Date.of.measurement.Blood <- as.POSIXct(d$Date.of.measurement.Blood, tz = "America/Belize")
+```
+
+
+now we filter
+## 2023
+
+```{r}
+camp2023 <- d |> filter(Date.of.measurement.Blood > as.POSIXct("2023-01-01") & Date.of.measurement.Blood < as.POSIXct("2023-06-01"))
+```
+
+
+## 2024
+```{r}
+camp2024 <- d |> filter(Date.of.measurement.Blood > as.POSIXct("2024-01-01") & Date.of.measurement.Blood < as.POSIXct("2024-06-01"))
+```
+
+
+## write
+
+```{r}
+write.csv(camp2023, here("Data", "UCHP23_InflammationBiomarkers_Camp.csv"), row.names = FALSE)
+write.csv(camp2024, here("Data", "UCHP24_InflammationBiomarkers_Camp.csv"), row.names = FALSE)
+```
+
