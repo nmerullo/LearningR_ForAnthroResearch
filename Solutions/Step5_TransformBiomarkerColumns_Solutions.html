@@ -2662,7 +2662,6 @@ vertical-align: -.125em;
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>crp <span class="ot">&lt;-</span> crp <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Short.ID =</span> <span class="fu">str_pad</span>(<span class="fu">as.character</span>(Short.ID), <span class="at">width =</span> <span class="dv">3</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>how do you think mutate() and str_pad() are working together here to give us the result we want?</strong></p>
-<p>mutate() creates a column or modifies an exisiting one based on what is on the other side of =. str_pad() “pads” a vector based on the specifications of width and pad arguments. So here we used a width of 3 and add 0s to the short ID column, saved as a character string.</p>
 <section id="validation" class="level3">
 <h3 class="anchored" data-anchor-id="validation">validation</h3>
 <div class="cell">

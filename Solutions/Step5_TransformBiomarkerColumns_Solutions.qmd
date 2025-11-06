@@ -267,7 +267,6 @@ crp <- crp |> mutate(Short.ID = str_pad(as.character(Short.ID), width = 3, pad =
 
 **how do you think mutate() and str_pad() are working together here to give us the result we want?**
 
-mutate() creates a column or modifies an exisiting one based on what is on the other side of =. str_pad() "pads" a vector based on the specifications of width and pad arguments. So here we used a width of 3 and add 0s to the short ID column, saved as a character string.
 
 ### validation
 
